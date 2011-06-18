@@ -3,6 +3,10 @@ title: Classes and object orientation
 layout: default
 ---
 
+<div id="toc">
+[TOC]
+</div>
+
 Imagine we're writing a game. We'll need "data structures" (collections of
 variables) to represent player characters (PCs; the characters controlled by
 humans), non-player characters (NPCs; the enemies that are part of the game),
@@ -779,5 +783,5 @@ be created. This is a rarely-used but sometimes necessary feature.
 > itself and other subsets of society. **3** *n.* (Style) Someth'n' you jest
 > plain got or don't. **4** *adj.* (Of a struggle) iterative, as in the
 > attempted modularization of real-world activities. --- 
-> [The computer contradictionary](/biblio/contra)
+> *The computer contradictionary*
 

@@ -19,6 +19,9 @@ A child couldn't sleep, so her mother told her a story about a little frog,
 ...and the child fell asleep.
 </blockquote>
 
+<div id="toc">
+[TOC]
+</div>
 
 A recursive function (or self-recursive function) is a function that calls
 itself. The concept is familiar to mathematicians, who define the factorial

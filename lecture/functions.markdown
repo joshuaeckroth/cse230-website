@@ -3,6 +3,10 @@ layout: default
 title: Functions
 ---
 
+<div id="toc">
+[TOC]
+</div>
+
 All of our programs so far have lived entirely inside the `main()` function. In
 other words, all the code was in one big pile.  So far this has not been much
 of a problem because our programs were small.
@@ -253,7 +257,7 @@ pass-by-reference is like using pointers. However, C++ added pass-by-reference
 to (supposedly) limit the use of pointers when making function calls, which
 generally simplifies how such functions are used.
 
-### An example from class: TimeAdder
+## An example from class: TimeAdder
 
 {% highlight cpp %}
 // This program adds a specified number of minutes
@@ -320,7 +324,7 @@ int main()
 }
 {% endhighlight %}
 
-### A final word
+## A final word
 
 > It is surely time to recover the original sense of "argument" (via Latin
 > *arguere*, to put in a clear light) as "clarification, proof." The depressing

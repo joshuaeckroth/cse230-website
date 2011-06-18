@@ -3,6 +3,10 @@ layout: default
 title: Introduction
 ---
 
+<div id="toc">
+[TOC]
+</div>
+
 It is standard practice that the first program you write in a new programming
 language should simply print the message "Hello, world!"
 

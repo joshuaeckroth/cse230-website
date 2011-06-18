@@ -1,5 +1,9 @@
 pygments: true
 permalink: none
-markdown: kramdown
+markdown: rdiscount
+
+rdiscount:
+    extensions: [generate_toc, smart]
+    toc_token: "[TOC]"
 
 

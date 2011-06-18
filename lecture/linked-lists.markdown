@@ -12,6 +12,10 @@ An alternative to arrays is linked lists. Linked lists are not as efficient
 (grabbing a value from the middle of the list is not as efficient as it would
 be with an array) but they are more flexible: they can grow and shrink at will.
 
+<div id="toc">
+[TOC]
+</div>
+
 ## How a linked list works
 
 A linked list is composed of "nodes." Each node is a value plus a pointer to
@@ -118,7 +122,7 @@ typedef struct node {
 typedef node* list;
 {% endhighlight %}
 
-### Insert front
+## Insert front
 
 {% highlight cpp %}
 // this function adds a new node at the beginning of a list;
@@ -137,7 +141,7 @@ void insert_front(list &head, double value)
 }
 {% endhighlight %}
 
-### Push back
+## Push back
 
 {% highlight cpp %}
 // this function adds a new node to the end of the list;
@@ -179,7 +183,7 @@ void push_back(list &head, double value)
 }
 {% endhighlight %}
 
-### Insert before some position
+## Insert before some position
 
 {% highlight cpp %}
 void insert_before(list &head, int n, double value)
@@ -210,7 +214,7 @@ void insert_before(list &head, int n, double value)
 }
 {% endhighlight %}
 
-### Remove some position
+## Remove some position
 
 {% highlight cpp %}
 void remove_nth(list &head, int n)
@@ -259,7 +263,7 @@ void remove_nth(list &head, int n)
 ![xkcd comic](/images/xkcd-forgetting.png "xkcd comic")
 </a>
 
-### Reverse the list
+## Reverse the list
 
 {% highlight cpp %}
 void reverse(list &head)
@@ -299,7 +303,7 @@ void reverse(list &head)
 }
 {% endhighlight %}
 
-### Length
+## Length
 
 {% highlight cpp %}
 // count length of list
@@ -315,7 +319,7 @@ int length(list head)
 }
 {% endhighlight %}
 
-### Get the n<sup>th</sup> element
+## Get the n<sup>th</sup> element
 
 {% highlight cpp %}
 // return nth element (counting from 0);
@@ -338,7 +342,7 @@ double nth(list head, int n)
 }
 {% endhighlight %}
 
-### Find position of some value
+## Find position of some value
 
 {% highlight cpp %}
 // return the position of the first value
@@ -372,7 +376,7 @@ int find(list head, double value, double epsilon)
 }
 {% endhighlight %}
 
-### Print list
+## Print list
 
 {% highlight cpp %}
 // print all the values
@@ -393,7 +397,7 @@ void print_list(list head)
 }
 {% endhighlight %}
 
-### Delete list
+## Delete list
 
 {% highlight cpp %}
 // free up all the memory used by the list

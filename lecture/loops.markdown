@@ -3,6 +3,10 @@ layout: default
 title: Loops
 ---
 
+<div id="toc">
+[TOC]
+</div>
+
 So far our programs have not used any loops. A loop is a repetition of some
 section of code. Loops are essential in the common situation where user input
 or data determines how many times something should occur. In other cases, the
@@ -495,7 +499,7 @@ nested structures are turned into linear structures. Also notice the critical
 
 ![Jumping diagram](/images/jumping-diagram.png "Jumping diagram")
 
-### A final word
+## A final word
 
 > **loophole** *n.* **1** The escape route sought by a loop. **2**
 > *Metacomputer science* The conceptual gap left when a loop migrates to

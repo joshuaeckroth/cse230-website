@@ -3,6 +3,10 @@ layout: default
 title: Variables, arithmetic, input/output
 ---
 
+<div id="toc">
+[TOC]
+</div>
+
 It is very important when writing computer programs that one is able
 to save data in temporary locations, move data in and out of these
 locations and change the data over time. How we do this in C++ is with

@@ -3,6 +3,10 @@ title: Splitting code into several files
 layout: default
 ---
 
+<div id="toc">
+[TOC]
+</div>
+
 You have probably been noticing that your source code files have grown somewhat
 large and include a diverse range of features: class definitions, class method
 implementations, other functions, and a `main()` function. In future
@@ -210,11 +214,11 @@ The first three lines compile each `.cpp` file separately (producing a
 corresponding `.o` file). The fourth line links all the `.o` files together to
 create the final program.
 
-### Visual Studio
+## Visual Studio
 
 <iframe src="http://player.vimeo.com/video/24224470" width="600" height="450" frameborder="0"></iframe>
 
-### CodeBlocks
+## CodeBlocks
 
 <iframe src="http://player.vimeo.com/video/24224759" width="600" height="450" frameborder="0"></iframe>
 

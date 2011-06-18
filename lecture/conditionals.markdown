@@ -3,11 +3,20 @@ layout: default
 title: Conditionals
 ---
 
-It is a very rare program that solves a problem with the exact same sequence of operations every time it is executed. What is more common is a program that does some operations if the data or user inputs look a certain way, and a different set of operations if the data look a different way.
+<div id="toc">
+[TOC]
+</div>
 
-The way we can do this in C++ is with "conditionals." The word "conditional" means that some operations will only occur if a certain "condition" is true.
+It is a very rare program that solves a problem with the exact same sequence of
+operations every time it is executed. What is more common is a program that
+does some operations if the data or user inputs look a certain way, and a
+different set of operations if the data look a different way.
 
-For example, consider the program that gives the user three attempts to guess a number between 1 and 10. Here is what the program should do (in pseudo-code):
+The way we can do this in C++ is with "conditionals." The word "conditional"
+means that some operations will only occur if a certain "condition" is true.
+
+For example, consider the program that gives the user three attempts to guess a
+number between 1 and 10. Here is what the program should do (in pseudo-code):
 
 - Ask the user for the first guess. Save this guess into a variable called
   `guess1`.
@@ -48,14 +57,13 @@ if(false)
 }
 {% endhighlight %}
 
-But these conditionals (`true` and `false`) are not very interesting
-because in the first case, the stuff inside the `if` block will always
-be executed (a "block" is the stuff between `{` and `}`). In the second
-case, the stuff in the block will never be executed.
+But these conditionals (`true` and `false`) are not very interesting because in
+the first case, the stuff inside the `if` block will always be executed (a
+"block" is the stuff between `{` and `}`). In the second case, the stuff in the
+block will never be executed.
 
-More interesting conditionals may involve the following boolean
-operators (assuming `p` and `q` are `bool` variables and `x` is an `int`
-variable):
+More interesting conditionals may involve the following boolean operators
+(assuming `p` and `q` are `bool` variables and `x` is an `int` variable):
 
 - `!p` -- "not p" or "opposite of the value that p has"
 
@@ -130,8 +138,8 @@ int main()
 
 ## if/else
 
-Besides `if` we can also use `else` to specify some operations that should
-be executed if the conditional is *not* satisfied. Example:
+Besides `if` we can also use `else` to specify some operations that should be
+executed if the conditional is *not* satisfied. Example:
 
 {% highlight cpp %}
 if(x == 5)
@@ -168,8 +176,8 @@ else
 
 ## Series of if/else's
 
-It is common practice to check a series of conditions, where you only
-expect one of them to be true:
+It is common practice to check a series of conditions, where you only expect
+one of them to be true:
 
 {% highlight cpp %}
 if(x == 0)
@@ -192,13 +200,12 @@ else
 
 ## "switch" statements
 
-An alternative to the above example (series of if/else's) is the
-`switch` statement. The `switch` statement is the same as a series of
-if/else's because only one of the conditions should turn out to be
-true. The `switch` statement can only handle simple conditions,
-however; actually, it can only handle conditions of the form "is some
-integer equal to some value?" This means that a `switch` statement can
-only be used for integers.
+An alternative to the above example (series of if/else's) is the `switch`
+statement. The `switch` statement is the same as a series of if/else's because
+only one of the conditions should turn out to be true. The `switch` statement
+can only handle simple conditions, however; actually, it can only handle
+conditions of the form "is some integer equal to some value?" This means that a
+`switch` statement can only be used for integers.
 
 Here is an example.
 
@@ -234,8 +241,7 @@ int main()
 }
 {% endhighlight %}
 
-The `switch` statement above can be rewritten with a series of
-if/else's:
+The `switch` statement above can be rewritten with a series of if/else's:
 
 {% highlight cpp %}
 // the following is the same as the "switch" statement above
@@ -263,20 +269,19 @@ else
 {% endhighlight %}
 
 Notice that an `if` is much more powerful: you can use very complicated
-conditionals. However, a `switch` is very simple: for each "case", you
-provide a value that is compared to the variable used in the switch
-(in this case, the variable used in the switch is "number"). Each case
-basically asks, "does the value in the variable equal this number?"
+conditionals. However, a `switch` is very simple: for each "case", you provide
+a value that is compared to the variable used in the switch (in this case, the
+variable used in the switch is "number"). Each case basically asks, "does the
+value in the variable equal this number?"
 
-Each "case" in a `switch` needs a "break" at the end so that the next
-case is not entered. It's good practice to always include a "break" at
-the end of each case in a `switch`.
+Each "case" in a `switch` needs a "break" at the end so that the next case is
+not entered. It's good practice to always include a "break" at the end of each
+case in a `switch`.
 
-The "default" case is the case that is used if all the other cases
-fail.
+The "default" case is the case that is used if all the other cases fail.
 
-You can also use a `switch` to determine which character a user typed,
-since characters are themselves just integers. Here is an example:
+You can also use a `switch` to determine which character a user typed, since
+characters are themselves just integers. Here is an example:
 
 {% highlight cpp %}
 #include <iostream>
@@ -304,7 +309,7 @@ int main()
 }
 {% endhighlight %}
 
-### Another view of the "if" construct
+## Another view of the "if" construct
 
 It turns out that, in C and C++, any integer that's not zero is considered a
 "true" value, and zero is considered the singular "false" value. Thus, these
@@ -322,7 +327,8 @@ if(x)
 }
 {% endhighlight %}
 
-Actually, the details are more gruesome than this. So it's best to avoid such trickery.
+Actually, the details are more gruesome than this. So it's best to avoid such
+trickery.
 
 > **if** *conj.* **1** (Poetic) Kiplingian milestones on the road to
 > mandelayhood and gambler's ruin. **2** (CS) One of many conditional

@@ -1,6 +1,11 @@
 ---
+title: Syllabus
 layout: default
 ---
+
+<div id="toc">
+[TOC]
+</div>
 
 ## Grading
 

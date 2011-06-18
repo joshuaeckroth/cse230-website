@@ -13,6 +13,10 @@ is itself a full programming language, but we'll just use the simplest pieces.
 Our use of template meta-programming will be limited to generating classes and
 functions that work on any type of object.
 
+<div id="toc">
+[TOC]
+</div>
+
 ## Generic linked lists
 
 Think back to our linked lists. Let's say we have a linked list class:
