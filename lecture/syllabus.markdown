@@ -3,10 +3,6 @@ title: Syllabus
 layout: default
 ---
 
-<div id="toc">
-[TOC]
-</div>
-
 ## Grading
 
 - Homeworks: 50% (8 of them)

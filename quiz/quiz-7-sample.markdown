@@ -1,6 +1,6 @@
 ---
 title: Quiz 7 sample
-layout: default
+layout: commentable
 ---
 
 Quiz 7 is on Wednesday, May 25. It is the last quiz.

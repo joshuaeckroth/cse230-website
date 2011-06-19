@@ -13,10 +13,6 @@ There are several other "containers" in the STL, and they are designed to
 support much of the same functionality of vectors. First we'll learn about
 maps.
 
-<div id="toc">
-[TOC]
-</div>
-
 ## Maps
 
 Maps are like vectors in that they are STL containers. However, while vectors

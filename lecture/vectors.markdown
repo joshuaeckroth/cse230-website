@@ -13,10 +13,6 @@ computer can work with them more efficiently. But vectors are usually much more
 convenient for the programmer. (Note that vectors are really just arrays with
 some fancy functions.)
 
-<div id="toc">
-[TOC]
-</div>
-
 ## Vector usage
 
 Vectors are one of many "containers" introduced in C++. A container holds data.

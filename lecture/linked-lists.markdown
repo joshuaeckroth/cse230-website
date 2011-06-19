@@ -12,10 +12,6 @@ An alternative to arrays is linked lists. Linked lists are not as efficient
 (grabbing a value from the middle of the list is not as efficient as it would
 be with an array) but they are more flexible: they can grow and shrink at will.
 
-<div id="toc">
-[TOC]
-</div>
-
 ## How a linked list works
 
 A linked list is composed of "nodes." Each node is a value plus a pointer to

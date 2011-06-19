@@ -1,9 +1,9 @@
 ---
 title: Homework 5
-layout: default
+layout: commentable
 ---
 
-From the book, p. 606, q. 10.
+From the book, p. 606, q. 10. Due July 27, 11pm.
 
 Write a rational number class. This problem will be revisited in Chapter 11,
 where operator overloading will make the problem much easier. For now we will

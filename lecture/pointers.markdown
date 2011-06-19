@@ -3,10 +3,6 @@ title: Pointers
 layout: default
 ---
 
-<div id="toc">
-[TOC]
-</div>
-
 C++ is a somewhat "low-level" language because it allows (encourages) mucking
 around with memory addresses and setting particular memory locations to
 particular values. This is an extremely powerful facility, but (arguably) it

@@ -3,10 +3,6 @@ title: Classes and object orientation
 layout: default
 ---
 
-<div id="toc">
-[TOC]
-</div>
-
 Imagine we're writing a game. We'll need "data structures" (collections of
 variables) to represent player characters (PCs; the characters controlled by
 humans), non-player characters (NPCs; the enemies that are part of the game),

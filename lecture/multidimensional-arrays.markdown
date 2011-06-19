@@ -3,10 +3,6 @@ title: Multidimensional arrays
 layout: default
 ---
 
-<div id="toc">
-[TOC]
-</div>
-
 Arrays are perfect for representing a collection of values that can be thought
 of as a single dimension of data. But for two-dimensional data, we cannot just
 create many different one-dimensional arrays. A two-dimensional (or

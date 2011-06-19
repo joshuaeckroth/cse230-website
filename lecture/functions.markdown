@@ -3,10 +3,6 @@ layout: default
 title: Functions
 ---
 
-<div id="toc">
-[TOC]
-</div>
-
 All of our programs so far have lived entirely inside the `main()` function. In
 other words, all the code was in one big pile.  So far this has not been much
 of a problem because our programs were small.

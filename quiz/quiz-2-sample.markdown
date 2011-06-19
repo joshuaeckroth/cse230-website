@@ -1,6 +1,6 @@
 ---
 title: Quiz 2 sample
-layout: default
+layout: commentable
 ---
 
 Given that `bool p = true, q = false`, is the following expression true or

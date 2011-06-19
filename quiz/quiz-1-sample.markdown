@@ -1,6 +1,6 @@
 ---
 title: Quiz 1 sample
-layout: default
+layout: commentable
 ---
 
 Read the following code, paying particular attention to the comments. If a

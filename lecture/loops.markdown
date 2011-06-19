@@ -3,10 +3,6 @@ layout: default
 title: Loops
 ---
 
-<div id="toc">
-[TOC]
-</div>
-
 So far our programs have not used any loops. A loop is a repetition of some
 section of code. Loops are essential in the common situation where user input
 or data determines how many times something should occur. In other cases, the
@@ -251,7 +247,7 @@ for(initialization; conditional; update)
 {% endhighlight %}
 
 This is what the three parts inside the parentheses (commonly) mean:
-  
+
 - `initialization` -- create counting variables and set their values
 
 - `conditional` -- determine if the loop should repeat; this
@@ -302,12 +298,12 @@ when the loop is finished.)
 
 Let's dissect that `for` loop above:
 
-- `initialization` -- `int i = 0`
+- `initialization`: `int i = 0`
 
-- `conditional` -- `i < 10`
+- `conditional`: `i < 10`
 
-- `update` -- `i++`
-  
+- `update`: `i++`
+
 You should be able to see these same three components present in the `while`
 loop, but the `while` loop does not have special handling of the three
 components. On the other hand, a `for` loop is specifically designed to have
@@ -340,7 +336,7 @@ cout << "1 bottle of beer ..." << endl;
 {% endhighlight %}
 
 Here is an example that is equivalent to
-$\Sigma^{100}_{j=1} \Sigma^{100}_{k=1} (j+k)^2$
+&Sigma;<sup>100</sup><sub>j=1</sub> &Sigma;<sup>100</sup><sub>k=1</sub> (j+k)^2
 
 {% highlight cpp %}
 int sum = 0;
@@ -383,7 +379,7 @@ for(int i = 2; i <= width; i += 2)
     cout << endl;
 }
 {% endhighlight %}
-  
+
 Here is the result:
 
 <pre>

@@ -3,10 +3,6 @@ layout: default
 title: Conditionals
 ---
 
-<div id="toc">
-[TOC]
-</div>
-
 It is a very rare program that solves a problem with the exact same sequence of
 operations every time it is executed. What is more common is a program that
 does some operations if the data or user inputs look a certain way, and a

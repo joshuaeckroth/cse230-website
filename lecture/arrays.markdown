@@ -3,10 +3,6 @@ title: Arrays
 layout: default
 ---
 
-<div id="toc">
-[TOC]
-</div>
-
 Arrays are how we store *many values of the same type in one variable*. An
 array can be of any size. If an array is of size `n`, then the *elements*
 (values) of the array can be accessed with indices `0` through `n-1`. The

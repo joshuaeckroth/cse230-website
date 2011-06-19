@@ -3,10 +3,6 @@ layout: default
 title: Installing required software
 ---
 
-<div id="toc">
-[TOC]
-</div>
-
 Some software is required for you to work on assignments on your own computer.
 First I show how to install software on Windows (two options; you only need to
 choose one), and Mac OS X (one option).
