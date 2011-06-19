@@ -23,9 +23,13 @@ constructor with two `int` parameters. Since every `int` is also a rational
 number, as in 2/1 or 17/1, you should provide a constructor with a single `int`
 parameter.
 
-Provide member functions `input` and `output` that take an `istream` and
-`ostream` argument, respectively, and fetch or write rational numbers in the
-form 2/3 or 37/51 to or from the keyboard (and to or from a file).
+Provide a member function `output` that takes an `ostream` argument and writes
+rational numbers in the form 2/3 or 37/51 to the screen or a file (to the
+`ostream`).
+
+Provide a *non-member* function `input` that takes an `istream` argument an
+reads from the `istream` two integers, representing a numerator and a
+denominator, and returns a rational number.
 
 Provide member functions `add`, `sub`, `mul`, and `div` that return a rational
 value. Provide a function `less` that returns a `bool` value. These functions
@@ -54,6 +58,11 @@ To repeat, inside that `add` function, you'll make an instance of the Rational
 class after you figure out what its values will be. Then you return that
 instance.
 
+Always store and print the *reduced form* of the rational number; that is,
+always divide out the greatest common divisor (GCD) of the numerator and
+denominator. C++ code for finding the GCD is abundant on the internet;
+[here](http://www.aivosto.com/visustin/sample/gcd-c.html) is one example.
+
 Provide a `main` function that thoroughly tests your class implementation.
 
 The following formulas will be useful in defining functions.
@@ -70,8 +79,3 @@ a/b - c/d = (a*d - b*c) / (b*d)
 
 Let any sign be carried by the numerator; keep the denominator positive.
 
-**Extra restriction:** always store and print the *reduced form* of the
-rational number; that is, always divide out the greatest common divisor (GCD)
-of the numerator and denominator. C++ code for finding the GCD is abundant on
-the internet; [here](http://www.aivosto.com/visustin/sample/gcd-c.html) is one
-example.

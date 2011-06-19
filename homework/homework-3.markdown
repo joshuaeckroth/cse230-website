@@ -16,27 +16,35 @@ behavior of the configuration.
 LIFE is an organism that lives in a discrete, two-dimensional world. While this
 world is actually unlimited, we don't have that luxury, so we restrict the
 array to 80 characters wide by 22 character positions high. If you have access
-to a larger screen, by all means use it.
+to a larger screen, by all means use it. It is your choice to make the edges
+"wrap around" or not.
 
 This world is an array with each cell capable of holding one LIFE cell.
 Generations mark the passing of time. Each generation brings births and deaths
 to the LIFE community. The births and deaths follow the following set of rules.
 
-* We define each cell to have eight *neighbor* cells. The neighbors of a cell are the cells directly above, below, to the right, to the left, diagonally above to the right and left, and diagonally below to the right and left.
+* We define each cell to have eight *neighbor* cells. The neighbors of a cell
+are the cells directly above, below, to the right, to the left, diagonally
+above to the right and left, and diagonally below to the right and left. Be
+careful when checking for neighbors on the edges; you can decide whether an
+edge cell has alive or dead neighbors beyond the edge.
 
-* If an occupied cell has zero or one neighbors, it dies of *loneliness*. If an occupied cell has more than three neighbors, it dies of *overcrowding*.
+* If an occupied cell has zero or one neighbors, it dies of *loneliness*. If an
+occupied cell has more than three neighbors, it dies of *overcrowding*.
 
-* If an empty cell has exactly three occupied neighbor cells, there is a *birth* of a new cell to replace the empty cell.
+* If an empty cell has exactly three occupied neighbor cells, there is a
+*birth* of a new cell to replace the empty cell.
 
-* Births and deaths are instantaneous and occur at the changes of generation. A cell dying for whatever reason may help cause birth, but a new born cell cannot resurrect a cell that is dying, nor will a cell's death prevent the death of another, say, by reducing the local population.
+* Births and deaths are instantaneous and occur at the changes of generation. A
+cell dying for whatever reason may help cause birth, but a new born cell cannot
+resurrect a cell that is dying, nor will a cell's death prevent the death of
+another, say, by reducing the local population.
 
 *Notes:* Some configurations grow from relatively small starting
 configurations. Others move across the region. It is recommended that for text
 output you use a rectangular array of `char` with 80 columns and 22 rows to
 store the LIFE world's successive generations. Use an asterisk `*` to indicate
-a living cell, and use a blank (space) to indicate an empty (or dead) cell. If
-you have a screen with more rows than that, by all means make use of the whole
-screen.
+a living cell, and use a blank (space) to indicate an empty (or dead) cell.
 
 Examples:
 
@@ -54,6 +62,10 @@ then becomes
 ***
 </pre>
 again, and so on.
+
+You will "hard code" a starting configuration. The user need not be able to
+provide a different starting configuration (that would just complicate your
+program).
 
 *Suggestions:* Look for stable configurations. That is, look for communities
 that repeat patterns continually. The number of configurations in the
@@ -73,6 +85,29 @@ between calls to `generation` and `display`. To do this, your program should
 generate and display the next generation when you press Return/Enter. You are
 at liberty to automate this (put in a real time delay, and not wait for the
 user to press a key), but automation is not necessary for the program.
+
+If you want to "delay" the display of your grid, rather than wait for the user
+to type something and press enter before displaying the next grid, then you
+will need to pause or "sleep" your program somehow. If you are using Microsoft
+Windows, do this:
+
+{% highlight cpp %}
+#include <windows.h>
+
+// ...
+
+Sleep(800); // pause 800 ms
+{% endhighlight %}
+
+On Linux or Mac OS X, do this:
+
+{% highlight cpp %}
+#include <unistd.h>
+
+// ...
+
+usleep(800000); // pause 800 ms
+{% endhighlight %}
 
 Go to
 [http://www.qotile.net/blog/wp/?p=600](http://www.qotile.net/blog/wp/?p=600) to

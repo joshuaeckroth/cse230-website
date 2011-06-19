@@ -23,7 +23,9 @@ is read as the character `'2'`, rather than as the number 2. Input the values 2
 through 9 as the characters `'2'` through `'9'`. Input the values 10, jack,
 queen, king, and ace as the characters `'t'`, `'j'`, `'q'`, `'k'`, and `'a'`.
 (Of course, the user does not type in the single quotes.) Be sure to allow
-upper- as well as lowercase letters as input.
+upper- as well as lowercase letters as input. You can assume the user provides
+correct input (so you do not have to check for bogus inputs like `'z'` or
+whatever).
 
 After reading in the values, the program should convert them from character
 values to numeric card scores, taking special care for aces. The output is
@@ -31,5 +33,24 @@ either a number between 2 and 21 (inclusive) or the word "Busted." You are
 likely to have one or more long multiway branches that uses a `switch`
 statement or nested `if-else` statement. Your program should include a loop
 that lets the user repeat this calculation until the user says she or he is
-done.
+done. Don't forget the loop!
+
+Here is an example of how to get a `char` input and check its value:
+
+{% highlight cpp %}
+char c;
+cout << "Enter a card (2-9, t, j, q, k or a): ";
+cin >> c;
+
+switch(c)
+{
+    case 't': case 'T':
+        score += 10;
+        break;
+    case '2':
+        score += 2;
+        break;
+    // etc.
+}
+{% endhighlight %}
 

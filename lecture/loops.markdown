@@ -40,7 +40,7 @@ such tedium.)
 > *endless*; the repetition of a certain sequence of program steps
 > `while`, and only while, a set of unforeseen circumstances
 > prevails; an algorithmic recycling; a piece of code in search of a loophole.
-> --- [The computer contradictionary](/biblio/contra)
+> --- *The computer contradictionary*
 
 ## Building up to 99 bottles of beer
 
@@ -504,5 +504,5 @@ nested structures are turned into linear structures. Also notice the critical
 > **loophole** *n.* **1** The escape route sought by a loop. **2**
 > *Metacomputer science* The conceptual gap left when a loop migrates to
 > another part of the metasystem. Any fresh loop nearby will be attracted into
-> the hole, and so on. --- [The computer contradictionary](/biblio/contra)
+> the hole, and so on. --- *The computer contradictionary*
 

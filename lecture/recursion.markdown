@@ -182,5 +182,5 @@ stack).
 
 > **Tortoise:** I swear! Look-here are two phials, right here in my pocket. If
 > you're willing, we can try them. What do you say? ---
-> [G&ouml;del, Escher, Bach: An eternal golden braid](/biblio/geb)
+> *G&ouml;del, Escher, Bach: An eternal golden braid*
 

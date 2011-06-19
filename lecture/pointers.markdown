@@ -118,7 +118,7 @@ to, the value of `x` simultaneously changed to 15.
 > (also called the pointee) being pointed at by a chain of linked pointers.
 >
 > In C++, the simple rule is: reference by adding an `&` and
-> dereference by removing an `*`. --- [The computer contradictionary](/biblio/contra)
+> dereference by removing an `*`. --- *The computer contradictionary*
 
 
 ## Pointers as parameters to functions
@@ -274,5 +274,5 @@ structures, such as linked lists.
 > pointers are *non-grata*; they point *nowhere*, have no pointees, and noisily
 > resist dereferencing. There is a growing backlash from the parsimonious who
 > resent the fact that a perfectly respectable, physical byte at address 0 is
-> pointlessly ghettoed. --- [The computer contradictionary](/biblio/contra)
+> pointlessly ghettoed. --- *The computer contradictionary*
 

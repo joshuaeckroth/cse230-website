@@ -15,9 +15,13 @@ Write a program with a base class for a bank account and two derived classes
 funds. Also write a function that transfers funds from one account (of any
 type) to another. A transfer is a withdrawal from one account and a deposit
 into the other. Since the transfer can be done at any time with any type of
-account the withdraw function in the classes must be virtual. Write a main
-function that creates two accounts (one from MoneyMarketAccount and one from
-CDAccount) and tests the transfer function.
+account the withdraw function in the classes must be virtual. The transfer
+function utlizes polymorphism in order to transfer funds between *any* subclass
+of BankAccount. So the transfer function should receive BankAccount pointers as
+the "from" and "to" bank accounts.
+
+Write a main function that creates two accounts (one from MoneyMarketAccount
+and one from CDAccount) and tests the transfer function.
 
 For the classes, create a base class called `BankAccount` that has the name of
 the owner of the account (a `string`) and the balance in the account (a
@@ -65,6 +69,6 @@ Here is a diagram of the classes.
 
 ![Bank Account UML diagram](/images/bankaccount-uml.png "Bank Account UML diagram")
 
-Note, if you want `balance` to be `private` in the BankAccount class then
+Note, if you want `balance` not to be `public` in the BankAccount class then
 you'll actually need to make it `protected`. This ensures that it will be
 accessible by subclasses but remain private in the subclasses.

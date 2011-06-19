@@ -338,5 +338,5 @@ int main()
 > fathomage"), allowing the function to corrupt not only your arguments *and*
 > their copies, but also those of your erstwhile friends running in distant
 > parts of the system. It's your call, as they say. ---
-> [The computer contradictionary](/biblio/contra)
+> *The computer contradictionary*
 

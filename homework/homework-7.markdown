@@ -57,3 +57,7 @@ more players to walk through the maze simultaneously; allow the player to learn
 what else is in the room (so the rooms will have "occupants"); etc. I expect
 the extra work a group will produce to be something like adding two or three of
 those features just described.
+
+This may be interesting if you have some free time:
+[http://www.kongregate.com/games/2DArray/you-find-yourself-in-a-room](http://www.kongregate.com/games/2DArray/you-find-yourself-in-a-room)
+

@@ -8,12 +8,12 @@ From the book, page 525, question 5.
 You run four computer labs. Each lab contains computer stations that are
 numbered as shown in the table below:
 
-| Lab number | Computer station numbers |
-|------------|--------------------------|
-| 1 | 1--5 |
-| 2 | 1--6 |
-| 3 | 1--4 |
-| 4 | 1--3 |
+Lab number | Computer station numbers 
+-----------|-------------------------
+1          | 1--5
+2          | 1--6
+3          | 1--4
+4          | 1--3
 
 
 Each user has a unique five-digit ID number. Whenever a user logs on, the
@@ -51,4 +51,33 @@ a ragged array since the columns are of unequal length (unlike a simple 2D
 array "matrix").
 
 ![Ragged array](/images/ragged-array.png "Ragged array")
+
+I was emailed by a student during the Spring quarter with this question:
+
+> I have read through homework assignment 4 and I just can't figure out what
+exactly to do. I don't think I understand what it is you want.
+
+> I'm having a really hard time even figuring out what question to ask to
+clarify this for me. Is there any more information you can give me? Such as
+what all is to be automated, so it's done from the running program, and what is
+to be actually changed in the code each time?
+
+Here is my reply.
+
+> Primarily, your program displays who is logged into what machine in what lab.
+The data is stored in arrays of some variety.
+
+> Your program should display the information, then below that provide a menu
+of options; it’s up to you how this this done. E.g.,
+
+> ...lab assignments shown...
+
+> Type l to login, L to logout, s to search.
+
+> If you type l, it asks for the user id and which lab & station. If you type L
+it asks which user id. If you type s, it asks which user id and tells if the
+user is logged in somewhere, and if so, which lab/station. The updated display
+is shown if l or L is typed.
+
+> You can decide how it looks and works; that's an example.
 
