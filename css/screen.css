@@ -18,7 +18,7 @@ p {
 h1 {
     font: italic normal 2.0em georgia, Times New Roman, serif;
     letter-spacing: 1px;
-    margin-top: 1em;
+    margin-top: 0.5em;
     margin-bottom: 0.5em;
     color: #7D775C;
 }
@@ -67,10 +67,10 @@ iframe {
 
 #header {
     text-align: right;
-    margin: 1em 0 1em 0;
+    margin: 1em 0 0 0;
 }
 
-#header img {
+#header img, #contact-front img {
     display: inline;
     margin: 0;
 }
