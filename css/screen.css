@@ -80,9 +80,9 @@ iframe {
 }
 
 #content { 
-    padding: 0 175px 0 110px;  
-    margin: 0; 
+    margin: 0 auto; 
     position: relative;
+    width: 800px;
     }
 
 #toc ul {

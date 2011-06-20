@@ -11,9 +11,9 @@ choose one), and Mac OS X (one option).
 
 Choose one of these recommended options:
 
-- CodeBlocks --- much easier to use, but it is not on the OSU lab computers.
+- CodeBlocks -- much easier to use, but it is not on the OSU lab computers.
 
-- Visual Studio Express --- harder to use, but it *is* on the OSU lab computers.
+- Visual Studio Express -- harder to use, but it *is* on the OSU lab computers.
 
 ## CodeBlocks
 

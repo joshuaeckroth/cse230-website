@@ -81,7 +81,7 @@ need to appear at the top of our code.
 
 ## Namespaces
 
-`using namespace std;` --- this line informs the compiler that the files to be
+`using namespace std;` -- this line informs the compiler that the files to be
 used (from the "Standard" library, brought in by the "include") are in a
 special region known as the namespace `std`. A namespace is just a name
 attached to a large amount of code, to keep things organized especially as

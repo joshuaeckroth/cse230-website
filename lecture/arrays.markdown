@@ -99,7 +99,7 @@ the values that you have not defined will all have a "default" value.
 > accommodate th values specified. If you provide a size but specify values for
 > fewer elements than the size indicates, the missing elements are
 > default-initialized. The rules for default initialization are complicated;
-> you should not rely on them.  --- *C++ Pocket Reference*
+> you should not rely on them.  -- *C++ Pocket Reference*
 
 ## Some simple array operations
 

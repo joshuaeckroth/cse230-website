@@ -152,7 +152,7 @@ stack).
 
 > **Tortoise:**  I don't precisely know, Achilles, but I would be rather wary
 > of horsing around with these strange pushing and popping liquids. Once I had
-> a friend, a Weasel, who did precisely what you suggested---and no one has
+> a friend, a Weasel, who did precisely what you suggested--and no one has
 > heard from him since.
 
 > **Achilles:** That's unfortunate. Can you also carry along the bottle of
@@ -177,6 +177,6 @@ stack).
 > you're not just testing the limits of my gullibility?
 
 > **Tortoise:** I swear! Look-here are two phials, right here in my pocket. If
-> you're willing, we can try them. What do you say? ---
+> you're willing, we can try them. What do you say? --
 > *G&ouml;del, Escher, Bach: An eternal golden braid*
 

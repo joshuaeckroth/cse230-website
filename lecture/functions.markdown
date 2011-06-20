@@ -333,6 +333,6 @@ int main()
 > pointers-to-references, and so on to any depth (whence the phrase "beyond
 > fathomage"), allowing the function to corrupt not only your arguments *and*
 > their copies, but also those of your erstwhile friends running in distant
-> parts of the system. It's your call, as they say. ---
+> parts of the system. It's your call, as they say. --
 > *The computer contradictionary*
 

@@ -88,7 +88,7 @@ program.
 
 - `long double` can store values up to 1.7E +/- 4932, 18 precision digits are kept
 
-*Note about precision in floating point types*---The floating point
+*Note about precision in floating point types*--The floating point
 types do not represent values precisely. It is not a good idea to do
 this:
 

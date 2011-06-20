@@ -7,7 +7,7 @@ From the book, page 176, question 8. Due June 29, 11pm.
 
 Write a program that scores a blackjack hand. In blackjack, a player receives
 from two to five cards. The cards 2 through 10 are scored as 2 through 10
-points each. The face cards---jack, queen, and kind---are scored as 10 points.
+points each. The face cards--jack, queen, and king--are scored as 10 points.
 The goal is to come as close to a score of 21 as possible without going over
 21. Hence, any score over 21 is called "busted." The ace can count as either 1
 or 11, whichever is better for the user. For example, an ace and a 10 can be

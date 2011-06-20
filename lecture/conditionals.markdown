@@ -381,6 +381,6 @@ if(e = f()) { // did f() fail?
 // success
 {% endhighlight %}
 >
-> Some see life itself as a *huge* case statement. ---
+> Some see life itself as a *huge* case statement. --
 > *The computer contradictionary*
 

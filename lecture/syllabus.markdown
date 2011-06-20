@@ -60,13 +60,13 @@ Trivial bugs in your code can cause you to waste hours attempting to fix your
 program. So start early!
 
 > **Hofstadter's Law** "It always takes longer than you expect, even when you
-> take into account Hofstadter's Law." ---
+> take into account Hofstadter's Law." --
 > *G&ouml;del, Escher, Bach: An eternal golden braid*
 
 Or if you prefer,
 
 > **Murphy's law of Programming** "The sooner you start coding your program,
-> the longer it is going to take." --- *The computer contradictionary*
+> the longer it is going to take." -- *The computer contradictionary*
 
 ## Text book
 

@@ -778,6 +778,6 @@ be created. This is a rarely-used but sometimes necessary feature.
 > encapsulated with a set of methods for exploiting and exterminating both
 > itself and other subsets of society. **3** *n.* (Style) Someth'n' you jest
 > plain got or don't. **4** *adj.* (Of a struggle) iterative, as in the
-> attempted modularization of real-world activities. --- 
+> attempted modularization of real-world activities. -- 
 > *The computer contradictionary*
 

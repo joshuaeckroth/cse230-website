@@ -120,14 +120,14 @@ int main()
 
 In these examples, various useful math functions were used. Here is a larger list. These all come from `cmath` (which must be "included").
 
-* `pow(a, b)` --- raise `a` to the power `b`; `a` and `b` should have type `double`
-* `exp(a)` --- raise Euler's number *e* to the power `a` (a `double`)
-* `log(a)` --- find the natural logarithm of `a` (a `double`)
-* `log10(a)` --- find the "base 10" logarithm of `a`
-* `sqrt(a)` --- find the square root of `a` (a `double`)
-* `sin(a)` --- the result of *sine(a)* (`a` is a `double`, in radians)
-* `cos(a)`, `tan(a)` --- obvious
-* `acos(a)`, `asin(a)` --- the arc cosine/sine of `a`; answer is in radians (`a` is a `double`, as is the answer)
+* `pow(a, b)` -- raise `a` to the power `b`; `a` and `b` should have type `double`
+* `exp(a)` -- raise Euler's number *e* to the power `a` (a `double`)
+* `log(a)` -- find the natural logarithm of `a` (a `double`)
+* `log10(a)` -- find the "base 10" logarithm of `a`
+* `sqrt(a)` -- find the square root of `a` (a `double`)
+* `sin(a)` -- the result of *sine(a)* (`a` is a `double`, in radians)
+* `cos(a)`, `tan(a)` -- obvious
+* `acos(a)`, `asin(a)` -- the arc cosine/sine of `a`; answer is in radians (`a` is a `double`, as is the answer)
 
 ## Conversion example
 
