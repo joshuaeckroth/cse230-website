@@ -68,7 +68,7 @@ Here is my reply.
 The data is stored in arrays of some variety.
 
 > Your program should display the information, then below that provide a menu
-of options; it’s up to you how this this done. E.g.,
+of options; it's up to you how this this done. E.g.,
 
 > ...lab assignments shown...
 
