@@ -3,21 +3,18 @@ layout: default
 title: Course calendar
 ---
 
-Here is a tentative outline of the entire course. Over time, the appropriate
-lecture notes will be posted & linked here.
+Week | Topics | Quiz | Homework | Read in book
+-----|--------|------|----------|-------------
+1 | [Variables and types](/lecture/variables-and-types.html)<br/>[Arithmetic](/lecture/arithmetic.html)<br/>[Input/output](/lecture/input-output.html) | [Quiz 1 sample](/quiz/quiz-1-sample.html) | no homework |
+2 | [Conditionals](/lecture/conditionals.html)<br/>[Loops](/lecture/loops.html) | [Quiz 2 sample](/quiz/quiz-2-sample.html) | [Homework 1](/homework/homework-1.html) | 
+3 | [Functions](/lecture/functions.html)<br/>[Recursion](/lecture/recursion.html) | [Quiz 3 sample](/quiz/quiz-3-sample.html) | [Homework 2](/homework/homework-2.html) | 
+4 | [Arrays](/lecture/arrays.html)<br/>[Multidimensional arrays](/lecture/multidimensional-arrays.html) | [Quiz 4 sample](/quiz/quiz-4-sample.html) | [Homework 3](/homework/homework-3.html) | 
+5 | [Pointers](/lecture/pointers.html)<br/>[Linked lists](/lecture/linked-lists.html) | [Quiz 5 sample](/quiz/quiz-5-sample.html) | [Homework 4](/homework/homework-4.html) | p. 500--523<br/>p. 734--748
+6 | [Classes and object orientation](/lecture/classes-and-object-orientation.html) | [Quiz 6 sample](/quiz/quiz-6-sample.html) | [Homework 5](/homework/homework-5.html) | p. 542--575
+7 | [Template meta-programming](/lecture/template-metaprogramming.html)<br/>[Vectors](/lecture/vectors.html)<br/>[Maps, sets, etc.](/lecture/maps-sets-etc.html) | [Quiz 7 sample](/quiz/quiz-7-sample.html) | [Homework 6](/homework/homework-6.html) | 
+8 | [Splitting code into several files](/lecture/splitting-code.html)<br/>[Game design](/lecture/game-design.html) | [Quiz 8 sample](/quiz/quiz-8-sample.html) | [Homework 7](/homework/homework-7.html) | 
+9 | [Summary of the whole class](/lecture/summary.html) | no quiz | [Homework 8](/homework/homework-8.html) | 
 
-Week | Topics | Quiz concept | Homework | Read in book |
------|--------|--------------|----------|--------------
-1 | [Variables, arithmetic, IO](/lecture-notes/variables-arithmetic-inputoutput) | [Quiz 1 sample](/content/quiz-1-sample) | no homework |
-2 | [if/else](/lecture-notes/conditionals), [looping](/lecture-notes/loops) | [Quiz 2 sample](/content/quiz-2-sample) | [Homework 1](/task/homework-1) |
-3 | [methods](/lecture-notes/function-calls-argument-passing), [recursion](/lecture-notes/recursion-0) | [Quiz 3 sample](/content/quiz-3-sample) | [Homework 2](/task/homework-2) |
-4 | [arrays](/lecture-notes/arrays), [2D arrays](/lecture-notes/multidimensional-arrays) | [Quiz 4 sample](/content/quiz-4-sample) | [Homework 3](/task/homework-3) |
-5 | [pointers](/lecture-notes/pointers-0), [linked lists](/lecture-notes/linked-lists) | [Quiz 5 sample](/content/quiz-5-sample) | [Homework 4](/task/homework-4) | p. 500--523; p. 734--748
-6 | [classes and object-oriented programming, OOP](/lecture-notes/classes-and-object-orientation) | [Quiz 6 sample](/content/quiz-6-sample) | [Homework 5](/task/homework-5) | p. 542--575
-7 | friends (OOP variety), inheritance, operator | No quiz | [Homework 6](/task/homework-6) |
-8 | data structures, encapsulation | trace some code | p 778, q 8 in book |
-9 | templates | No quiz | p 940, q 3 in book |
-
-Note that a quiz listed in week X above will actually take place on the Monday
+Note that a quiz listed in week X above will actually take place on the Tuesday
 following week X, but it will cover the topics of week X. 
 

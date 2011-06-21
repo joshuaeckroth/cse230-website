@@ -27,7 +27,7 @@ complicated like a linked list! though that's a little funny to think about).
 The pointer is necessary in order to create the chain.
 
 We saw "structures" earlier (at the end of the [Multidimensional
-arrays](/multidimensional-arrays.html) lecture notes). We can define a node
+arrays](/lecture/multidimensional-arrays.html) lecture notes). We can define a node
 structure (which stores `double` values, just to choose something) and
 simultaneously make a new type called `node` like this:
 

@@ -114,12 +114,12 @@ ul.index-links li {
 
 .left {
     float: left;
-    width: 70%;
+    width: 60%;
 }
 
 .right {
     float: right;
-    width: 30%;
+    width: 40%;
 }
 
 .due {
@@ -135,5 +135,28 @@ ul.index-links li {
 
 #contact-front p {
     text-align: left;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 1em 0;
+}
+
+th, td {
+    padding: 10px 14px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+th, thead {
+    background-color: #eeeeee;
+    border: 1px solid #cccccc;
+    font-weight: normal;
+}
+
+tr {
+    border-bottom: 1px solid #cccccc;
 }
 

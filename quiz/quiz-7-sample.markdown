@@ -3,8 +3,6 @@ title: Quiz 7 sample
 layout: commentable
 ---
 
-Quiz 7 is on Wednesday, May 25. It is the last quiz.
-
 You will be asked to draw an object-oriented diagram, like the ones we have
 seen in class and have appeared in the lecture notes on this website. The
 diagram should represent a good object-oriented structure that could be used to

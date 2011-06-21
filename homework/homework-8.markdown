@@ -3,7 +3,7 @@ title: Homework 8
 layout: commentable
 ---
 
-Due Aug 17, 11pm.
+Due Aug 22, 11pm.
 
 This assignment extends Homework 7. Ideally, you will start with your HW 7 code
 and extend it, so that you have the experience of adapting existing code (it's

@@ -3,7 +3,7 @@ title: Homework 7
 layout: commentable
 ---
 
-Due Aug 10, 11pm.
+Due Aug 15, 11pm.
 
 Make a class called `Room` and a `main()` function that allow a user to "walk
 through a maze." Here is an example interaction:

@@ -3,11 +3,11 @@ title: Maps, sets, etc.
 layout: default
 ---
 
-We saw [vectors](/vectors.html) previously. Vectors are part of the "Standard
-Template Library" (STL) --- "standard" because vectors are part of every C++
-installation, "template" because the vector class is a template class (you can
-put any type of thing in a vector, but you have to choose the type for each
-vector and stick with it).
+We saw [vectors](/lecture/vectors.html) previously. Vectors are part of the
+"Standard Template Library" (STL) --- "standard" because vectors are part of
+every C++ installation, "template" because the vector class is a template class
+(you can put any type of thing in a vector, but you have to choose the type for
+each vector and stick with it).
 
 There are several other "containers" in the STL, and they are designed to
 support much of the same functionality of vectors. First we'll learn about

@@ -3,7 +3,7 @@ title: Homework 6
 layout: commentable
 ---
 
-From the book, p. 875 q. 9. Due Aug 3, 11pm.
+From the book, p. 875 q. 9. Due Aug 8, 11pm.
 
 Banks have many different types of accounts often with different rules for fees
 associated with transactions such as withdrawals. Customers are allowed to

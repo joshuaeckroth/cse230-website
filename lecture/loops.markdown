@@ -443,7 +443,7 @@ typical use cases for the `for` loop.
 
 ## Diagram of while() loop and for() loop
 
-![Loops diagram](/loops-diagram.png "Loops diagram")
+![Loops diagram](/images/loops-diagram.png "Loops diagram")
 
 ## Diagram of nested blocks
 
