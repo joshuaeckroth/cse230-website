@@ -14,6 +14,7 @@ Week | Topics | Quiz | Homework | Read in book
 7 | [Template meta-programming](/lecture/template-metaprogramming.html)<br/>[Vectors](/lecture/vectors.html)<br/>[Maps, sets, etc.](/lecture/maps-sets-etc.html) | [Quiz 7 sample](/quiz/quiz-7-sample.html) | [Homework 6](/homework/homework-6.html) | Chs. 8, 17<br/>p. 945-951<br/>p. 960-977
 8 | [Splitting code into several files](/lecture/splitting-code.html)<br/>[Game design](/lecture/game-design.html) | [Quiz 8 sample](/quiz/quiz-8-sample.html) | [Homework 7](/homework/homework-7.html) | 
 9 | [Summary of the whole class](/lecture/summary.html) | no quiz | [Homework 8](/homework/homework-8.html) | 
+10 | Final exam on Wed Aug 24, 5:30-7:30pm | | |
 
 Note that a quiz listed in week X above will actually take place on the Tuesday
 following week X, but it will cover the topics of week X. 
