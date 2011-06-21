@@ -16,7 +16,7 @@ p {
     text-align: justify;
     }
 h1 {
-    font: italic normal 2.0em georgia, Times New Roman, serif;
+    font: italic normal 2.0em Georgia, serif;
     letter-spacing: 1px;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
@@ -24,7 +24,7 @@ h1 {
 }
 
 h2,h3 { 
-    font: italic normal 1.4em georgia, Times New Roman, serif;
+    font: italic normal 1.4em Georgia, serif;
     letter-spacing: 1px; 
     margin-top: 1em;
     margin-bottom: 1em; 
