@@ -194,6 +194,101 @@ else
 }
 {% endhighlight %}
 
+## An example of nested if's and an if/else-if chain
+
+Task: Write a program that asks for three decimal numbers (*a*, *b*, *c*) and
+prints a message indicating whether the quadratic equation *ax^2 + bx + c = 0* has no
+solutions, one solution, two solutions, or no real solutions (i.e., only
+imaginary solutions). Your program will need to make use of several `if`
+statements. Nest the `if` statements appropriately so that you do not test for a
+condition twice (e.g., you must check if *a* equals 0 only once, not five
+times). Here is the algorithm:
+
+- If *a* equals 0 and *b* equals 0, then there is no solution (output "No solution.").
+- If *a* equals 0 and *b* does not equal 0, then there is one solution: *x = -c/b*.
+- If *a* does not equal 0 and *b^2 - 4ac* equals 0, then there is one solution: *x = -b/(2a)*.
+- If *a* does not equal 0 and *b^2 - 4ac* is greater than 0, then there are two solutions: *x = (-b - &radic;(d))/(2a)* and *x = (-b + &radic;(d))/(2a)*.
+- If *a* does not equal 0 and *b^2 - 4ac* is less than 0, then there are no real solutions, i.e. two imaginary solutions.
+
+Examples:
+
+<pre>
+Enter value 'a': 0
+Enter value 'b': 0
+Enter value 'c': 7
+No solution.
+
+Enter value 'a': 0
+Enter value 'b': 0.5
+Enter value 'c': 2
+x = -4
+
+Enter value 'a': 1
+Enter value 'b': -6
+Enter value 'c': 9
+x = 3
+
+Enter value 'a': 1
+Enter value 'b': -3
+Enter value 'c': 2
+x = 1 OR x = 2
+
+Enter value 'a': 1
+Enter value 'b': 0
+Enter value 'c': 1
+No real solution.
+</pre>
+
+My code:
+
+{% highlight cpp %}
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    double a, b, c, d;
+    cout << "Enter value 'a': ";
+    cin >> a;
+    cout << "Enter value 'b': ";
+    cin >> b;
+    cout << "Enter value 'c': ";
+    cin >> c;
+    
+    if(fabs(a) < 0.00001)
+    {
+        if(fabs(b) < 0.00001)
+        {
+            cout << "No solution." << endl;
+        }
+        else
+        {
+            cout << "x = " << (-c/b) << endl;
+        }
+    }
+    else
+    {
+        d = pow(b, 2.0) - 4 * a * c;
+        if(fabs(d) < 0.00001)
+        {
+            cout << "x = " << (-b/(2*a)) << endl;
+        }
+        else if(d >= 0.00001)
+        {
+            cout << "x = " << ((-b - sqrt(d))/(2*a)) << " OR "
+                 << "x = " << ((-b + sqrt(d))/(2*a)) << endl;
+        }
+        else // i.e., d < 0.00001
+        {
+            cout << "No real solution." << endl;
+        }
+    }
+
+    return 0;
+}
+{% endhighlight %}
+
 ## "switch" statements
 
 An alternative to the above example (series of if/else's) is the `switch`
