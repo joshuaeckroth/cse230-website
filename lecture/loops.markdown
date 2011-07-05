@@ -159,7 +159,7 @@ if(x < 10)      // name this line of code "CHECK"
 
 ## Interactive program
 
-The following program repeated asks the user for a letter; if the user ever
+The following program repeatedly asks the user for a letter; if the user ever
 types "q" then the program is done.
 
 {% highlight cpp %}

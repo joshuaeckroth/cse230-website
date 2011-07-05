@@ -40,7 +40,7 @@ too.
 
 ## Homeworks
 
-Homeworks are always due on a Tuesday, by 11:00pm. Your homework should be sent
+Homeworks are always due on a Monday, by 11:00pm. Your homework should be sent
 to me by email: [joshuaeckroth@gmail.com](mailto:joshuaeckroth@gmail.com)
 (attach your files).
 
