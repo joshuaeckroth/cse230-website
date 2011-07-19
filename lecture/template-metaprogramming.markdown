@@ -164,3 +164,7 @@ from strong typing. You didn't really free yourself; the types are all still
 there (`double`, `string`, etc.). But it's close enough (we don't need much to
 be thrilled).
 
+<a href="http://imgs.xkcd.com/comics/hofstadter.png">
+![Hofstadter](/images/xkcd-hofstadter.png "Hofstadter")
+</a>
+
