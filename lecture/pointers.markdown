@@ -116,6 +116,127 @@ to, the value of `x` simultaneously changed to 15.
 > In C++, the simple rule is: reference by adding an `&` and
 > dereference by removing an `*`. -- *The computer contradictionary*
 
+## Reserving memory locations
+
+We can create new variables without giving them names. Obviously, `int x = 5`
+makes a variable called `x` and sets it equal to 5. But what if we wanted to
+create variables in a loop, or variables that aren't deleted behind our backs
+(when the variable's scope ends)? We use the `new` operator:
+
+{% highlight cpp %}
+// reserve space for an integer, with no name
+new int;
+{% endhighlight %}
+
+Well that does what we wanted (reserve some space for an integer) but we have
+no way of using that reserved space. Why? Because we don't know where that
+space is!
+
+It turns out that the `new` operator actually returns a pointer (a memory
+address) so we can save that and then use the pointer to put values into the
+space that was reserved.
+
+{% highlight cpp %}
+// reserve space for an integer, with no name;
+// but save the address of that space as px
+int *px = new int;
+
+// now put a value in that reserved space
+*px = 5;
+{% endhighlight %}
+
+When we use `new` we should later use `delete` to free up the space.
+
+{% highlight cpp %}
+delete px;
+{% endhighlight %}
+
+Now that space is no longer ours to use (even though `px` still points to it).
+So we should only delete space when we are done with it.
+
+The reason we need to "delete" space after we are done with it (assuming we
+used `new` to reserve the space) is because the normal scope rules don't apply
+to memory that is reserved with the `new` operator.
+
+Recall the rules of scope: If you have a variable `x` inside some braces, like
+so:
+
+{% highlight cpp %}
+{
+   int x = 5;
+   ...
+}
+// x no longer exists (outside those braces)
+{% endhighlight %}
+
+then `x` is inaccessible (the variable is forgotten) when its enclosing braces
+end. For example, functions have their own sets of braces, so variables created
+inside functions no longer exist after the functions are finished.
+
+But if we use the `new` operator to reserve memory, then that memory will be
+ours to use, regardless of scope, for as long as we wish (until we say
+`delete`). We just have to keep track of the pointer (address) of the memory
+that was reserved.
+
+## An analogy (oh no!)
+
+<a href="http://www.flickr.com/photos/guardianstoragesolutions/2714239269/in/photostream/">
+![Storage units](/images/storage_units.jpg "Storage units")
+</a>
+
+You can think of memory as storage units. That's where variables are kept. So
+`int x = 5` means that some storage unit has a `5` inside.
+
+Every storage unit has an address (a unit number). Suppose some storage unit
+has the address "unit 15." Write that address on a piece of paper, and you have
+a pointer. The piece of paper "points to" the storage unit 15.
+
+When we have the code
+
+{% highlight cpp %}
+int *px = new int;
+*px = 5;
+{% endhighlight %}
+
+we are asking for a storage unit to be reserved for us, and recording its
+address ("unit 15") on a piece of paper (that piece of paper is called `px`).
+Then, using the dereference operator (`*`), we are *going to that storage unit*
+and putting the value 5 inside. Obviously, we need to know the address of the
+storage unit if we are going to use it for anything.
+
+When we are done using the unit, we can "delete" it (let somebody else use it) as follows:
+
+{% highlight cpp %}
+delete px;
+{% endhighlight %}
+
+To delete or free the storage unit, we only need to know its address (it
+doesn't matter what's inside the unit).
+
+If we erase what's on the piece of paper (the pointer called `px`) and write
+something else, say "Unit 0," then we have lost our pointer to the original
+storage unit. A computer is very forgetful; it has *completely forgotten* the
+original address, so that storage unit that was reserved for us (unit 15, by
+the way) is now completely inaccessible because the computer forgot where it
+was. If the computer doesn't know where it is, then it will never be able to
+delete it (free it up for someone else). This is called a "memory leak" because
+your program reserved memory (reserved a storage unit) but never deletes it
+(never lets it go for someone else to use). That memory is completely
+"unfreeable" (to coin a word) if the addresses of the memory (storage units)
+are lost. As a real-world example, Firefox is notorious for its abundance of
+memory leaks. That's why after using Firefox for a couple hours, your computer
+slows down (your computer runs out of memory and starts using the much slower
+hard disk to store data).
+
+## Blinky pointer fun (no, really)
+
+Check out this video: [Blinky pointer fun](http://cslibrary.stanford.edu/104/)
+from Stanford University.
+
+We'll review this video in class; if you're reading this from home, you may
+want to look at the associated [Pointer
+basics](http://cslibrary.stanford.edu/106/) document that explains more what
+Blink pointer fun was all about.
 
 ## Pointers as parameters to functions
 
