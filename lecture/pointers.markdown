@@ -288,12 +288,13 @@ but has the same effect.
 
 ## The NULL pointer
 
-Since any memory address (e.g. 1900, 3720446, whatever) may well be a valid
-memory address, how do we indicate that a pointer points to nothing? We have
-designated that the address 0 is an invalid address. There is data at address
-0, but there's no chance that our little C++ program has legitimate access to
-that address (the operating system manages stuff at the very early areas of
-memory).
+Since virtually any memory address (e.g. 1900, 3720446, whatever) may well be a
+valid memory address, how do we indicate that a pointer points to nothing? (A
+pointer "pointing to nothing" is useful when we want to be clear that a pointer
+is no longer valid.) We have designated that the address 0 is an invalid
+address. There is data at address 0, but there's no chance that our little C++
+program has legitimate access to that address (the operating system manages
+stuff at the very early areas of memory).
 
 When do we want a pointer that points to nothing? Pointers are very common in
 complex data structures; for example, a "linked list" (which we'll learn about
@@ -311,7 +312,7 @@ our program), and that pointer is dereferenced, the program will crash with a
 
 {% highlight cpp %}
 int *px = NULL;
-cout << *px << endl; // crashes the program
+cout << *px << endl; // crashes the program with a "segfault"
 {% endhighlight %}
 
 
