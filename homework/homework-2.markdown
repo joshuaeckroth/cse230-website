@@ -16,7 +16,7 @@ something like the following:
 
 Use coin denominations of 25 cents (quarters), 10 cents (dimes), and 1 cent
 (pennies). Do not use nickel and half-dollar coins. Your program will use the
-following function (among others):
+following function (among others if you wish):
 
 {% highlight cpp %}
 void compute_coin(int coin_value, int& number, int& amount_left);
@@ -37,15 +37,15 @@ leaves 11 cents):
 compute_coins(25, number, amount_left);
 {% endhighlight %}
 
+*Hint:* Use integer division and the `%` operator to implement this function.
+
 Include a loop that lets the user repeat this computation for new input values
-until the user says he or she wants to end the program. *Hint:* Use integer
-division and the `%` operator to implement this function.
+until the user says he or she wants to end the program. You will need to figure
+out how you want the user to quit the program: either by typing a `char` like
+Y or N, or typing a special number like -1.
 
 Handle errors in the following way: if the user enters a value less than 0 or
 greater than or equal to 100 (which violates the function's precondition), then
 tell the user that's an invalid value, and repeat the loop that asks for
 another input value.
-
-You will need to figure out how you want the user to quit the program: either
-by typing a `char` like Y or N, or typing a special number like -1.
 
