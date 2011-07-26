@@ -149,13 +149,19 @@ becomes this code:
 
 {% highlight cpp %}
 int x = 0;
-if(x < 10)      // name this line of code "CHECK"
+CHECK:          // name this line of code "CHECK"
+if(x < 10)
 {
     cout << "blah";
     x++;
     goto CHECK; // here is the "loop" action
 }
 {% endhighlight %}
+
+> **loophole** *n.* **1** The escape route sought by a loop. **2**
+> *Metacomputer science* The conceptual gap left when a loop migrates to
+> another part of the metasystem. Any fresh loop nearby will be attracted into
+> the hole, and so on. --- *The computer contradictionary*
 
 ## Interactive program
 
@@ -495,10 +501,18 @@ nested structures are turned into linear structures. Also notice the critical
 
 ![Jumping diagram](/images/jumping-diagram.png "Jumping diagram")
 
-## A final word
+This "jumping" behavior can be achieved in C++ code using the `goto` command.
+I'm not going to recommend that you use `goto` in your code, ever. It's highly
+frowned-upon because code with many jumps or `goto` commands is hard to
+understand. It produces "spaghetti code," which means that if you look at any
+single line of code, you'll have a hard time figuring out under what
+circumstances that line of code is executed. (This is like spaghetti, really:
+pick a spot in the middle of some noodle and try to trace back to the noodle's
+beginning or end.)
 
-> **loophole** *n.* **1** The escape route sought by a loop. **2**
-> *Metacomputer science* The conceptual gap left when a loop migrates to
-> another part of the metasystem. Any fresh loop nearby will be attracted into
-> the hole, and so on. --- *The computer contradictionary*
+<a href="http://xkcd.com/292/">
+![xkcd goto](/images/xkcd-goto.png "xkcd goto")
+</a>
+
+For more information, read the classic [Go To Statement Considered Harmful](http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html).
 

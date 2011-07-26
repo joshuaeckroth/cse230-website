@@ -34,10 +34,10 @@ structure (which stores `double` values, just to choose something) and
 simultaneously make a new type called `node` like this:
 
 {% highlight cpp %}
-typedef struct node {
+struct node {
     double value;
     node* pnext;
-} node;
+};
 {% endhighlight %}
 
 Now we can make a single node (which has no "next" node, so `pnext` points to
@@ -111,10 +111,10 @@ Preliminary: set up a new "type" called a `list`.
 #include <cmath>
 using namespace std;
 
-typedef struct node {
+struct node {
     double value;
     node* pnext;
-} node;
+};
 
 // let's make a new type: a pointer to a node is a 'list'
 typedef node* list;

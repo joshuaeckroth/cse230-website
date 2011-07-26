@@ -3,6 +3,9 @@ title: Quiz 6 sample
 layout: commentable
 ---
 
+Study the [object orientation lecture
+notes](/lecture/classes-and-object-orientation.html) to prepare for this quiz.
+
 Be able to answer all of the following questions (in English, not code):
 
 * What are some benefits of object-oriented programming?

@@ -451,14 +451,12 @@ int main()
 using namespace std;
 
 // make a "structure" that has two ints and
-// an array of double values;
-// call this structure (using 'typedef')
-// by the name "matrix"
-typedef struct {
+// an array of double values
+struct matrix {
     int rows;
     int cols;
     double *vals;
-} matrix;
+};
 
 // make a new matrix, return it;
 // matrices must later be deleted with
