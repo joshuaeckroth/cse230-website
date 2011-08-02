@@ -105,7 +105,7 @@ of `x` does not change even though the value of `a` did change.
 Now consider the following modified example:
 
 {% highlight cpp %}
-void printSume(int &a, int &b)
+void printSum(int &a, int &b)
 {
     a = a + b;
     cout << a << endl;
