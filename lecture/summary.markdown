@@ -6,6 +6,8 @@ layout: default
 What follows is a quick review of all the material covered in the class, with a
 little explanation of why it was covered.
 
+## Variables and types
+
 Essential to any program is the ability to retain values, to store calculations
 in memory and retrieve from memory what has been stored. Values are identified
 by names (unless we're using an array, in which case values are identified by a
@@ -19,6 +21,8 @@ operations. Also, the type determines how much space in memory is needed to
 store the value: integers typically require 4 bytes, while a double value
 (decimal number) typically requires 8 bytes.
 
+## Arithmetic
+
 Once we learned how to use variables, and we learned about some basic
 **arithemetic functions** and other mathematical functions, we could perform
 mathematical operations. However, the inputs to these functions should come
@@ -31,6 +35,8 @@ from a touchscreen, etc. And there are other ways to give output: 2D graphics,
 3D graphics, sound, etc. `cin` and `cout` are very simple: input via
 the keyboard, output via the screen in text format.
 
+## Conditionals
+
 Next, we saw that only a limited range of calculations can be performed with
 variables and mathematical functions. Most interesting programs exhibit
 different behavior depending on context or properties of the world (obtained
@@ -39,6 +45,8 @@ throughout. A conditional is a statement of the form "if XYZ is true, do this;
 otherwise, do that." With conditionals, our programs can pursue one or more of
 several possible paths of execution, thus making the program more flexible and
 responsive to user input.
+
+## Loops
 
 The final piece of the computational puzzle is **loops**. Only by adding loops
 to our repertoire can we perform computations repeatedly until some condition
@@ -49,6 +57,8 @@ programs that we use every day have this looped conversational mode.  Your text
 editor, your web browser, etc. all sit in some loop, waiting for your input.
 And, as it happens, only by adding loops do we get the full power of
 computation, the ability to solve any problem that can be solved by a computer.
+
+## Functions
 
 **Functions** were introduced so that we can keep our sanity. Simply put, a
 function is a chunk of code with a name. That's convenient because we can refer
@@ -135,6 +145,8 @@ strings).
 
 How this relates to pointers will be discussed shortly.
 
+## Recursion
+
 Next we learned about **recursion**. Recursion is a function calling itself, so
 clearly we can't talk about recursion without first talking about functions.
 Recursion was introduced because some problems can be solved more "cleanly"
@@ -149,6 +161,8 @@ without using recursion is a big mess.
 Interestingly, some programming languages avoid iteration (e.g. `while()` loops
 and `for()` loops) and instead use recursion to accomplish the same effect. In
 C++'s perspective, recursion is a nice feature, when you need it.
+
+## Arrays
 
 Now, changing subjects, consider a program that asks the user to provide some
 numbers, and then calculates the mean, variance, etc. of the numbers. How many
@@ -177,6 +191,8 @@ This restriction is almost splitting hairs: who cares if new variables can be
 introduced or not? We get the same power by using arrays. This much is true,
 but because new variables cannot be introduced, we are forced to use and
 understand *pointers.*
+
+## Pointers
 
 The inability to introduce new variables is an effect of the inability to write
 code that reasons *about* variables. There is no way, in C++, to write code
