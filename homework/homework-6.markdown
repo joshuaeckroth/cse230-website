@@ -5,6 +5,16 @@ layout: commentable
 
 From the book, p. 875 q. 9. Due Aug 8, 11pm.
 
+Skills needed to complete this assignment:
+
+  - Creating classes and using object-oriented program design ([lecture notes
+    (part 1)](/lecture/classes-and-object-orientation.html) and [lecture notes
+(part 2)](/lecture/classes-and-object-orientation-2.html))
+
+  - Using polymorphism ([lecture notes](/lecture/polymorphism.html))
+
+  - Splitting code into several files ([lecture notes](/lecture/splitting-code.html))
+
 Banks have many different types of accounts often with different rules for fees
 associated with transactions such as withdrawals. Customers are allowed to
 transfer funds between accounts incurring the appropriate fees associated with
