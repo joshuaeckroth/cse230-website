@@ -131,6 +131,47 @@ is removed from the collection. The idea is, if the player does not know who is
 in the same room as the player, then how will you, as the programmer, know if
 your monsters are appropriately moving to different rooms?
 
+You might accomplish this in the following way: add a set to the Room class
+(i.e. add `#include <set>` in `room.h` and add a private variable `set<Agent*>
+occupants` to the Room class). This set contains Agent pointers. This way, you
+can store monsters and players in the set since both can be treated as Agent
+pointers. Then provide methods in the Room class called `enter`, `leave`, and
+`printOccupants` that, respectively, add an Agent to the room, remove an Agent
+from the room, and print all the Agents in the room.
+
+Here is what those functions might look like:
+
+{% highlight cpp %}
+void Room::enter(Agent *a)
+{
+    occupants.insert(a);
+}
+
+void Room::leave(Agent *a)
+{
+    occupants.erase(a);
+}
+
+void Room::printOccupants()
+{
+    cout << "Occupants in this room:" << endl;
+
+    set<Agent*>::iterator it;
+    for(it = occupants.begin(); it != occupants.end(); ++it)
+    {
+        // use the Agent's getName() function
+        cout << (*it)->getName() << endl;
+    }
+}
+{% endhighlight %}
+
+To use these `enter` and `leave` functions, when an agent (monster or player)
+is changing rooms, before changing rooms, "leave" the current room (i.e.
+`cur_room->leave(this)` -- recall that `this` is a pointer variable that always
+exists in class methods, and points to the monster or player who is changing
+rooms), then change rooms, then enter the new room (i.e.
+`cur_room->enter(this)` after `cur_room` has been changed).
+
 If you work in a group of 2 or 3, you'll need to do more; for example, add a
 combat system (as demonstrated in class), or add physical objects that don't
 move, and add room capacities so that a room full of stuff may not be able to
