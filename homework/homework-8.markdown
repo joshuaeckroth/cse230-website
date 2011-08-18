@@ -57,9 +57,11 @@ class Agent
 {
     protected:
     Room *cur_room;
+    string name;
 
     public:
     virtual bool act() = 0;
+    string getName() { return name; }
 };
 
 #endif
@@ -79,16 +81,39 @@ using namespace std;
 
 class Grue : public Agent
 {
-    private:
-    string name;
-
     public:
     Grue(string _name, Room *starting_room);
-    string getName();
     bool act();
 };
 
 #endif
+{% endhighlight %}
+
+Here is a quick glance at how you might program a "random" monster that chooses
+a random direction to move on each turn:
+
+{% highlight cpp %}
+int n = rand() % 4;
+char direction;
+switch(n)
+{
+    case 0: direction = 'n'; break;
+    case 1: direction = 's'; break;
+    case 2: direction = 'w'; break;
+    case 3: direction = 'e'; break;
+}
+if(cur_room->getLinked(direction) != NULL)
+{
+    cur_room = cur_room->getLinked(direction);
+}
+{% endhighlight %}
+
+If you use `rand()` anywhere in your code, be sure to include this at the
+beginning of `main()`:
+
+{% highlight cpp %}
+// ensure different random numbers each time the program is run
+srand(time(NULL));
 {% endhighlight %}
 
 You are required to split your code into several files. For each class, make a
