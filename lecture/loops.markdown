@@ -81,6 +81,9 @@ case is `while(false)`. In this case, since the conditional is never true, the
 stuff inside the block never executes. We will see later that `while(true)`
 actually can be useful in a program, but `while(false)` is never useful.
 
+> A program without a loop and a variable isn't worth writing. --
+> *Alan J. Perlis, Epigrams on Programming*
+
 A loop can be stopped by two techniques. The first technique will be discussed
 now. A loop stops when the conditional is false. Consider this loop:
 

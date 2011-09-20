@@ -88,6 +88,9 @@ and instead make recursion really easy. With recursion, you can do a task
 repeatedly, if needed. But also with recursion, lots of hard problems become
 much simpler.
 
+> Recursion is the root of computation since it trades description for
+> time. -- *Alan J. Perlis, Epigrams on Programming*
+
 ## Chess, Tic Tac Toe, Checkers, etc.
 
 How does a robot play a board game? It uses recursion. Consider the following general technique for Chess:

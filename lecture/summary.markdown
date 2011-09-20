@@ -234,3 +234,8 @@ pointers to do so!
 (Coming soon: discussion of "classes" and object-oriented programming, and
 "template meta-programming")
 
+> It turns out that an eerie type of chaos can lurk just behind a
+> fa&ccedil;ade of order -- and yet, deep inside the chaos lurks an
+> even eerier type of order. -- *Douglas Hofstadter, Metamagical
+> Themas*
+

@@ -120,6 +120,22 @@ Area of a rectangle with length = 12 and width = 6 is 72
 
 We'll discuss most of that code in the following sections of these notes.
 
+Aside: Why `return 0` at the end? Since we're talking about computers
+here, your program is executed by another program (even though perhaps
+you, as a user, asked for your rectangle program to be executed). That
+other program is the "shell" or your editor or whatever. The program
+that executes your program may want to keep track of whether or not
+your program finished successfully, or if it instead encountered an
+error. Because the `main()` function is always where your code begins,
+it's also where your code ends, and thus is the perfect place to send
+back information about whether your program completed successfully or
+not. By convention, if your `main()` returns the value 0, then your
+program was successful. Any other value means your program had an
+error -- it's up to you to decide what the other possible values mean.
+
+> Every program is a part of some other program and rarely fits. --
+> *Alan J. Perlis, Epigrams on Programming*
+
 ## Comments
 
 Text that follows two double slashes (`//`) is known as a comment.
