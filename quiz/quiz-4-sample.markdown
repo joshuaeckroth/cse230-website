@@ -1,6 +1,6 @@
 ---
 title: Quiz 4 sample
-layout: commentable
+layout: default
 ---
 
 Quiz 4 will ask you to "trace code" involving arrays and functions.

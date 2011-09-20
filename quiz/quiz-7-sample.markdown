@@ -1,6 +1,6 @@
 ---
 title: Quiz 7 sample
-layout: commentable
+layout: default
 ---
 
 You will be asked to draw an object-oriented diagram, like the ones we have

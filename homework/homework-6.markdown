@@ -1,9 +1,9 @@
 ---
 title: Homework 6
-layout: commentable
+layout: default
 ---
 
-From the book, p. 875 q. 9. Due Aug 8, 11pm.
+From the book, p. 875 q. 9. Due Nov 10, 11pm (Thurs).
 
 Skills needed to complete this assignment:
 

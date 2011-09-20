@@ -1,6 +1,6 @@
 ---
 title: Quiz 6 sample
-layout: commentable
+layout: default
 ---
 
 Study the [object orientation lecture

@@ -1,9 +1,9 @@
 ---
 title: Homework 4
-layout: commentable
+layout: default
 ---
 
-From the book, page 525, question 5. Due July 25, 11pm.
+From the book, page 525, question 5. Due Oct 27, 11pm (Thurs).
 
 You run four computer labs. Each lab contains computer stations that are
 numbered as shown in the table below:

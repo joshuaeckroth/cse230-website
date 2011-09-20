@@ -1,6 +1,6 @@
 ---
 title: Quiz 3 sample
-layout: commentable
+layout: default
 ---
 
 Study the following code. It *should* meet the following specification, but it

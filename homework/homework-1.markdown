@@ -1,9 +1,9 @@
 ---
 title: Homework 1
-layout: commentable
+layout: default
 ---
 
-From the book, page 176, question 8. Due July 4, 11pm.
+From the book, page 176, question 8. Due Oct 6, 11pm (Thurs).
 
 Write a program that scores a blackjack hand. In blackjack, a player receives
 from two to five cards. The cards 2 through 10 are scored as 2 through 10

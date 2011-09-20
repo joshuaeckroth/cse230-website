@@ -1,6 +1,6 @@
 ---
 title: Quiz 5 sample
-layout: commentable
+layout: default
 ---
 
 This quiz will ask you to write a single function that does something with a
