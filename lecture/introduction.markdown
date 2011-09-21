@@ -19,10 +19,10 @@ practical reasons that are really not our concern.
 In many real-world situations, several programming languages are used to attack
 a problem. I'll give you a few examples.
 
-This Summer, I am interning with an organization that has developed a system
-that crawls the web, searching for and classifying news related to artificial
-intelligence. The system is written in several independent modules and
-several different programming languages:
+In Summer 2011, I interned with an organization that developed a
+system which crawls the web, searching for and classifying news
+related to artificial intelligence. The system is written in several
+independent modules and several different programming languages:
 
 * Python -- majority of the code; this is the artificial intelligence code
 * PHP -- the website

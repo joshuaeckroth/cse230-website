@@ -72,7 +72,7 @@ straight from the book.  Probably any edition would be fine; I use the
 
 [Walter Savitch, Problem Solving with C++, 7th Edition](http://www.amazon.com/Problem-Solving-7th-Walter-Savitch/dp/0321531345/ref=pd_sim_b_4)
 
-## Pizza -- I mean Piazza
+## Piazza
 
 I'm going to attempt to use an online tool called "Piazza" for class
 collaboration. I will demonstrate it in class. The idea is that
@@ -86,6 +86,13 @@ a question more than once.
 
 The website is [piazza.com](http://piazza.com) -- in class, I'll show
 everybody how to access it.
+
+If you didn't get an email describing how to sign up, you can sign
+yourself up here:
+[piazza.com/osu/fall2011/cse230](http://piazza.com/osu/fall2011/cse230)
+
+Your grade does not at all depend on whether or not you use Piazza, or
+how much you use Piazza.
 
 ## Academic misconduct policy
 
