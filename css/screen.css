@@ -30,19 +30,13 @@ h2,h3 {
     margin-bottom: 1em; 
     color: #7D775C;
     }
-a:link { 
+a:link, a:visited, a:hover, a:active { 
     font-weight: bold; 
     text-decoration: none; 
     color: #B7A5DF;
     }
-a:visited { 
-    font-weight: bold; 
-    text-decoration: none; 
-    color: #D4CDDC;
-    }
 a:hover, a:active { 
     text-decoration: underline; 
-    color: #9685BA;
     }
 acronym {
     border-bottom: none;
