@@ -5,7 +5,7 @@ title: Course calendar
 
 Week | Topics | Quiz | Homework | Read in book
 -----|--------|------|----------|-------------
-0-1 | [Introduction](/lecture/introduction.html)<br/>[Variables and types](/lecture/variables-and-types.html)<br/>[Arithmetic](/lecture/arithmetic.html)<br/>[Input/output](/lecture/input-output.html) | [Quiz 1 sample](/quiz/quiz-1-sample.html) | no homework | p. 20-29<br/>p. 40-72
+0-1 | [Introduction](/lecture/introduction.html)<br/>[Variables and types](/lecture/variables-and-types.html)<br/>[Pointers and the symbol table](/lecture/pointers-symbol-table.html)<br/>[Arithmetic](/lecture/arithmetic.html)<br/>[Input/output](/lecture/input-output.html) | [Quiz 1 sample](/quiz/quiz-1-sample.html) | no homework | p. 20-29<br/>p. 40-72
 2 | [Conditionals](/lecture/conditionals.html)<br/>[Loops](/lecture/loops.html) | [Quiz 2 sample](/quiz/quiz-2-sample.html) | [Homework 1](/homework/homework-1.html) | p. 74-91<br/>p. 112-166
 3 | [Functions](/lecture/functions.html)<br/>[Recursion](/lecture/recursion.html) | [Quiz 3 sample](/quiz/quiz-3-sample.html) | [Homework 2](/homework/homework-2.html) | Chs. 4, 5<br/>p. 782-803
 4 | [Arrays](/lecture/arrays.html)<br/>[Multidimensional arrays](/lecture/multidimensional-arrays.html) | [Quiz 4 sample](/quiz/quiz-4-sample.html) | [Homework 3](/homework/homework-3.html) | Ch. 7
