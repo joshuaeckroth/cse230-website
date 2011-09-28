@@ -1,61 +1,51 @@
-.hll { background-color: #ffffcc }
-.c { color: #008800; font-style: italic } /* Comment */
-.err { border: 1px solid #FF0000 } /* Error */
-.k { color: #AA22FF; font-weight: bold } /* Keyword */
-.o { color: #666666 } /* Operator */
-.cm { color: #008800; font-style: italic } /* Comment.Multiline */
-.cp { color: #008800 } /* Comment.Preproc */
-.c1 { color: #008800; font-style: italic } /* Comment.Single */
-.cs { color: #008800; font-weight: bold } /* Comment.Special */
-.gd { color: #A00000 } /* Generic.Deleted */
-.ge { font-style: italic } /* Generic.Emph */
-.gr { color: #FF0000 } /* Generic.Error */
-.gh { color: #000080; font-weight: bold } /* Generic.Heading */
-.gi { color: #00A000 } /* Generic.Inserted */
-.go { color: #808080 } /* Generic.Output */
-.gp { color: #000080; font-weight: bold } /* Generic.Prompt */
-.gs { font-weight: bold } /* Generic.Strong */
-.gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.gt { color: #0040D0 } /* Generic.Traceback */
-.kc { color: #AA22FF; font-weight: bold } /* Keyword.Constant */
-.kd { color: #AA22FF; font-weight: bold } /* Keyword.Declaration */
-.kn { color: #AA22FF; font-weight: bold } /* Keyword.Namespace */
-.kp { color: #AA22FF } /* Keyword.Pseudo */
-.kr { color: #AA22FF; font-weight: bold } /* Keyword.Reserved */
-.kt { color: #00BB00; font-weight: bold } /* Keyword.Type */
-.m { color: #666666 } /* Literal.Number */
-.s { color: #BB4444 } /* Literal.String */
-.na { color: #BB4444 } /* Name.Attribute */
-.nb { color: #AA22FF } /* Name.Builtin */
-.nc { color: #0000FF } /* Name.Class */
-.no { color: #880000 } /* Name.Constant */
-.nd { color: #AA22FF } /* Name.Decorator */
-.ni { color: #999999; font-weight: bold } /* Name.Entity */
-.ne { color: #D2413A; font-weight: bold } /* Name.Exception */
-.nf { color: #00A000 } /* Name.Function */
-.nl { color: #A0A000 } /* Name.Label */
-.nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
-.nt { color: #008000; font-weight: bold } /* Name.Tag */
-.nv { color: #B8860B } /* Name.Variable */
-.ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
-.w { color: #bbbbbb } /* Text.Whitespace */
-.mf { color: #666666 } /* Literal.Number.Float */
-.mh { color: #666666 } /* Literal.Number.Hex */
-.mi { color: #666666 } /* Literal.Number.Integer */
-.mo { color: #666666 } /* Literal.Number.Oct */
-.sb { color: #BB4444 } /* Literal.String.Backtick */
-.sc { color: #BB4444 } /* Literal.String.Char */
-.sd { color: #BB4444; font-style: italic } /* Literal.String.Doc */
-.s2 { color: #BB4444 } /* Literal.String.Double */
-.se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
-.sh { color: #BB4444 } /* Literal.String.Heredoc */
-.si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
-.sx { color: #008000 } /* Literal.String.Other */
-.sr { color: #BB6688 } /* Literal.String.Regex */
-.s1 { color: #BB4444 } /* Literal.String.Single */
-.ss { color: #B8860B } /* Literal.String.Symbol */
-.bp { color: #AA22FF } /* Name.Builtin.Pseudo */
-.vc { color: #B8860B } /* Name.Variable.Class */
-.vg { color: #B8860B } /* Name.Variable.Global */
-.vi { color: #B8860B } /* Name.Variable.Instance */
-.il { color: #666666 } /* Literal.Number.Integer.Long */
+/* 
+	CSS file especially arranged for Pygments. 
+	http://themes.sweyla.com/css/Sweyla375941.css
+*/
+
+code {
+	background: #FDFFFF;
+	color: #000000;
+}
+
+code span.selection { color: #C8C8C8; }
+code span.vi { color: #00014A; }
+code span.kn { color: #004DD0; }
+code span.cp { color: #0B4A4D; }
+code span.caret { color: #000000; }
+code span.no { color: #0B4A4D; }
+code span.s2 { color: #670088; }
+code span.nb { color: #006460; }
+code span.nc { color: #00008F; }
+code span.nd { color: #0B4A4D; }
+code span.s { color: #670088; }
+code span.nf { color: #0B4A4D; }
+code span.nx { color: #0B4A4D; }
+code span.kp { color: #004DD0; }
+code span.nt { color: #00008F; }
+code span.s1 { color: #670088; }
+code span.bg { color: #FDFFFF; }
+code span.kt { color: #004DD0; }
+code span.support_function { color: #043941; }
+code span.ow { color: #540DB8; }
+code span.mf { color: #0000F1; }
+code span.bp { color: #00014A; }
+code span.fg { color: #000000; }
+code span.c1 { color: #00005D; }
+code span.kc { color: #00014A; }
+code span.c { color: #00005D; }
+code span.sx { color: #670088; }
+code span.kd { color: #004DD0; }
+code span.ss { color: #0000F1; }
+code span.mo { color: #0000F1; }
+code span.mi { color: #0000F1; }
+code span.mh { color: #0000F1; }
+code span.o { color: #540DB8; }
+code span.si { color: #0000B9; }
+code span.sh { color: #670088; }
+code span.na { color: #0B4A4D; }
+code span.sc { color: #670088; }
+code span.k { color: #004DD0; }
+code span.se { color: #0000B9; }
+code span.sd { color: #0087E4; }
+
