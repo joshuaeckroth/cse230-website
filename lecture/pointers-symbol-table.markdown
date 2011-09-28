@@ -232,11 +232,57 @@ int** ppn = &pn;
 {% endhighlight %}
 
 And so on, ad nauseum. The lesson is, pointers are not magical,
-they're just variables with special values. And we use pointers by
-asking for the memory location of another variable using the `&`
-symbol, and "going to" a memory location and changing the data there
-using the `*` symbol.
+they're just variables with values that can be used in a particularly
+useful way. And we use pointers by asking for the memory location of
+another variable using the `&` symbol, and "going to" a memory
+location and changing the data there using the `*` symbol.
 
 Naturally, this is all *pointless* until we start solving problems
 that truly require pointers. We'll see that in <a
 href="/lecture/linked-lists.html">Linked lists</a>, if not sooner.
+
+## Minimal example
+
+This example was shown in class.
+
+{% highlight cpp %}
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n;
+    cout << "Enter value for n: ";
+    cin >> n;
+
+    cout << "n = " << n << endl;
+    cout << "n's memory address is: " << &n << endl;
+
+    int *pn;
+    pn = &n;
+
+    cout << "pn = " << pn << endl;
+    cout << "*pn = " << *pn << endl;
+
+    *pn = 5;
+
+    cout << "*pn = " << *pn << endl;
+    cout << "pn = " << pn << endl;
+    cout << "n = " << n << endl;
+
+    return 0;
+}
+{% endhighlight %}
+
+Output:
+
+<pre>
+Enter value for n: 14
+n = 14
+n's memory address is: 0xbf868ea8
+pn = 0xbf868ea8
+*pn = 14
+*pn = 5
+pn = 0xbf868ea8
+n = 5
+</pre>
