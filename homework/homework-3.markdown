@@ -3,7 +3,7 @@ title: Homework 3
 layout: default
 ---
 
-From the book, page 440, question 13. Due Oct 20, 11pm (Thurs).
+From the book, page 440, question 13. Due Oct 23, 11pm (Sun).
 
 The mathematician [John Horton
 Conway](http://en.wikipedia.org/wiki/John_Horton_Conway) invented the "Game of
