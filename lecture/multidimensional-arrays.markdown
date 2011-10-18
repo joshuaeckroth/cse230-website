@@ -3,24 +3,67 @@ title: Multidimensional arrays
 layout: default
 ---
 
-Arrays are perfect for representing a collection of values that can be thought
-of as a single dimension of data. But for two-dimensional data, we cannot just
-create many different one-dimensional arrays. A two-dimensional (or
-higher-dimensional) data set *can* be finagled into a one-dimensional array
-(with clever trickery using array indices) but this is inconvenient. In order
-to conveniently represent 2D data, we will use 2D arrays, also known as
-matrices.
+The arrays we saw previously were one-dimensional arrays ("vectors" in
+math terminology). A "matrix," in math terminology, is therefore a
+two-dimensional array. How do we create two-dimensional arrays? We
+actually have two options available to us, as will be described
+below.
 
-What kinds of data are found in matrices? Pictures are 2D grids of pixels, and
-thus are represented as matrices. Spreadsheets (like those made in Microsoft
-Excel) are matrices. As alluded to in class, generic "graph" structures can be
-represented in matrices (in what are called "adjacent matrices"). Temperature
-readings at every hour over several days could be saved in a matrix.
+What kinds of data are found in matrices? Pictures are 2D grids of
+pixels, and thus are represented as matrices. Spreadsheets (like those
+made in Microsoft Excel) are matrices. Generic "graph" structures
+(e.g. who your friends are, and who their friends are, etc.) can be
+represented in matrices (in what are called "adjacent
+matrices"). Temperature readings at every hour over several days could
+be saved in a matrix.
 
-## Creating a 2D array
+## 2D arrays: two different strategies
 
-Here is the basic technique for creating a 2D array. In this example, the
-matrix is 10 rows by 10 columns. All of its "cells" are set to 0.0.
+Obviously, data is stored in your computer's memory and memory is not
+two-dimensional (it is one-dimensional), so 2D arrays (and 3D arrays,
+4D arrays, etc.) must somehow be saved in one dimension. Understanding
+how this might work is essential to understanding how 2D arrays work
+in C++.
+
+The simplest way to store 2D data in a 1D space is to "flatten" the
+matrix to a vector, where each row is stored just to the right of the
+previous row:
+
+![Flattened 2D array](/images/2d-array-linear.png "Flattened 2D array")
+
+As you see in the diagram, the 2D array is really just a 1D
+array. Since the compiler knows the number of columns, it is able to
+figure out where each 2D value is stored in the 1D array. (Notice that
+the number of rows is not needed in order to calculate the position in
+1D of a 2D value.)
+
+Compare this to the alternative approach, which is to construct an
+array of pointers whose values point to separate (non-contiguous)
+arrays representing the rows. So our 2D array with two rows and four
+columns becomes three arrays: an array with two pointers, each
+pointing to an array of four values. The array of two pointers is
+pointing to each of the 2D rows.
+
+![Dynamic 2D array](/images/2d-array-dynamic.png "Dynamic 2D array")
+
+Notice that in this case, the compiler does not know the number of
+columns, and does not need to know in order for us to access
+particular values. To access a value, we first look at the "row
+pointers," follow a row pointer to a particular "row array," then move
+to the particular column we want in that row array.
+
+Using this second strategy, we are also not limited to keeping the
+column sizes equivalent. We can create "jagged arrays" where the
+columns sizes differ. The compiler does not care how big the columns
+are; we are expected to write code that respects the column sizes (the
+compiler will not know if we are referring to a column that doesn't
+exist).
+
+## Creating a 2D array (first strategy)
+
+Here is the basic technique for creating a 2D array with the first
+strategy. In this example, the matrix is 10 rows by 10 columns. All of
+its "cells" are set to 0.0.
 
 {% highlight cpp %}
 double arr[10][10];
@@ -39,7 +82,34 @@ For smaller matrices, the values can be set individually:
 double xyz[3][2] = { {0.0, 1.0}, {5.0, 6.0}, {11.0, 12.0} };
 {% endhighlight %}
 
-## Passing 2D arrays to functions
+## Creating a 2D array (second strategy)
+
+Here we create the same array as above, using the `new` operator (and
+followed by `delete` when we are done with the array).
+
+{% highlight cpp %}
+double **arr = new double*[10];
+for(int i = 0; i < 10; i++)
+{
+    arr[i] = new double[10];
+    for(int j = 0; j < 10; j++)
+    {
+        arr[i][j] = 0.0;
+    }
+}
+
+// ... later, must delete our array to prevent memory leaks
+
+// delete each "row array" first
+for(int i = 0; i < 10; i++)
+{
+    delete [] arr[i];
+}
+// then delete the array of "row pointers"
+delete [] arr;
+{% endhighlight %}
+
+## Passing 2D arrays to functions (first strategy)
 
 Unfortunately, passing 2D arrays to functions does not work as you might hope.
 This is not a valid function header:
@@ -62,13 +132,13 @@ int sumAllColumns(int arr[][10], int rows)
 }
 {% endhighlight %}
 
-Of course, the 10 above (referring to the number of columns) may be different
-in a different program. The basic idea is that if the array is created with a
-size (rows and columns) not known until the file is read (the file specifies
-the size), then the array cannot be passed to a function.
+We saw this earlier: the number of columns must be known in order for
+`arr[i][j]` to refer to a particular value. This limitation is one
+good reason to use the second strategy of 2D array creation.
 
-Here is an example of passing a 2D array to a function that prints the contents
-of the array in a grid format.
+Supposing you are using the first strategy, here is an example of
+passing a 2D array to a function that prints the contents of the array
+in a grid format. The example uses a fixed, pre-defined array size.
 
 {% highlight cpp %}
 #include <iostream>
@@ -99,10 +169,12 @@ int main()
 }
 {% endhighlight %}
 
-That example uses a fixed, pre-defined array size. Here is a similar example in
-which the array size is not known ahead of time. We use a "double pointer"
-syntax to indicate the input to the function is a 2D array, whose size is
-provided by the other two function parameters.
+## Passing 2D arrays to functions (second strategy)
+
+When we use the second strategy of 2D array creation, the primary
+variable is actually a double-pointer. So we just need to give the
+double-pointer to the function (as well as the array rows and columns
+sizes so we know how much to loop):
 
 {% highlight cpp %}
 #include <iostream>
@@ -175,90 +247,8 @@ Provide 3 chars to put in array row 4: j k l
 [jkl] 
 </pre>
 
-## A matrix in a one-dimensional array
 
-Above, it was mentioned that with some "clever trickery" with array indices, a
-2D array could be stored in a 1D array. We will investigate in this section.
-
-Since a matrix is just a grid with some fixed number of rows and columns, we
-can "linearize" the grid by just joining each row end-to-end. In a 10x10
-matrix, there are 100 cells. So we can make a 1D array with 100 cells and use
-indices appropriately to access individual elements as if they were in a 10x10
-grid.
-
-The math is as follows. Assume our matrix has *r* rows and *c* columns. If an
-element was a row *i* and column *j* in the original matrix, then in the 1D
-array the element is at index <i>i*c+j</i>.
-
-This program reads values from a file and stores them into a matrix. The first
-two values in the file indicate the number of rows and columns of the matrix of
-data that appears in the file. The program outputs the sums of the columns.
-
-{% highlight cpp %}
-#include <iostream>
-#include <fstream>
-using namespace std;
-
-int main()
-{
-    string filename;
-    ifstream file;
-    cout << "Enter file name: ";
-    getline(cin, filename);
-
-    file.open(filename.c_str());
-    if(!file.is_open())
-    {
-        cout << "Error opening file." << endl;
-        return -1;
-    }
-
-    int numRows, numCols;
-    file >> numRows >> numCols;
-
-    int *arr = new int[numRows * numCols];
-
-    // read each value into the array
-    for(int i = 0; i < numRows; i++)
-    {
-        for(int j = 0; j < numCols; j++)
-        {
-            file >> arr[i * numCols + j];
-        }
-    }
-
-    file.close();
-
-    // find the sum for each column;
-    // note that we can look through the array
-    // in any order; we will look at columns first
-    int sum;
-    for(int j = 0; j < numCols; j++)
-    {
-        sum = 0;
-        for(int i = 0; i < numRows; i++)
-        {
-            sum += arr[i * numCols + j];
-        }
-        cout << "Sum for column " << j << " = " << sum << endl;
-    }
-
-    delete [] arr;
-
-    return 0;
-}
-{% endhighlight %}
-
-Since this new approach, representing 2D matrices as 1D arrays, uses plain ol'
-arrays, we can pass these plain ol' 1D arrays to functions, just like before:
-
-{% highlight cpp %}
-int sumAllColumns(int arr[], int rows, int cols) // CORRECT
-{
-    // ...
-}
-{% endhighlight %}
-
+<!--
 ## Matrix multiplication example
 
 This example uses "fake" 2D arrays; really 1D arrays are used, but they are
@@ -583,3 +573,4 @@ int main()
 }
 {% endhighlight %}
 
+-->

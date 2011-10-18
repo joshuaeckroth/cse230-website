@@ -187,7 +187,7 @@ int main()
 } 
 {% endhighlight %}
 
-Sum a double array in a function:
+Sum an array of doubles in a function:
 
 {% highlight cpp %}
 #include <iostream>
