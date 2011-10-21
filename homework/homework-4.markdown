@@ -3,81 +3,285 @@ title: Homework 4
 layout: default
 ---
 
-From the book, page 525, question 5. Due Oct 27, 11pm (Thurs).
+Due Oct 27, 11pm (Thur).
 
-You run four computer labs. Each lab contains computer stations that are
-numbered as shown in the table below:
-
-Lab number | Computer station numbers 
------------|-------------------------
-1          | 1--5
-2          | 1--6
-3          | 1--4
-4          | 1--3
-
-
-Each user has a unique five-digit ID number. Whenever a user logs on, the
-user's ID, lab number, and the computer station number are transmitted to your
-system. For example, if user 49193 logs onto station 2 in lab 3, then your
-system receives (49193, 2, 3) as input data. Similarly, when a user logs off a
-station, then your system receives the lab number and computer station number.
-
-Write a computer program that could be used to track, by lab, which user is
-logged onto which computer. For example, if user 49193 is logged into station 2
-in lab 3 and user 99577 is logged into station 1 of lab 4, then your system
-might display the following:
+Your task is to evaluate expressions like `3.4-(2.6+5.0)` and
+`sin(-1.0)*2.0` and `-9.4^log(exp(cos(4.5)-2.3+3.5))`. These
+expressions will be represented in "parse trees" such as the
+following:
 
 <pre>
-Lab number  Computer stations
-1           1: empty 2: empty 3: empty 4: empty 5: empty
-2           1: empty 2: empty 3: empty 4: empty 5: empty 6: empty
-3           1: empty 2: 49193 3: empty 4: empty
-4           1: 99577 2: empty 3: empty
+3.4-(2.6+5.0) in tree form:
+
+    -
+   / \
+  /   \
+3.40   +
+      / \
+     /   \
+    /     \
+  2.60   5.00
 </pre>
 
-Create a menu that allows the administrator to simulate the transmission of
-information by manually typing in the login or logoff data. Whenever someone
-logs in or out, the display should be updated. Also write a search option so
-that the administrator can type in a user ID and the system will output what
-lab and station number the user is logged into, or "None" if the user ID is not
-logged into any computer station.
+<pre>
+sin(-1.0)*2.0 in tree form:
 
-You should use a fixed array of length 4 for the labs. Each array entry points
-to a dynamic array that stores the user login information for each respective
-computer station.
+          *
+         / \
+        /   \
+      sin  2.00
+      /
+     -
+    / \
+   /   \
+  /     \
+0.00   1.00
+</pre>
 
-The structure is shown in the figure below. This structure is sometimes called
-a ragged array since the columns are of unequal length (unlike a simple 2D
-array "matrix").
+<pre>
+-9.4^log(exp(cos(4.5)-2.3+3.5)) in tree form:
 
-![Ragged array](/images/ragged-array.png "Ragged array")
+       -
+      / \
+     /   \
+   0.00   ^
+         / \
+        /   \
+      9.40  log
+            /
+          exp
+          /
+         +
+        / \
+       /   \
+      -   3.50
+     / \
+    /   \
+  cos  2.30
+  /
+4.50
+</pre>
 
-I was emailed by a student during the Spring quarter with this question:
+These trees are arbitrarily large; your program should evaluate the
+expression represented in any such tree. Your algorithm must be
+recursive (for practice and because recursion is the most effective
+technique for processing trees).
 
-> I have read through homework assignment 4 and I just can't figure out what
-exactly to do. I don't think I understand what it is you want.
+## Tree structure
 
-> I'm having a really hard time even figuring out what question to ask to
-clarify this for me. Is there any more information you can give me? Such as
-what all is to be automated, so it's done from the running program, and what is
-to be actually changed in the code each time?
+You must use the following structure to represent a tree:
 
-Here is my reply.
+{% highlight cpp %}
+struct tree
+{
+    std::string op;
+    double val;
+    tree *left;
+    tree *right;
+};
+{% endhighlight %}
 
-> Primarily, your program displays who is logged into what machine in what lab.
-The data is stored in arrays of some variety.
+Notice that this is a recursive definition. Every "node" in the
+tree (for example, in the first tree above, the nodes are `-`, `+`,
+`5.00`, `3.40`, and `2.60`) is itself a tree. Take any node, such as
+`+`: now you have another tree (`+` at the top with `2.60` on the left
+and `5.00` on the right).
 
-> Your program should display the information, then below that provide a menu
-of options; it's up to you how this this done. E.g.,
+Each "node" simply needs to store information about the operation
+(e.g. `+`, `-`, `sin`) or the value (e.g. `3.40`) in addition to
+pointers to the left and right subtrees. A node cannot be both a value
+and an operation. We'll use the following convention to determine if a
+node is an operation or just a value: the `op` variable should only be
+non-empty if the node is an operation; otherwise, the node is a value
+and the value is stored in `val`. You can test if the `op` variable is
+empty, in a tree structure pointer variable named `root`, with the
+following expression: `if(root->op.empty())`
 
-> ...lab assignments shown...
+Here is how the tree at the beginning of this homework can be
+represented:
 
-> Type l to login, L to logout, s to search.
+{% highlight cpp %}
+tree m;
+m.op = "-";
+tree p;
+p.op = "+";
+tree v1;
+v1.val = 3.4;
+tree v2;
+v2.val = 2.6;
+tree v3;
+v3.val = 5.0;
 
-> If you type l, it asks for the user id and which lab & station. If you type L
-it asks which user id. If you type s, it asks which user id and tells if the
-user is logged in somewhere, and if so, which lab/station. The updated display
-is shown if l or L is typed.
+m.left = &v1;
+m.right = &p;
 
-> You can decide how it looks and works; that's an example.
+p.left = &v2;
+p.right = &v3;
 
+v1.left = v1.right = v2.left = v2.right = v3.left = v3.right = NULL;
+{% endhighlight %}
+
+Note that operations (like '+') always have two subtrees; functions
+(like `sin`) have only left subtrees, where the `right` pointer is
+always `NULL`. For values, both `left` and `right` pointers are always
+`NULL`.
+
+## Automatic parsing
+
+Writing trees "by hand" in your code is very difficult and does not
+allow the user to interactively provide new expressions. In order to
+allow user input, we need to take a string like "3.4-(2.6+5.0)" and
+turn it into the right tree structure. This task is known as
+"parsing," and can be quite difficult to code if you don't use the
+right tools. I have coded a parser for you to use in your program. To
+do so, I used the flex and bison tools, which allow me to describe a
+parser in a special programming language, and which then produce C++
+code that actually performs the parsing. If you want to learn more
+about this, feel free to ask me.
+
+Anyway, you need to download some files (.cpp files and .h files) and
+load these as your CodeBlocks/Visual Studio/Xcode "project."
+
+Here is a ZIP package with all the files you need:
+[hw4.zip](/homeworks/hw4.zip)
+
+In there you'll also find `main.cpp` &mdash; use that file to begin
+writing your own code. You'll see some instructions in the file. In
+particular, you will see a loop that allows the user to type an
+expression and have it evaluated (you won't need to modify that loop;
+if you provide the rest of the code, the "interactive" parsing feature
+should work properly).
+
+## Your task
+
+As mentioned, the `main.cpp` file found in the zip package has some
+code but is missing some important functions. You must write the code
+for these functions, *and* you must "hand-code" a tree structure at
+the beginning of the `main()` function (look at the comments in the
+file).
+
+The functions you need to code are the following:
+
+{% highlight cpp %}
+double evalOp(string op, double val)
+{
+    // for evaluating functions like sin, cos, etc.
+}
+
+double evalOp(string op, double val1, double val2)
+{
+    // for evaluating operators like +, -, etc.
+}
+
+double eval(tree *root)
+{
+    // for (recursively) evaluating a tree; this function will refer
+    // back to itself (for evaluating subtrees) and will use the
+    // evalOp() functions
+}
+{% endhighlight %}
+
+The `eval()` function is the primary evaluation function; it accepts a
+tree pointer and determines its value in a recursive fashion. The
+other two `evalOp` functions, which have the same name but different
+parameters, apply operators (like '+') or functions (like 'sin') to
+their parameters (`val1` and/or `val2`).
+
+Your program must support the following operators: `+`, `-`, `*`, `/`,
+and `^` (e.g. `3^2` equals `9`). Your program must also support the
+following functions: `sin`, `cos`, `tan`, `log`, `abs`. Add support
+for more functions if you wish.
+
+## User interface
+
+Here is a sample interaction with your program:
+
+<pre>
+Enter expression: 2^3^4
+
+        ^
+       / \
+      /   \
+     ^   4.00
+    / \
+   /   \
+  /     \
+2.00   3.00
+
+Result: 4096
+
+Enter expression: log(2.71828^8)
+
+      log
+      /
+     ^
+    / \
+   /   \
+  /     \
+2.72   8.00
+
+Result: 7.99999
+
+Enter expression: sin(tan(cos(sin(tan(cos(3.14159))))))
+
+            sin
+            /
+          tan
+          /
+        cos
+        /
+      sin
+      /
+    tan
+    /
+  cos
+  /
+3.14
+
+Result: 0.564596
+
+Enter expression: sin(4.0)/cos(4.0)
+
+       /
+      / \
+     /   \
+    /     \
+  sin     cos
+  /       /
+4.00    4.00
+
+Result: 1.15782
+
+Enter expression: tan(4.0)
+
+  tan
+  /
+4.00
+
+Result: 1.15782
+
+Enter expression: sin(3.14159 / 2.0) + cos(3.14159 * 2.0)
+
+              +
+             / \
+            /   \
+           /     \
+          /       \
+         /         \
+        /           \
+      sin           cos
+      /             /
+     /             *
+    / \           / \
+   /   \         /   \
+  /     \       /     \
+3.14   2.00   3.14   2.00
+
+Result: 2
+</pre>
+
+
+## Final words
+
+When you give me your code, you only need to send me `main.cpp`,
+unless you happened to have modified other files as well.

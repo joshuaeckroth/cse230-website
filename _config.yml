@@ -2,8 +2,4 @@ pygments: true
 permalink: none
 markdown: rdiscount
 
-rdiscount:
-    extensions: [generate_toc, smart]
-    toc_token: "[TOC]"
-
 
