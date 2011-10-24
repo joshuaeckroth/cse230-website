@@ -3,7 +3,7 @@ title: Homework 6
 layout: default
 ---
 
-From the book, p. 875 q. 9. Due Nov 10, 11pm (Thurs).
+From the book, p. 875 q. 9. Due Nov 13, 11pm (Sun).
 
 Skills needed to complete this assignment:
 
