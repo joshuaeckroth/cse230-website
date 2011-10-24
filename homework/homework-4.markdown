@@ -139,7 +139,9 @@ parser in a special programming language, and which then produce C++
 code that actually performs the parsing. If you want to learn more
 about this, feel free to ask me.
 
-Anyway, you need to download some files (.cpp files and .h files) and
+## Set up your editor
+
+You need to download some files (.cpp files and .h files) and
 load these as your CodeBlocks/Visual Studio/Xcode "project."
 
 Here is a ZIP package with all the files you need:
@@ -151,6 +153,10 @@ particular, you will see a loop that allows the user to type an
 expression and have it evaluated (you won't need to modify that loop;
 if you provide the rest of the code, the "interactive" parsing feature
 should work properly).
+
+I have created two videos for setting up Windows IDEs. Watch the
+[CodeBlocks video](/video/homework-4-codeblocks.html) or the
+[VisualStudio video](/video/homework-4-visualstudio.html).
 
 ## Your task
 
