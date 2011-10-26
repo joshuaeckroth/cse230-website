@@ -9,26 +9,21 @@ layout: default
 #include <cmath>
 using namespace std;
 
-typedef struct node {
+struct list {
     double value;
-    node* pnext;
-} node;
+    list* pnext;
+};
 
-// let's make a new type: a pointer to a node is a 'list'
-typedef node* list;
- 
 // this function adds a new node at the beginning of a list;
 // it receives the pointer to the 'head' of an existing list
 // and changes that pointer; that's why the first parameter
 // is a call-by-reference parameter
-void insert_front(list &head, double value)
+void insert_front(list &*head, double value)
 {
-    node *n = new node;
+    list *n = new list;
     n->value = value;
     n->pnext = head;
  
-    // a 'list' is a 'node*' so make head equal
-    // to the pointer to the node we created
     head = n;
 }
  
@@ -36,7 +31,7 @@ void insert_front(list &head, double value)
 // to do so, it has to find the end of the list first;
 // note it may change the head pointer, if the list
 // is empty; so head is call-by-reference
-void push_back(list &head, double value)
+void push_back(list &*head, double value)
 {
     // push_back == insert_front when we have no list
     if(head == NULL)
@@ -46,7 +41,7 @@ void push_back(list &head, double value)
     else
     {
         // find the end of the list
-        node *n = head;
+        list *n = head;
         while(n->pnext != NULL)
         {
             // go to next node so long as there is one
@@ -55,12 +50,12 @@ void push_back(list &head, double value)
  
         // by the way, that loop could have been done
         // with the following 'for' loop
-        // node *n;
+        // list *n;
         // for(n = head; n->pnext != NULL; n = n->pnext);
  
         // now n points to the last node;
         // make a new node
-        node *n2 = new node;
+        list *n2 = new list;
         n2->value = value;
         n2->pnext = NULL;
  
@@ -70,7 +65,7 @@ void push_back(list &head, double value)
     }
 }
 
-void insert_before(list &head, int n, double value)
+void insert_before(list &*head, int n, double value)
 {
     if(n < 0) return;
 
@@ -81,7 +76,7 @@ void insert_before(list &head, int n, double value)
     }
 
     // find the (n-1)'st node
-    node *tmp = head;
+    list *tmp = head;
     int i = 0;
     while(i < (n-1) && tmp->pnext != NULL)
     {
@@ -91,13 +86,13 @@ void insert_before(list &head, int n, double value)
 
     // now tmp points to the node we
     // should insert *after*
-    node *n2 = new node;
+    list *n2 = new list;
     n2->value = value;
     n2->pnext = tmp->pnext;
     tmp->pnext = n2;
 }
 
-void remove_nth(list &head, int n)
+void remove_nth(list &*head, int n)
 {
     if(n < 0 || head == NULL) return;
 
@@ -105,7 +100,7 @@ void remove_nth(list &head, int n)
     // needs to change
     if(n == 0)
     {
-        node *oldhead = head;
+        list *oldhead = head;
         head = head->pnext;
         delete oldhead;
     }
@@ -117,8 +112,8 @@ void remove_nth(list &head, int n)
         // n != 0); if the list is shorter than n
         // elements, do nothing (just return)
         int i = 0;
-        node *tmp = head;
-        node *prev;
+        list *tmp = head;
+        list *prev;
         while(i < n && tmp != NULL)
         {
             prev = tmp;
@@ -135,10 +130,10 @@ void remove_nth(list &head, int n)
     }
 }
 
-void reverse(list &head)
+void reverse(list &*head)
 {
-    node *n = head;
-    node *tmp;
+    list *n = head;
+    list *tmp;
 
     // special case: point front to NULL
     if(n != NULL)
@@ -172,7 +167,7 @@ void reverse(list &head)
 }
 
 // count length of list
-int length(list head)
+int length(list *head)
 {
     int i = 0;
     while(head != NULL)
@@ -186,7 +181,7 @@ int length(list head)
 // return nth element (counting from 0);
 // can't be called on an empty list and
 // n must be a valid position
-double nth(list head, int n)
+double nth(list *head, int n)
 {
     assert(head != NULL);
 
@@ -207,7 +202,7 @@ double nth(list head, int n)
 // a particular value; (we use epsilon
 // because doubles don't have exact values);
 // returns -1 if the value was not found
-int find(list head, double value, double epsilon)
+int find(list *head, double value, double epsilon)
 {
     int i = -1;
     while(head != NULL)
@@ -234,7 +229,7 @@ int find(list head, double value, double epsilon)
 
  
 // print all the values
-void print_list(list head)
+void print_list(list *head)
 {
     cout.precision(1);
     cout.setf(ios::fixed, ios::floatfield);
@@ -251,9 +246,9 @@ void print_list(list head)
 }
  
 // free up all the memory used by the list
-void delete_list(list &head)
+void delete_list(list &*head)
 {
-    node *n;
+    list *n;
     while(head != NULL)
     {
         n = head;
@@ -266,7 +261,7 @@ void delete_list(list &head)
 
 int main()
 {
-    list mylist = NULL;
+    list *mylist = NULL;
 
     cout << "empty list: ";
     print_list(mylist);

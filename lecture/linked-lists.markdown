@@ -3,72 +3,77 @@ title: Linked lists
 layout: default
 ---
 
-As we have learned, arrays are used to manage lots of values with a single
-"variable" (plus an index for each element). Arrays, in C++, are very efficient
-(accessing individual elements takes virtually no time at all), but they are
-difficult to use (an array cannot "grow," for instance).
+As we have learned, arrays are used to manage lots of values with a
+single "variable" (plus an index for each element). Arrays, in C++,
+are very efficient (accessing individual elements takes virtually no
+time at all), but they are difficult to use (an array cannot "grow,"
+for instance).
 
-An alternative to arrays is linked lists. Linked lists are not as efficient
-(grabbing a value from the middle of the list is not as efficient as it would
-be with an array) but they are more flexible: they can grow and shrink at will.
+An alternative to arrays is linked lists. Linked lists are not as
+efficient (grabbing a value from the middle of the list is not as
+efficient as it would be with an array) but they are more flexible:
+they can grow and shrink at will.
 
-**(Note: download all the code in these lecture notes as a complete program: [list.cpp](/code/list-cpp.html))**
+**(Note: download all the code in these lecture notes as a complete
+  program: [list.cpp](/code/list-cpp.html))**
 
 ## How a linked list works
 
-A linked list is composed of "nodes." Each node is a value plus a pointer to
-the next node. Here is the typical linked list diagram:
+A linked list is composed of "nodes." Each node is a value plus a
+pointer to the next node. Here is the typical linked list diagram:
 
 ![linked list](/images/linked-list.png "linked list")
 
-So a linked list is a chain of "node" types of things. Each node must have (at
-least) two things: a value and a pointer to the next node. The value is
-necessary because the list is supposed to have values in it; the value can be
-anything, of course (a `double`, an `int`, whatever; maybe even something
-complicated like a linked list! though that's a little funny to think about).
-The pointer is necessary in order to create the chain.
+So a linked list is a chain of "node" types of things. Each node must
+have (at least) two things: a value and a pointer to the next
+node. The value is necessary because the list is supposed to have
+values in it; the value can be anything, of course (a `double`, an
+`int`, whatever; maybe even something complicated like a linked list!
+though that's a little funny to think about).  The pointer is
+necessary in order to create the chain.
 
-We saw "structures" earlier (at the end of the [Multidimensional
-arrays](/lecture/multidimensional-arrays.html) lecture notes). We can define a node
-structure (which stores `double` values, just to choose something) and
-simultaneously make a new type called `node` like this:
+We saw "structures" earlier (at the end of the
+[Multidimensional arrays](/lecture/multidimensional-arrays.html)
+lecture notes). We can define a list structure (which stores `double`
+values, just to choose something) and simultaneously make a new type
+called `list` like this:
 
 {% highlight cpp %}
-struct node {
+struct list {
     double value;
-    node* pnext;
+    list* pnext;
 };
 {% endhighlight %}
 
-Now we can make a single node (which has no "next" node, so `pnext` points to
-nothing):
+Now we can make a single node (which has no "next" node, so `pnext`
+points to nothing):
 
 {% highlight cpp %}
-node mynode;
+list mynode;
 mynode.value = -130.569;
 mynode.pnext = NULL;
 {% endhighlight %}
 
-There we have it. Our first linked list! It only has one node (one value), so
-it's not much of a list.
+There we have it. Our first linked list! It only has one node (one
+value), so it's not much of a list.
 
 ## Linking nodes
 
-Let's make another node, so we can link the first to the second. And then we'll
-make a third, and get the equivalent of the diagram above.
+Let's make another node, so we can link the first to the second. And
+then we'll make a third, and get the equivalent of the diagram above.
 
 {% highlight cpp %}
-node mynode2;
+list mynode2;
 mynode2.value = 10.586;
 mynode2.pnext = NULL;
 
-node mynode3;
+list mynode3;
 mynode3.value = -74.30;
 mynode3.pnext = NULL;
 {% endhighlight %}
 
-Wait, that's not right; they aren't linked. We need `mynode` and `mynode2` to
-link to their next node:
+Wait, that's not right; they aren't linked. We need `mynode` and
+`mynode2` to link to their next node:
 
 {% highlight cpp %}
 mynode.pnext = &mynode2;
@@ -77,48 +82,31 @@ mynode2.pnext = &mynode3;
 
 Now we have the equivalent of the diagram above.
 
-Note, because this will come up again in just a minute, that if you have a
-pointer to a structure, such as a pointer to a node:
+Note, because this will come up again in just a minute, that if you
+have a pointer to a structure, such as a pointer to a node:
 
 {% highlight cpp %}
-node *pnode = &mynode;
+list *head = &mynode;
 {% endhighlight %}
 
-then to access the elements of the structure, you can use `->` rather than
-dereference `*` followed by `.` like so:
+then to access the elements of the structure, you can use `->` rather
+than dereference `*` followed by `.` like so:
 
 {% highlight cpp %}
 // these are equivalent:
-pnode->value = 14.0;
-(*pnode).value = 14.0;
+head->value = 14.0;
+(*head).value = 14.0;
 {% endhighlight %}
 
 It's just an extra syntax for convenience.
 
 ## A menagerie of functions
 
-It was tedious to make each node and then link them together. Let's make
-functions that do this for us. Since these functions will be creating node
-variables, we'll use the `new` operator, and we'll create a function that
-deletes an entire list (because when you use `new` you gotta remember to
-`delete`).
-
-Preliminary: set up a new "type" called a `list`.
-
-{% highlight cpp %}
-#include <iostream>
-#include <cassert>
-#include <cmath>
-using namespace std;
-
-struct node {
-    double value;
-    node* pnext;
-};
-
-// let's make a new type: a pointer to a node is a 'list'
-typedef node* list;
-{% endhighlight %}
+It was tedious to make each node and then link them together. Let's
+make functions that do this for us. Since these functions will be
+creating node variables, we'll use the `new` operator, and we'll
+create a function that deletes an entire list (because when you use
+`new` you gotta remember to `delete`).
 
 ## Insert front
 
@@ -127,14 +115,12 @@ typedef node* list;
 // it receives the pointer to the 'head' of an existing list
 // and changes that pointer; that's why the first parameter
 // is a call-by-reference parameter
-void insert_front(list &head, double value)
+void insert_front(list *&head, double value)
 {
-    node *n = new node;
+    list *n = new list;
     n->value = value;
     n->pnext = head;
-
-    // a 'list' is a 'node*' so make head equal
-    // to the pointer to the node we created
+ 
     head = n;
 }
 {% endhighlight %}
@@ -146,7 +132,7 @@ void insert_front(list &head, double value)
 // to do so, it has to find the end of the list first;
 // note it may change the head pointer, if the list
 // is empty; so head is call-by-reference
-void push_back(list &head, double value)
+void push_back(list *&head, double value)
 {
     // push_back == insert_front when we have no list
     if(head == NULL)
@@ -156,24 +142,24 @@ void push_back(list &head, double value)
     else
     {
         // find the end of the list
-        node *n = head;
+        list *n = head;
         while(n->pnext != NULL)
         {
             // go to next node so long as there is one
             n = n->pnext;
         }
-
+ 
         // by the way, that loop could have been done
         // with the following 'for' loop
-        // node *n;
+        // list *n;
         // for(n = head; n->pnext != NULL; n = n->pnext);
-
+ 
         // now n points to the last node;
         // make a new node
-        node *n2 = new node;
+        list *n2 = new list;
         n2->value = value;
         n2->pnext = NULL;
-
+ 
         // link the prior last node ('n')
         // to this new last node ('n2')
         n->pnext = n2;
@@ -184,7 +170,7 @@ void push_back(list &head, double value)
 ## Insert before some position
 
 {% highlight cpp %}
-void insert_before(list &head, int n, double value)
+void insert_before(list *&head, int n, double value)
 {
     if(n < 0) return;
 
@@ -195,7 +181,7 @@ void insert_before(list &head, int n, double value)
     }
 
     // find the (n-1)'st node
-    node *tmp = head;
+    list *tmp = head;
     int i = 0;
     while(i < (n-1) && tmp->pnext != NULL)
     {
@@ -205,7 +191,7 @@ void insert_before(list &head, int n, double value)
 
     // now tmp points to the node we
     // should insert *after*
-    node *n2 = new node;
+    list *n2 = new list;
     n2->value = value;
     n2->pnext = tmp->pnext;
     tmp->pnext = n2;
@@ -215,7 +201,7 @@ void insert_before(list &head, int n, double value)
 ## Remove some position
 
 {% highlight cpp %}
-void remove_nth(list &head, int n)
+void remove_nth(list *&head, int n)
 {
     if(n < 0 || head == NULL) return;
 
@@ -223,7 +209,7 @@ void remove_nth(list &head, int n)
     // needs to change
     if(n == 0)
     {
-        node *oldhead = head;
+        list *oldhead = head;
         head = head->pnext;
         delete oldhead;
     }
@@ -235,24 +221,21 @@ void remove_nth(list &head, int n)
         // n != 0); if the list is shorter than n
         // elements, do nothing (just return)
         int i = 0;
-        node *toDelete = head;
-        node *prev;
-        while(i < n && toDelete != NULL)
+        list *tmp = head;
+        list *prev;
+        while(i < n && tmp != NULL)
         {
-            prev = toDelete;
-            toDelete = toDelete->pnext;
+            prev = tmp;
+            tmp = tmp->pnext;
             i++;
         }
 
         // list is shorter than n elements
-        if(toDelete == NULL) return;
+        if(tmp == NULL) return;
 
         // if we're here, we can do the removal
-        prev->pnext = toDelete->pnext;
-        delete toDelete;
-
-        // if only forgetting were
-        // this easy for me
+        prev->pnext = tmp->pnext;
+        delete tmp;
     }
 }
 {% endhighlight %}
@@ -264,10 +247,10 @@ void remove_nth(list &head, int n)
 ## Reverse the list
 
 {% highlight cpp %}
-void reverse(list &head)
+void reverse(list *&head)
 {
-    node *n = head;
-    node *tmp;
+    list *n = head;
+    list *tmp;
 
     // special case: point front to NULL
     if(n != NULL)
@@ -305,7 +288,7 @@ void reverse(list &head)
 
 {% highlight cpp %}
 // count length of list
-int length(list head)
+int length(list *head)
 {
     int i = 0;
     while(head != NULL)
@@ -323,7 +306,7 @@ int length(list head)
 // return nth element (counting from 0);
 // can't be called on an empty list and
 // n must be a valid position
-double nth(list head, int n)
+double nth(list *head, int n)
 {
     assert(head != NULL);
 
@@ -348,7 +331,7 @@ double nth(list head, int n)
 // a particular value; (we use epsilon
 // because doubles don't have exact values);
 // returns -1 if the value was not found
-int find(list head, double value, double epsilon)
+int find(list *head, double value, double epsilon)
 {
     int i = -1;
     while(head != NULL)
@@ -378,7 +361,7 @@ int find(list head, double value, double epsilon)
 
 {% highlight cpp %}
 // print all the values
-void print_list(list head)
+void print_list(list *head)
 {
     cout.precision(1);
     cout.setf(ios::fixed, ios::floatfield);
@@ -399,9 +382,9 @@ void print_list(list head)
 
 {% highlight cpp %}
 // free up all the memory used by the list
-void delete_list(list &head)
+void delete_list(list *&head)
 {
-    node *n;
+    list *n;
     while(head != NULL)
     {
         n = head;
@@ -417,7 +400,7 @@ Here is an example of how such functions can be used:
 {% highlight cpp %}
 int main()
 {
-    list mylist = NULL;
+    list *mylist = NULL;
 
     cout << "empty list: ";
     print_list(mylist);
@@ -428,8 +411,8 @@ int main()
 
     cout << "length: " << length(mylist) << endl;
 
-    cout << "insert 1.0 before 8: ";
-    insert_before(mylist, 8, 1.0);
+    cout << "insert 1.0 before 0: ";
+    insert_before(mylist, 0, 1.0);
     print_list(mylist);
 
     cout << "delete list, then print: ";
@@ -506,7 +489,7 @@ This is what we see:
 empty list: {}
 reversed: {}
 length: 0
-insert 1.0 before 8: {1.0}
+insert 1.0 before 0: {1.0}
 delete list, then print: {}
 add 4.0, 3.0 to front, 5.0 to back: {3.0, 4.0, 5.0}
 nth(0): 3.0
