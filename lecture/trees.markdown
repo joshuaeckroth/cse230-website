@@ -48,7 +48,7 @@ The rest of these lecture notes will refer specifically to
 [Homework 4](/homework/homework-4.html) requirements.
 
 In Homework 4, each tree node contains two values (besides the
-pointers): a `string op` value and a `double avl` value. The idea is
+pointers): a `string op` value and a `double val` value. The idea is
 that the `op` will equal `""` when the node has a numeric value
 (stored in `val`), and `op` will not equal `""` when the node
 represents a mathematical operation (in such cases, `op` may equal
