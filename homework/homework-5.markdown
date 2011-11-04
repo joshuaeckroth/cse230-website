@@ -15,6 +15,9 @@ Skills needed to complete this assignment:
 
   - Splitting code into several files ([lecture notes](/lecture/splitting-code.html))
 
+(See [rectangle.cpp](/code/rectangle-cpp.html) for an example from
+class that's similar to this assignment.)
+
 Write a rational number class. This problem is revisited in Chapter 11 (in the
 book), where operator overloading will make the problem much easier. For now we
 will use member functions `add`, `sub`, `mul`, `div`, and `less` that each
