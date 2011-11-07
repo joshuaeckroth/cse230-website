@@ -66,10 +66,10 @@ header looks like:
 {% highlight cpp %}
 Rational add(Rational &other)
 {
-    Rational result;
-    result.numerator = ...
+    int n, d;
+    n = ...
     // ...
-    return result;  // return a different rational number
+    return Rational(n, d);  // return a different rational number
 }
 {% endhighlight %}
 
@@ -80,10 +80,10 @@ is executing the function be modified, we can say the parameter is `const`
 {% highlight cpp %}
 Rational add(const Rational &other) const
 {
-    Rational result;
-    result.numerator = ...
+    int n, d;
+    n = ...
     // ...
-    return result;
+    return Rational(n, d);
 }
 {% endhighlight %}
 
