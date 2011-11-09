@@ -82,3 +82,18 @@ Here is a diagram of the classes.
 Note, if you want `balance` not to be `public` in the BankAccount class then
 you'll actually need to make it `protected`. This ensures that it will be
 accessible by subclasses but remain private in the subclasses.
+
+## Example execution
+
+<pre>
+Enter Josh's MoneyMarketAccount balance: 50
+Enter Tracy's CDAccount balance: 40
+Enter Tracy's CDAccount interest rate: 0.5
+Enter amount to deposit into Tracy's account: 30
+That worked.
+Tracy's new balance: 70
+Enter amount to transfer from Tracy to Josh: 60
+That worked.
+Tracy's new balance: 2.5
+Josh's new balance: 110
+</pre>
