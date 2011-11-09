@@ -86,14 +86,24 @@ accessible by subclasses but remain private in the subclasses.
 ## Example execution
 
 <pre>
-Enter Josh's MoneyMarketAccount balance: 50
-Enter Tracy's CDAccount balance: 40
+Enter Josh's MoneyMarketAccount balance: 100
+Enter amount to withdraw from Josh: 20
+That worked.
+Josh's new balance: 80
+Enter amount to withdraw from Josh (again): 30
+That worked.
+Josh's new balance: 50
+Enter Tracy's CDAccount balance: 50
 Enter Tracy's CDAccount interest rate: 0.5
 Enter amount to deposit into Tracy's account: 30
 That worked.
-Tracy's new balance: 70
+Tracy's new balance: 80
 Enter amount to transfer from Tracy to Josh: 60
 That worked.
-Tracy's new balance: 2.5
+Tracy's new balance: 12.5
 Josh's new balance: 110
+Enter amount to transfer from Josh to Tracy: 100
+That worked.
+Tracy's new balance: 112.5
+Josh's new balance: 8.5
 </pre>
