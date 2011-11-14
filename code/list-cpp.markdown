@@ -18,7 +18,7 @@ struct list {
 // it receives the pointer to the 'head' of an existing list
 // and changes that pointer; that's why the first parameter
 // is a call-by-reference parameter
-void insert_front(list &*head, double value)
+void insert_front(list* &head, double value)
 {
     list *n = new list;
     n->value = value;
@@ -31,7 +31,7 @@ void insert_front(list &*head, double value)
 // to do so, it has to find the end of the list first;
 // note it may change the head pointer, if the list
 // is empty; so head is call-by-reference
-void push_back(list &*head, double value)
+void push_back(list* &head, double value)
 {
     // push_back == insert_front when we have no list
     if(head == NULL)
@@ -65,7 +65,7 @@ void push_back(list &*head, double value)
     }
 }
 
-void insert_before(list &*head, int n, double value)
+void insert_before(list* &head, int n, double value)
 {
     if(n < 0) return;
 
@@ -92,7 +92,7 @@ void insert_before(list &*head, int n, double value)
     tmp->pnext = n2;
 }
 
-void remove_nth(list &*head, int n)
+void remove_nth(list* &head, int n)
 {
     if(n < 0 || head == NULL) return;
 
@@ -130,7 +130,7 @@ void remove_nth(list &*head, int n)
     }
 }
 
-void reverse(list &*head)
+void reverse(list* &head)
 {
     list *n = head;
     list *tmp;
@@ -246,7 +246,7 @@ void print_list(list *head)
 }
  
 // free up all the memory used by the list
-void delete_list(list &*head)
+void delete_list(list* &head)
 {
     list *n;
     while(head != NULL)
