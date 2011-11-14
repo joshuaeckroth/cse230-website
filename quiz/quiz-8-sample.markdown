@@ -4,7 +4,7 @@ layout: default
 ---
 
 This quiz will ask you to write some code that works with vectors (see
-the [Vector lecture notes](/lecture/vectors.html).
+the [Vector lecture notes](/lecture/vectors.html)).
 
 You will need to write code that adds data to a vector, prints data
 from a vector, and sorts a vector. The data will come from the
