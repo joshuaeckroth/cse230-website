@@ -54,6 +54,9 @@ should use `private` and `public` data/methods in your class (make a meaningful
 separation). Also, split your code into three files: `room.h`, `room.cpp`, and
 `main.cpp`.
 
+If you choose to represent your room exits with a map, have a look at
+this example code from class: [room.cpp](/code/room-cpp.html)
+
 **If you choose to work in a group of 2 or 3 people:** First, you must tell me
 who worked on what part of the code; you will all get the same grade, but
 please be honest about who did what. Second, you must write a more complicated,
