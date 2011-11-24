@@ -250,8 +250,14 @@ Rectangle 10 by 10 at position 9.3,2.3
 
 ## Reading an object
 
-This is similar to what was done previously. The Rectangle class declaration is
-modified:
+We want to create a new shape based on input from the user, or input
+from a file. To do so, we'll create a function that's *not* a class
+member function but rather an external function (which should probably
+still be mentioned in the particular shape's `.h` file and programmed
+in the `.cpp` file). The reason not to use a class member function is
+that we should not be required to create an object before we read its
+values; what values would we use to create the object if we don't yet
+know its values?
 
 {% highlight cpp %}
 class Rectangle : public Shape
@@ -264,86 +270,35 @@ class Rectangle : public Shape
               double _x, double _y);
     double area();
     void print(ostream &out);
-    void read(istream &in); // <--- new
 };
+
+void read(istream &in); // <--- new
 {% endhighlight %}
 
-The `read` function may be defined as follows.
+The `readRectangle` function may be defined as follows.
 
 {% highlight cpp %}
-void Rectangle::read(istream &in)
+Rectangle readRectangle(istream &in)
 {
+    int width, height, x, y;
     in >> width >> height >> x >> y;
+    // now defer to the constructor
+    return Rectangle(width, height, x, y);
 }
 {% endhighlight %}
 
 Note we use `in` instead of `cin`. The rectangle information may actually be
 coming from a file, not the keyboard. By using an `ifstream` object as an input
-to the function, we can treat `cin` and file input the same.
+to the function, we can treat `cin` and input from a file identically.
 
-Here is a use of the `read` function:
+Here is a use of the `readRectangle` function:
 
 {% highlight cpp %}
-Rectangle r(10.0, 10.0, 9.3, 2.3);
-r.print(cout);
-cout << endl;
-
 cout << "Enter rectangle's new width, height, x, y: ";
-r.read(cin);  // we use the read function here
+Rectangle r = readRectangle(cin);  // we use the read function here
 r.print(cout);
 cout << endl;
 {% endhighlight %}
-
-Notice in that example that a Rectangle instance was created (`r`) with
-particular values (10.0, etc.), but then its information was read from the user
-and those values were changed. If we expect to get the rectangle's values from
-the user, then we should not be required to specify them ahead of time. In
-other words, we want a constructor that has no parameters. Such a constructor
-is provided for free (it simply does nothing) *only when* other constructors
-have not been defined. Since we defined another constructor (which has four
-`double` parameters), the empty default constructor is no longer provided for
-free. So we'll just add it:
-
-{% highlight cpp %}
-class Rectangle : public Shape
-{
-    public:
-    double width;
-    double height;
-
-    Rectangle();  // <--- new
-    Rectangle(double _width, double _height,
-              double _x, double _y);
-    double area();
-    void print(ostream &out);
-    void read(istream &in);
-};
-{% endhighlight %}
-
-Here is its code.
-
-{% highlight cpp %}
-Rectangle::Rectangle()
-{
-    width = height = x = y = 0.0;
-}
-{% endhighlight %}
-
-This default constructor just sets all the properties to a default value.
-
-Now, when a Rectangle object is created with no parameters, it is this default
-constructor that is called.
-
-{% highlight cpp %}
-Rectangle r;
-r.print(cout);
-{% endhighlight %}
-
-We see this on the screen:
-
-<pre>
-Rectangle 0 by 0 at position 0,0
-</pre>
 
 ## Methods that return new objects
 
@@ -365,8 +320,9 @@ class Rectangle : public Shape
     double area();
     Rectangle flip();  // <--- new
     void print(ostream &out);
-    void read(istream &in);
 };
+
+Rectangle readRectangle(istream &in);
 {% endhighlight %}
 
 {% highlight cpp %}
