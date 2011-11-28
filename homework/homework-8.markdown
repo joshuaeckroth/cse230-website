@@ -177,3 +177,105 @@ combat system (as demonstrated in class), or add physical objects that don't
 move, and add room capacities so that a room full of stuff may not be able to
 accommodate the player.
 
+## Example interaction
+
+In this example, we have two player (Josh and Tracy), and rooms have a
+size limit (the Hallway cannot fit two people). You do not need to
+implement room size limits. Also notice that the player is notified
+when somebody else is in the room (either a player or a monster), and
+players switch turns.
+
+<pre>
+Welcome!
+
+
+--Josh--Entrance------
+A wide open entrance...
+
+You see here:
+ Tracy (A princess)
+
+Exits:
+ south: Hallway
+
+Josh, which exit? (or 'quit'): south
+
+
+
+--Tracy--Entrance------
+A wide open entrance...
+
+You see here:
+
+Exits:
+ south: Hallway
+
+Tracy, which exit? (or 'quit'): south
+
+!!! No such exit or that room is full. !!!
+
+
+--Josh--Hallway------
+A long hallway...
+
+You see here:
+
+Exits:
+ east: Ballroom
+ north: Entrance
+
+Josh, which exit? (or 'quit'): east
+
+
+
+--Tracy--Entrance------
+A wide open entrance...
+
+You see here:
+
+Exits:
+ south: Hallway
+
+Tracy, which exit? (or 'quit'): south
+
+
+
+--Josh--Ballroom------
+A huge ballroom...
+
+You see here:
+ A grue named Kafka (A nasty, horrible monster)
+
+Exits:
+ west: Hallway
+
+Josh, which exit? (or 'quit'): west
+
+!!! No such exit or that room is full. !!!
+
+
+--Tracy--Hallway------
+A long hallway...
+
+You see here:
+ A grue named Napolean (A nasty, horrible monster)
+
+Exits:
+ east: Ballroom
+ north: Entrance
+
+Tracy, which exit? (or 'quit'): east
+
+
+
+--Josh--Ballroom------
+A huge ballroom...
+
+You see here:
+ Tracy (A princess)
+
+Exits:
+ west: Hallway
+
+Josh, which exit? (or 'quit'):  
+</pre>
