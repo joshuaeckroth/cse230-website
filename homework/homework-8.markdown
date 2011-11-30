@@ -172,6 +172,57 @@ exists in class methods, and points to the monster or player who is changing
 rooms), then change rooms, then enter the new room (i.e.
 `cur_room->enter(this)` after `cur_room` has been changed).
 
+Note that there will be a small problem with the modified Room
+class. Your new Room class will need a vector of agents, like so:
+
+{% highlight cpp %}
+class Room
+{
+    private:
+    vector<Agent*> occupants;
+
+    // ...
+};
+{% endhighlight %}
+
+You might expect to add `#include "agent.h"` to the top of
+`room.h`. However, this is not going to work, because `agent.h`
+already has `#include "room.h"`. The two `.h` files can't both
+"include" each other -- cyclical includes are not allowed.
+
+So the solution to this is to keep `#include "room.h"` inside
+`agent.h` but don't put `#include "agent.h"` inside `room.h`. Of
+course, without that "include," the Room class won't know what an
+Agent is. We solve this by adding a *forward declaration* of the Agent
+class, like so:
+
+{% highlight cpp %}
+class Agent;  // forward declaration
+
+class Room
+{
+    private:
+    vector<Agent*> occupants;
+
+    // ...
+};
+{% endhighlight %}
+
+What this says is "I promise there will be a class called Agent,
+eventually, but not yet." As long as we stick with pointers to Agents,
+this will work.
+
+In the `room.cpp` and `agent.cpp` files, you can "include" whatever
+you want (so `#include "agent.h"` and `#include "room.h"` in the
+respective `.cpp` files); there is no cyclical dependency in this case
+because `.cpp` files don't "include" each other, and are compiled
+separately.
+
+Note that you could have alternatively used a forward declaration of
+Room instead of Agent; it would work either way.
+
+## Group work
+
 If you work in a group of 2 or 3, you'll need to do more; for example, add a
 combat system (as demonstrated in class), or add physical objects that don't
 move, and add room capacities so that a room full of stuff may not be able to
