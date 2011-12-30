@@ -132,6 +132,26 @@ works with a class). We'll have the new Player and Enemy classes "inherit" the
 attributes `position_x` and `position_y` from the Agent parent class; they will
 also inherit the method `walk_one_step()`.
 
+> The primary point of object-oriented programming is to move the
+> focus of program design from algorithms to data structures. In
+> particular, a data structure is elevated to the point that it can
+> contain its own operations.
+
+> But such data structures---called objects---often are related to one
+> another in a particular way: One is just like another except for
+> some additions or slight modifications. In this situation, there
+> will be too much duplication if such objects are completely
+> separate, so a means of inheriting code---methods---was developed.
+
+> Hence we see the claim of reuse in object-oriented languages: When
+> writing a single program, a programmer reuses code already developed
+> by inheriting that code from more general objects or classes. There
+> is a beauty to this sort of reuse: It requires no particular process
+> because it is part of the nature of the language.
+
+> In short, subclassing is the means of reuse. --- Richard P. Gabriel,
+> *Patterns of Software*
+
 ## How to use class methods
 
 Ok, now that we have the right hierarchy for Players and Enemies, we need to

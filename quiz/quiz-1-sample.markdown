@@ -3,10 +3,10 @@ title: Quiz 1 sample
 layout: default
 ---
 
-Read the following code, paying particular attention to the comments. If a
-comment indicates that code should be added, write code in the blank space
-following the comment. Your code should perform the task described in the
-comments.
+Read the following code, paying particular attention to the
+comments. If a comment indicates that code should be added, write code
+in the blank space following the comment. Your code should perform the
+task described in the comments.
 
 {% highlight cpp %}
 #include <iostream>

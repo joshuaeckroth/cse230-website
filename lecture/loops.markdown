@@ -3,46 +3,47 @@ layout: default
 title: Loops
 ---
 
-So far our programs have not used any loops. A loop is a repetition of some
-section of code. Loops are essential in the common situation where user input
-or data determines how many times something should occur. In other cases, the
-programmer just wants to save time by reducing the amount of typing or
-copy-pasting required, as our first example below shows.
+So far our programs have not used any loops. A loop is a repetition of
+some section of code. Loops are essential in the common situation
+where user input or data determines how many times something should
+occur. In other cases, the programmer just wants to save time by
+reducing the amount of typing or copy-pasting required, as our first
+example below shows.
 
-Consider the simple example of the "bottles of beer" song.  This is how it goes
-(as far as I know):
+Consider the simple example of the "bottles of beer" song.  This is
+how it goes (as far as I know):
 
-> 99 bottles of beer on the wall, 99 bottles of beer, take one down, pass it
-> around, 98 bottles of beer on the wall.
+> 99 bottles of beer on the wall, 99 bottles of beer, take one down,
+> pass it around, 98 bottles of beer on the wall.
 
-> 98 bottles of beer on the wall, 98 bottles of beer, take one down, pass it
-> around, 97 bottles of beer on the wall.
+> 98 bottles of beer on the wall, 98 bottles of beer, take one down,
+> pass it around, 97 bottles of beer on the wall.
 
-> 97 bottles of beer on the wall, 97 bottles of beer, take one down, pass it
-> around, 96 bottles of beer on the wall.
+> 97 bottles of beer on the wall, 97 bottles of beer, take one down,
+> pass it around, 96 bottles of beer on the wall.
 
 > ...
 
-> 1 bottle of beer on the wall, 1 bottle of beer, take it down, pass it around,
-> no more bottles of beer on the wall.
+> 1 bottle of beer on the wall, 1 bottle of beer, take it down, pass
+> it around, no more bottles of beer on the wall.
 
-Clearly this is a loop. (But a program that prints these lyrics need not use
-loops, since you know it should print 100 lines. You could just use 100
-separate `cout` statements.  Using a loop, on the other hand, saves us from
-such tedium.)
+Clearly this is a loop. (But a program that prints these lyrics need
+not use loops, since you know it should print 100 lines. You could
+just use 100 separate `cout` statements.  Using a loop, on the other
+hand, saves us from such tedium.)
 
-> **loop** *n.* The frantic rehearsal of a certain sequence of program steps
-> until the system "gets it right," failing which the loop is branded
-> *endless*; the repetition of a certain sequence of program steps
-> `while`, and only while, a set of unforeseen circumstances
-> prevails; an algorithmic recycling; a piece of code in search of a loophole.
-> --- *The computer contradictionary*
+> **loop** *n.* The frantic rehearsal of a certain sequence of program
+> steps until the system "gets it right," failing which the loop is
+> branded *endless*; the repetition of a certain sequence of program
+> steps `while`, and only while, a set of unforeseen circumstances
+> prevails; an algorithmic recycling; a piece of code in search of a
+> loophole.  -- *The computer contradictionary*
 
 ## Building up to 99 bottles of beer
 
-In C++, the simplest loop is the `while` loop. Here is a `while` loop that
-prints the first line of the song, forever and ever (infinitely-many copies of
-this same lyric are shown on the screen):
+In C++, the simplest loop is the `while` loop. Here is a `while` loop
+that prints the first line of the song, forever and ever
+(infinitely-many copies of this same lyric are shown on the screen):
 
 {% highlight cpp %}
 while(true)
@@ -62,30 +63,35 @@ while(conditional)
 }
 {% endhighlight %}
 
-where `conditional` is the same kind of conditional used in `if` statements. In
-other words, `conditional` must be something that is a `bool` result.
+where `conditional` is the same kind of conditional used in `if`
+statements. In other words, `conditional` must be something that is a
+`bool` result.
 
-In an `if` statement, there is no repetition, so the conditional is only
-checked once. In a `while` loop, on the other hand, the conditional is checked
-before the loop begins and after every time the stuff inside the loop is
-executed. In other words, first `conditional` is checked. If it turns out to be
-true, then `stuff...` is executed. Then `conditional` is checked again. If it
-is true, `stuff...` is executed. And so on, looping over and over so long as
-`conditional` is true. If at some point `conditional` is false, then `stuff...`
-is not executed and the loop is finished. Execution resumes after the `while`
-loop block (a block starts with `{` and ends with `}`).
+In an `if` statement, there is no repetition, so the conditional is
+only checked once. In a `while` loop, on the other hand, the
+conditional is checked before the loop begins and after every time the
+stuff inside the loop is executed. In other words, first `conditional`
+is checked. If it turns out to be true, then `stuff...` is
+executed. Then `conditional` is checked again. If it is true,
+`stuff...` is executed. And so on, looping over and over so long as
+`conditional` is true. If at some point `conditional` is false, then
+`stuff...` is not executed and the loop is finished. Execution resumes
+after the `while` loop block (a block starts with `{` and ends with
+`}`).
 
-We saw a "degenerate" loop earlier. It started with `while(true)`. A loop like
-that never stops because the conditional is always true. Another degenerate
-case is `while(false)`. In this case, since the conditional is never true, the
-stuff inside the block never executes. We will see later that `while(true)`
-actually can be useful in a program, but `while(false)` is never useful.
+We saw a "degenerate" loop earlier. It started with `while(true)`. A
+loop like that never stops because the conditional is always
+true. Another degenerate case is `while(false)`. In this case, since
+the conditional is never true, the stuff inside the block never
+executes. We will see later that `while(true)` actually can be useful
+in a program, but `while(false)` is never useful.
 
 > A program without a loop and a variable isn't worth writing. --
 > *Alan J. Perlis, Epigrams on Programming*
 
-A loop can be stopped by two techniques. The first technique will be discussed
-now. A loop stops when the conditional is false. Consider this loop:
+A loop can be stopped by two techniques. The first technique will be
+discussed now. A loop stops when the conditional is false. Consider
+this loop:
 
 {% highlight cpp %}
 while(x != 0)
@@ -94,10 +100,10 @@ while(x != 0)
 }
 {% endhighlight %}
 
-This loop is stopped only when `x == 0` because that is the only case when the
-conditional is false. This suggests that somewhere inside the loop, `x` has to
-change such that, eventually, `x` is given the value `0`. If that never happens
-inside the loop, the loop never ends.
+This loop is stopped only when `x == 0` because that is the only case
+when the conditional is false. This suggests that somewhere inside the
+loop, `x` has to change such that, eventually, `x` is given the value
+`0`. If that never happens inside the loop, the loop never ends.
 
 Consider the bottles of beer again. Here is a loop that mostly works:
 
@@ -113,11 +119,11 @@ while(n > 0)
 }
 {% endhighlight %}
 
-See how in that case, the conditional `n > 0` does eventually become false,
-because `n` is decreased each time the loop executes.
+See how in that case, the conditional `n > 0` does eventually become
+false, because `n` is decreased each time the loop executes.
 
-In the last code segment, the final bottles-of-beer lyric is not handled
-properly. Here is a fix:
+In the last code segment, the final bottles-of-beer lyric is not
+handled properly. Here is a fix:
 
 {% highlight cpp %}
 int n = 99;
@@ -136,8 +142,8 @@ The last case, when `n == 1`, is special so we put it outside the loop.
 
 ## What's really happening
 
-The `while()` loop is basically converted into an `if` and `goto` statement.
-For example, this loop:
+The `while()` loop is basically converted into an `if` and `goto`
+statement.  For example, this loop:
 
 {% highlight cpp %}
 int x = 0;
@@ -162,14 +168,15 @@ if(x < 10)
 {% endhighlight %}
 
 > **loophole** *n.* **1** The escape route sought by a loop. **2**
-> *Metacomputer science* The conceptual gap left when a loop migrates to
-> another part of the metasystem. Any fresh loop nearby will be attracted into
-> the hole, and so on. --- *The computer contradictionary*
+> *Metacomputer science* The conceptual gap left when a loop migrates
+> *to > another part of the metasystem. Any fresh loop nearby will be
+> *attracted into > the hole, and so on. -- *The computer
+> *contradictionary*
 
 ## Interactive program
 
-The following program repeatedly asks the user for a letter; if the user ever
-types "q" then the program is done.
+The following program repeatedly asks the user for a letter; if the
+user ever types "q" then the program is done.
 
 {% highlight cpp %}
 char c;
@@ -188,9 +195,9 @@ while(c != 'q')
 }
 {% endhighlight %}
 
-This program is better written with a `do-while` loop because we want the
-`cout` and `cin` pair to be done even before the check. Here it is with
-`do-while`:
+This program is better written with a `do-while` loop because we want
+the `cout` and `cin` pair to be done even before the check. Here it is
+with `do-while`:
 
 {% highlight cpp %}
 char c;
@@ -209,7 +216,8 @@ do
 
 ## Newton example
 
-(This will be explained in class, and possibly explained here, eventually.)
+(This will be explained in class, and possibly explained here,
+eventually.)
 
 {% highlight cpp %}
 #include <iostream>
@@ -238,9 +246,10 @@ int main()
 
 ## for() loop
 
-Anything a `while` loop can do, a `for` loop can do, and vice versa. However,
-each kind of loop is used equally often in practice because they have slightly
-different "styles."  First, we will look at how `for` loops work.
+Anything a `while` loop can do, a `for` loop can do, and vice
+versa. However, each kind of loop is used equally often in practice
+because they have slightly different "styles."  First, we will look at
+how `for` loops work.
 
 ![Foxtrot comic](/images/fox-loop.jpg "Foxtrot comic")
 
@@ -272,9 +281,9 @@ This is what the three parts inside the parentheses (commonly) mean:
 
 1. execute whatever is put in the `initialization`
 
-2. check the `conditional`; if it evaluates to `false` (`0`) then skip the
-loop; if it evaluates to `true` (any integer not equal to `0`), continue to the
-next step
+2. check the `conditional`; if it evaluates to `false` (`0`) then skip
+the loop; if it evaluates to `true` (any integer not equal to `0`),
+continue to the next step
 
 3. execute the `stuff` inside the block
 
@@ -282,8 +291,9 @@ next step
 
 5. go to step 2
 
-It's useful to see how a `while` loop can be converted to a `for` loop. In this
-example, the `while` loop and the `for` loop are (nearly) equivalent:
+It's useful to see how a `while` loop can be converted to a `for`
+loop. In this example, the `while` loop and the `for` loop are
+(nearly) equivalent:
 
 {% highlight cpp %}
 int i = 0;
@@ -299,11 +309,11 @@ for(int i = 0; i < 10; i++)
 }
 {% endhighlight %}
 
-(The two are only "nearly" equivalent for the following reason: in the `while`
-loop case, the integer `i` is declared outside of the loop, so code that
-follows the loop block can still refer to `i`. In the `for` loop case, the
-integer `i` can only be used inside the `for` loop block; it does not exist
-when the loop is finished.)
+(The two are only "nearly" equivalent for the following reason: in the
+`while` loop case, the integer `i` is declared outside of the loop, so
+code that follows the loop block can still refer to `i`. In the `for`
+loop case, the integer `i` can only be used inside the `for` loop
+block; it does not exist when the loop is finished.)
 
 Let's dissect that `for` loop above:
 
@@ -313,14 +323,15 @@ Let's dissect that `for` loop above:
 
 - `update`: `i++`
 
-You should be able to see these same three components present in the `while`
-loop, but the `while` loop does not have special handling of the three
-components. On the other hand, a `for` loop is specifically designed to have
-exactly those three components (initialization, conditional, and update).
+You should be able to see these same three components present in the
+`while` loop, but the `while` loop does not have special handling of
+the three components. On the other hand, a `for` loop is specifically
+designed to have exactly those three components (initialization,
+conditional, and update).
 
-A `for` loop need not have anything in any of the three components. If none of
-the components have code in them, it is equivalent to an infinite loop. In
-other words, these two loops are equivalent:
+A `for` loop need not have anything in any of the three components. If
+none of the components have code in them, it is equivalent to an
+infinite loop. In other words, these two loops are equivalent:
 
 {% highlight cpp %}
 while(true)
@@ -333,7 +344,8 @@ for(;;)
 }
 {% endhighlight %}
 
-Here is the bottles-of-beer example again, this time using a `for` loop:
+Here is the bottles-of-beer example again, this time using a `for`
+loop:
 
 {% highlight cpp %}
 for(int n = 99; n > 1; n--)
@@ -410,8 +422,8 @@ Here is the result:
 
 </pre> 
 
-Let's fix that extra blank line at the bottom. We will check if the loop is on
-the last iteration; if it is, we don't print the last line:
+Let's fix that extra blank line at the bottom. We will check if the
+loop is on the last iteration; if it is, we don't print the last line:
 
 {% highlight cpp %}
 // the maximum width of a line of stars
@@ -445,10 +457,10 @@ for(int i = 2; i <= width; i += 2)
 }
 {% endhighlight %}
 
-Notice that in each of these examples, we are doing `stuff` some particular
-number of times (the number of times is already known, like `100`, or stored in
-an integer or a calculation, such as `((width - i) / 2)`).  These are the
-typical use cases for the `for` loop.
+Notice that in each of these examples, we are doing `stuff` some
+particular number of times (the number of times is already known, like
+`100`, or stored in an integer or a calculation, such as `((width - i)
+/ 2)`).  These are the typical use cases for the `for` loop.
 
 ## Diagram of while() loop and for() loop
 
@@ -456,9 +468,10 @@ typical use cases for the `for` loop.
 
 ## Diagram of nested blocks
 
-When we use blocks in `if` and `else` and `while` and `for` (recall that blocks
-begin and end with `{` and `}`), we are creating nested structures (blocks
-inside blocks). We can visualize this with a diagram of the following program:
+When we use blocks in `if` and `else` and `while` and `for` (recall
+that blocks begin and end with `{` and `}`), we are creating nested
+structures (blocks inside blocks). We can visualize this with a
+diagram of the following program:
 
 {% highlight cpp %}
 // This program finds the greatest common divisor (gcd)
@@ -494,28 +507,31 @@ int main()
 
 ![Nesting diagram](/images/nesting-diagram.png "Nesting diagram")
 
-In the diagram, computation proceeds left-to-right; if there is no right
-branch, computation proceeds at the parent's next branch.
+In the diagram, computation proceeds left-to-right; if there is no
+right branch, computation proceeds at the parent's next branch.
 
-This is what the same program looks like to the computer (in "assembly" code or
-"machine" code, more or less). Notice all the jumps, which are needed when the
-nested structures are turned into linear structures. Also notice the critical
-"back arrow" which produces looping behavior.
+This is what the same program looks like to the computer (in
+"assembly" code or "machine" code, more or less). Notice all the
+jumps, which are needed when the nested structures are turned into
+linear structures. Also notice the critical "back arrow" which
+produces looping behavior.
 
 ![Jumping diagram](/images/jumping-diagram.png "Jumping diagram")
 
-This "jumping" behavior can be achieved in C++ code using the `goto` command.
-I'm not going to recommend that you use `goto` in your code, ever. It's highly
-frowned-upon because code with many jumps or `goto` commands is hard to
-understand. It produces "spaghetti code," which means that if you look at any
-single line of code, you'll have a hard time figuring out under what
-circumstances that line of code is executed. (This is like spaghetti, really:
-pick a spot in the middle of some noodle and try to trace back to the noodle's
-beginning or end.)
+This "jumping" behavior can be achieved in C++ code using the `goto`
+command.  I'm not going to recommend that you use `goto` in your code,
+ever. It's highly frowned-upon because code with many jumps or `goto`
+commands is hard to understand. It produces "spaghetti code," which
+means that if you look at any single line of code, you'll have a hard
+time figuring out under what circumstances that line of code is
+executed. (This is like spaghetti, really: pick a spot in the middle
+of some noodle and try to trace back to the noodle's beginning or
+end.)
 
 <a href="http://xkcd.com/292/">
 ![xkcd goto](/images/xkcd-goto.png "xkcd goto")
 </a>
 
-For more information, read the classic [Go To Statement Considered Harmful](http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html).
+For more information, read the classic
+[Go To Statement Considered Harmful](http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html).
 

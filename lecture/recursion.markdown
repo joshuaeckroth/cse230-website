@@ -141,6 +141,13 @@ crashes. So we need to be careful to write recursive algorithms that don't get
 too deep (generally it takes thousands or more recursive calls to overflow the
 stack).
 
+> One of our great features of our compiler is that it happens to turn
+> out that it is very easy to have a good recursive function in it. I
+> am very fond of them. They are hardly used by
+> customers. Nevertheless, it is very important that they are in. The
+> reason is that they give us possibilities that make the tool
+> inspiring. -- E. W. Dijkstra, 1962
+
 ## Picture-in-a-picture
 
 > **Tortoise:** That's the word I was looking for! "POPPING-TONIC" is what it's

@@ -3,23 +3,21 @@ title: Vectors
 layout: default
 ---
 
-Vectors are just improved arrays. As we have seen, arrays can be a real hassle.
-Arrays don't know how big they are, they can't grow, and we can't "return" an
-array from a function. C++ introduced vectors so that we can avoid those
-issues.
+Vectors are one of many ways of keeping a collection of values "under
+one roof." We can give one name to a collection of values and then
+access each value by a position. We can also add more values or remove
+values.
 
-Arrays are used more often, however, only because they are simple and the
-computer can work with them more efficiently. But vectors are usually much more
-convenient for the programmer. (Note that vectors are really just arrays with
-some fancy functions.)
+(The "traditional" way of representing a collection of values is the
+"array." We won't be looking at arrays this quarter because they're
+much more difficult to use than vectors and, for our purposes, they
+aren't any more powerful.)
 
 ## Vector usage
 
-Vectors are one of many "containers" introduced in C++. A container holds data.
-Recall that when you created an array, you had to decide what kind of array it
-was going to be (integers, doubles, etc.). The same is true with vectors,
-except that the type is specified a little differently (as it is with all
-"containers" in C++).
+When you create a vector, you have to decide what (single) kind of
+value it will hold. This type is specified in a funny way (using a
+"template" which we'll learn about later).
 
 Here is how you create a vector full of integers:
 
@@ -27,8 +25,8 @@ Here is how you create a vector full of integers:
 vector<int> myvec;
 {% endhighlight %}
 
-(Don't forget `#include <vector>` at the top of your files when you use
-vectors).
+(Don't forget `#include <vector>` at the top of your files when you
+use vectors).
 
 If you want doubles instead:
 
@@ -36,11 +34,11 @@ If you want doubles instead:
 vector<double> vals;
 {% endhighlight %}
 
-It's not possible to have a vector full of doubles *and* ints, for example
-("heterogeneous" containers are not possible).
+It's not possible to have a vector full of doubles *and* ints, for
+example ("heterogeneous" containers are not possible in C++).
 
-You can put elements in your vector with several methods. Most common is
-`push_back`:
+You can put elements in your vector with several methods. Most common
+is `push_back`:
 
 {% highlight cpp %}
 vector<double> vals;
@@ -48,7 +46,33 @@ vals.push_back(5.3);
 vals.push_back(0.66);
 {% endhighlight %}
 
-More examples are shown below.
+You can retrieve the size of a vector with the `size` function:
+
+{% highlight cpp %}
+cout << vals.size() << endl;
+{% endhighlight %}
+
+And you can get to an element in the vector with `[i]` where `i` is
+some position ("index"):
+
+{% highlight cpp %}
+cout << vals[1] << endl;
+{% endhighlight %}
+
+Note that positions for vectors start at 0, so `[1]` refers to the
+*second* element (the value 0.66).
+
+Using the `size` function and the `[]` syntax, we can print the
+contents of a vector using a simple `for()` loop:
+
+{% highlight cpp %}
+for(int i = 0; i < vals.size(); i++)
+{
+    cout << vals[i] << endl;
+}
+{% endhighlight %}
+
+TODO: back(), pop_back()
 
 ## Example 1 - simple vector
 
@@ -65,7 +89,7 @@ int main()
     vals.push_back(1);
 
     cout << "Size of vals: " << vals.size() << endl;
-    for(int i = 0; i < vals.size(); i++)
+    for(unsigned int i = 0; i < vals.size(); i++)
     {
         cout << "Value at index " << i
              << " is " << vals[i] << endl;
@@ -85,8 +109,9 @@ Value at index 2 is 1
 
 ## Example 2 - vector with initial values
 
-You can create a vector of some specific size and give it an initial (repeated)
-value. This is most often used to give a vector a bunch of zeros.
+You can create a vector of some specific size and give it an initial
+(repeated) value. This is most often used to give a vector a bunch of
+zeros.
 
 {% highlight cpp %}
 #include <iostream>
@@ -103,7 +128,7 @@ int main()
     vals.push_back(1);
 
     cout << "Size of vals: " << vals.size() << endl;
-    for(int i = 0; i < vals.size(); i++)
+    for(unsigned int i = 0; i < vals.size(); i++)
     {
         cout << "Value at index " << i
              << " is " << vals[i] << endl;
@@ -150,7 +175,7 @@ int main()
     vals.push_back(1);
 
     cout << "Size of vals: " << vals.size() << endl;
-    for(int i = 0; i < vals.size(); i++)
+    for(unsigned int i = 0; i < vals.size(); i++)
     {
         cout << "Value at index " << i
              << " is " << vals[i] << endl;
@@ -186,7 +211,8 @@ Size of vals: 0
 ## Example 4 - vector of strings
 
 You can put anything in vectors, even strings (which are themselves
-more-or-less vectors, too). (You can put vectors inside vectors, ad nauseum).
+more-or-less vectors, too). You can put vectors inside vectors, ad
+nauseum.
 
 {% highlight cpp %}
 #include <iostream>
@@ -203,7 +229,7 @@ int main()
     names.push_back("Church");
 
     cout << "Size of names: " << names.size() << endl;
-    for(int i = 0; i < names.size(); i++)
+    for(unsigned int i = 0; i < names.size(); i++)
     {
         cout << "Name at index " << i
              << " is " << names[i] << endl;
@@ -225,8 +251,8 @@ Name at index 3 is Church
 
 ## Example 5 - using the empty() function
 
-The `clear()` function deletes all the values in the vector. The `empty()`
-function tells us if a vector has no values.
+The `clear()` function deletes all the values in the vector. The
+`empty()` function tells us if a vector has no values.
 
 {% highlight cpp %}
 #include <iostream>
@@ -284,7 +310,7 @@ int main()
 
     sort(names.begin(), names.end());
 
-    for(int i = 0; i < names.size(); i++)
+    for(unsigned int i = 0; i < names.size(); i++)
     {
         cout << "Name at index " << i
              << " is " << names[i] << endl;
@@ -305,8 +331,8 @@ Name at index 3 is Turing
 
 ## Example 7 - random shuffling
 
-The reverse of sorting is shuffling; sometimes useful to randomize the order of
-our data for experiments.
+The reverse of sorting is shuffling; sometimes useful to randomize the
+order of our data for experiments.
 
 {% highlight cpp %}
 #include <iostream>
@@ -339,7 +365,7 @@ int main()
     sort(names.begin(), names.end());
 
     cout << "--Sorted names:" << endl;
-    for(int i = 0; i < names.size(); i++)
+    for(unsigned int i = 0; i < names.size(); i++)
     {
         cout << names[i] << endl;
     }
@@ -348,7 +374,7 @@ int main()
     random_shuffle(names.begin(), names.end());
 
     cout << "--Randomly shuffled names:" << endl;
-    for(int i = 0; i < names.size(); i++)
+    for(unsigned int i = 0; i < names.size(); i++)
     {
         cout << names[i] << endl;
     }
@@ -387,11 +413,12 @@ Riemann
 
 ## Example 8 - passing a vector to a function
 
-When you pass a vector to the function, the whole package is copied and given
-to the function; so if you change the vector in the function, the rest of the
-world is not affected. Also note that while you have to provide a function the
-size of the array when you use arrays and functions together, the vector
-already knows how big it is, so we don't need a "size" parameter.
+When you pass a vector to the function, the whole package is copied
+and given to the function; so if you change the vector in the
+function, the rest of the world is not affected. Also note that while
+you have to provide a function the size of the array when you use
+arrays and functions together, the vector already knows how big it is,
+so we don't need a "size" parameter.
 
 {% highlight cpp %}
 #include <iostream>
@@ -401,7 +428,7 @@ using namespace std;
 int sum(vector<int> vals)
 {
     int sum = 0;
-    for(int i = 0; i < vals.size(); i++)
+    for(unsigned int i = 0; i < vals.size(); i++)
     {
         sum += vals[i];
     }
@@ -431,7 +458,7 @@ Sum of integers 1 to 1000: 500500
 
 ## Example 11 - returning a vector from a function
 
-While arrays cannot be returned by a function, vectors can, in the usual way:
+Vectors can be returned from functions, in the usual way:
 
 {% highlight cpp %}
 #include <iostream>
@@ -442,7 +469,7 @@ vector<double> repeatThree(vector<double> vals)
 {
     vector<double> repeatedVals;
 
-    for(int i = 0; i < vals.size(); i++)
+    for(unsigned int i = 0; i < vals.size(); i++)
     {
         repeatedVals.push_back(vals[i]);
         repeatedVals.push_back(vals[i]);
@@ -462,7 +489,7 @@ int main()
 
     vector<double> newVals = repeatThree(vals);
 
-    for(int i = 0; i < newVals.size(); i++)
+    for(unsigned int i = 0; i < newVals.size(); i++)
     {
         cout << newVals[i] << endl;
     }
@@ -473,6 +500,10 @@ int main()
 
 ## Example 12 - passing a vector by reference to a function
 
+If we want the function to be able to modify the vector given in a
+parameter, or we simply want to avoid the cost of copying a large
+vector, we can use "call-by-reference" in the parameter:
+
 {% highlight cpp %}
 #include <iostream>
 #include <vector>
@@ -482,7 +513,7 @@ void repeatThree(vector<double> &vals)
 {
     vector<double> repeatedVals;
 
-    for(int i = 0; i < vals.size(); i++)
+    for(unsigned int i = 0; i < vals.size(); i++)
     {
         repeatedVals.push_back(vals[i]);
         repeatedVals.push_back(vals[i]);
@@ -502,7 +533,7 @@ int main()
     
     repeatThree(vals);
 
-    for(int i = 0; i < vals.size(); i++)
+    for(unsigned int i = 0; i < vals.size(); i++)
     {
         cout << vals[i] << endl;
     }
@@ -513,7 +544,8 @@ int main()
 
 ## Strings are (just like) vectors
 
-Interestingly enough, strings are just vectors of `char` things (more or less).
-We can use the same vector functions on strings (mostly). For example, we can
-ask a string its size (`s.size()`), reverse it (`s.reverse()`), etc.
+Interestingly enough, strings are just vectors of `char` values (more
+or less).  We can use the same vector functions on strings
+(mostly). For example, we can ask a string its size
+(`mystring.size()`), reverse it (`mystring.reverse()`), etc.
 

@@ -14,24 +14,30 @@ layout: default
 
 - Quizzes: 30% (8 of them)
 
-- Final exam: 20% (Wed, Dec 7, 1:30pm-3:18pm, same room as lectures)
+- Final exam: 20% (Wed, March 14, 3:30-5:18pm, same room as lectures)
 
 You can see your grades on Carmen.
 
 ## Quizzes & exams
 
 There is no midterm, per se. The quizzes, collectively, are your
-midterm (so to speak).  Quizzes occur every Wednesday; they are short
-(we still have lecture on Wednesdays, a quiz should only take at most
+midterm (so to speak).  Quizzes occur every Thursday; they are short
+(we still have lecture on Thursdays, a quiz should only take at most
 20 minutes), and are designed to reinforce the topics.
 
 The final exam will look like several quizzes all in one test. So the
 format will be just like the quizzes. Obviously, the final exam is
 "cumulative" (covers everything we learn in the course).
 
+## Carmen quizzes
+
+There are also required quizzes on Carmen. These are short and mostly
+test small details. You can take a Carmen quiz as many times as you'd
+like.
+
 ## Homeworks
 
-Homeworks are always due on a Thursday, by 11:00pm. Your homework
+Homeworks are always due on a Friday, by 11:00pm. Your homework
 should be sent to me by email:
 [joshuaeckroth@gmail.com](mailto:joshuaeckroth@gmail.com) (attach your
 files; do not paste into Microsoft Word, just literally attach `.cpp`
@@ -72,28 +78,6 @@ straight from the book.  Probably any edition would be fine; I use the
 
 [Walter Savitch, Problem Solving with C++, 7th Edition](http://www.amazon.com/Problem-Solving-7th-Walter-Savitch/dp/0321531345/ref=pd_sim_b_4)
 
-## Piazza
-
-I'm going to attempt to use an online tool called "Piazza" for class
-collaboration. I will demonstrate it in class. The idea is that
-students write questions on that website, and everyone in the class
-can see the questions as well as any answers that I provide or other
-students provide. Students can write anonymously as well.
-
-Theoretically, everybody saves time because you may not have to ask a
-question if it's already answered on Piazza and I won't have to answer
-a question more than once.
-
-The website is [piazza.com](http://piazza.com) -- in class, I'll show
-everybody how to access it.
-
-If you didn't get an email describing how to sign up, you can sign
-yourself up here:
-[piazza.com/osu/fall2011/cse230](http://piazza.com/osu/fall2011/cse230)
-
-Your grade does not at all depend on whether or not you use Piazza, or
-how much you use Piazza.
-
 ## Academic misconduct policy
 
 This course is designed for individual work, unless specifically
@@ -122,3 +106,31 @@ specific needs. Please contact the Office for Disability Services at
 614-292-3307 in room 150 Pomerene Hall to coordinate reasonable
 accommodations for students with documented disabilities.
 
+> In my life as an architect, I find that the single thing which
+> inhibits young professionals, new students most severely, is their
+> acceptance of standards that are too low. If I ask a student whether
+> her design is as good as Chartres, she often smiles tolerantly at me
+> as if to say, "Of course not, that isn't what I am trying to
+> do... I could never do that."
+
+> Then, I express my disagreement, and tell her: "That standard must
+> be our standard. If you are going to be a builder, no other standard
+> is worthwhile. That is what I expect of myself in my own buildings,
+> and it is what I expect of my students." Gradually, I show the
+> students that they have a right to ask this of themselves, and
+> must ask this of themselves. Once that level of standard is in their
+> minds, they will be able to figure out, for themselves, how to do
+> better, how to make something that is as profound as that.
+
+> Two things emanate from this changed standard. First, the work
+> becomes more fun. It is deeper, it never gets tiresome or boring,
+> because one can never really attain this standard. One's work
+> becomes a lifelong work, and one keeps trying and trying. So it
+> becomes very fulfilling, to live in the light of a goal like this.
+
+> But secondly, it does change what people are trying to do. It takes
+> away from them the everyday, lower-level aspiration that is purely
+> technical in nature, (and which we have come to accept) and replaces
+> it with something deep, which will make a real difference to all of
+> us that inhabit the earth. -- Christopher Alexander, from the
+> Foreword to *Patterns of Software* by Richard P. Gabriel

@@ -3,17 +3,20 @@ title: Quiz 3 sample
 layout: default
 ---
 
-Study the following code. It *should* meet the following specification, but it
-does not. Your task is to rewrite the code so that it is correct.
+Study the following code. It *should* meet the following
+specification, but it does not. Your task is to rewrite the code so
+that it is correct.
 
-The function `is_prime` determines whether its input is a prime number. Recall
-that a prime number is defined as those integers (greater than 1) that are
-divisible by only themselves and 1 (of course 1 divides every integer). So 7 is
-prime because the only numbers that divide 7 are 7 itself and 1. But 9 is not
-prime because 9 is divisible by 3.
+The function `is_prime` determines whether its input is a prime
+number. Recall that a prime number is defined as those integers
+(greater than 1) that are divisible by only themselves and 1 (of
+course 1 divides every integer). So 7 is prime because the only
+numbers that divide 7 are 7 itself and 1. But 9 is not prime because 9
+is divisible by 3.
 
-Here is a program that has the `is_prime` function and a `main` function. There
-are several errors in both functions. Rewrite the code so it is correct.
+Here is a program that has the `is_prime` function and a `main`
+function. There are several errors in both functions. Rewrite the code
+so it is correct.
 
 {% highlight cpp %}
 include <iostream>

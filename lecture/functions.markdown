@@ -248,10 +248,54 @@ void updateXYZ(double &w0, double &w1, double y)
 }
 {% endhighlight %}
 
-If you are familiar with pointers (which we'll learn about later), then
-pass-by-reference is like using pointers. However, C++ added pass-by-reference
-to (supposedly) limit the use of pointers when making function calls, which
-generally simplifies how such functions are used.
+## Pointers as parameters to functions
+
+The C language (which came before C++) didn't have "call-by-reference," so in
+order to make a function that could change the values of its arguments,
+pointers were used:
+
+{% highlight cpp %}
+void changeValues(int *px, int *py)
+{
+    // add one to each variable pointed to by the parameters
+    *px = *px + 1;
+    *py = *py + 1;
+}
+{% endhighlight %}
+
+C++ can do the same thing (although how the function is used must change):
+
+{% highlight cpp %}
+void changeValues2(int &x, int &y)
+{
+    // add one to each variable
+    x = x + 1;
+    y = y + 1;
+}
+{% endhighlight %}
+
+These are equivalent except in how they are used. Here is how the C version
+(which uses pointers) is used:
+
+{% highlight cpp %}
+int x = 5, y = 8;
+changeValues(&x, &y);
+{% endhighlight %}
+
+Note that you have to provide the "memory location" of the variables `x` and
+`y` to use the function that has pointer parameters.
+
+The C++ version (call-by-reference) can be used in a more straight-forward
+manner:
+
+{% highlight cpp %}
+int x = 5, y = 8;
+changeValues2(x, y);
+{% endhighlight %}
+
+This is why call-by-reference is useful; it makes the code a little simpler,
+but has the same effect.
+
 
 ## An example from class: TimeAdder
 

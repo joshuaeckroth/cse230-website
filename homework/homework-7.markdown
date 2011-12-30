@@ -3,7 +3,7 @@ title: Homework 7
 layout: default
 ---
 
-Due Nov 20, 11pm (Sun).
+Due Feb 24, 11pm (Fri).
 
 Make a class called `Room` and a `main()` function that allow a user to "walk
 through a maze." Here is an example interaction:
@@ -56,18 +56,6 @@ separation). Also, split your code into three files: `room.h`, `room.cpp`, and
 
 If you choose to represent your room exits with a map, have a look at
 this example code from class: [room.cpp](/code/room-cpp.html)
-
-**If you choose to work in a group of 2 or 3 people:** First, you must tell me
-who worked on what part of the code; you will all get the same grade, but
-please be honest about who did what. Second, you must write a more complicated,
-more interesting program than the one described above. What you add is sort of
-up to you, but here are some ideas: support more than N/S/E/W links (e.g. add
-"up" and "down" or links that are specific to rooms like "out the window");
-produce a random maze (somewhat random room names and descriptions, too); allow
-two or more players to walk through the maze simultaneously; allow the player
-to learn what else is in the room (so the rooms will have "occupants"); etc.
-I expect the extra work a group will produce to be something like adding two or
-three of those features just described.
 
 This may be interesting if you have some free time:
 [http://www.kongregate.com/games/2DArray/you-find-yourself-in-a-room](http://www.kongregate.com/games/2DArray/you-find-yourself-in-a-room)
