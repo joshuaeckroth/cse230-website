@@ -549,3 +549,36 @@ or less).  We can use the same vector functions on strings
 (mostly). For example, we can ask a string its size
 (`mystring.size()`), reverse it (`mystring.reverse()`), etc.
 
+## Using 2D vectors
+
+Since a vector can store any single type of value, and vectors
+themselves are types of values, you can put vectors inside a vector:
+
+{% highlight cpp %}
+// creates a 10x10 matrix with all 0's inside
+vector<vector<int> > matrix(10, vector<int>(10, 0));
+
+// set row 3, column 2:
+matrix[2][1] = 55;
+{% endhighlight %}
+
+Note that the extra space in the first line of code: `> >` is
+*necessary*, otherwise the compiler thinks you are writing `>>` like
+in `cin >> x`.
+
+## Storing 2D structures in 1D structures
+
+If you want to keep a "2D matrix" in a 1D structure, you have to use a
+simple calculation to figure out where row *i*, column *j* exists
+inside the 1D structure. If we essentially lay out the matrix with
+each row appended to the prior, then we get the following calculation:
+`[i][j]` is the same as `[i * cols + j]` (assuming `i` and `j` start
+counting at 0).
+
+{% highlight cpp %}
+// 10x10 "matrix" as a 1D vector, full of 0's
+vector<int> matrix(100, 0);
+
+// set row 3, column 2:
+matrix[2 * 10 + 1] = 55;
+{% endhighlight %}

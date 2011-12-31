@@ -3,15 +3,230 @@ layout: default
 title: Course calendar
 ---
 
-Week | Topics | Quiz | Homework | Read in book
------|--------|------|----------|-------------
-0-1 | [Introduction](/lecture/introduction.html)<br/>[Variables and types](/lecture/variables-and-types.html)<br/>[Pointers and the symbol table](/lecture/pointers-symbol-table.html)<br/>[Arithmetic](/lecture/arithmetic.html)<br/>[Input/output](/lecture/input-output.html) | [Quiz 1 sample](/quiz/quiz-1-sample.html) | no homework | p. 20-29<br/>p. 40-72
-2 | [Conditionals](/lecture/conditionals.html)<br/>[Loops](/lecture/loops.html) | [Quiz 2 sample](/quiz/quiz-2-sample.html) | [Homework 1](/homework/homework-1.html) | p. 74-91<br/>p. 112-166
-3 | [Functions](/lecture/functions.html)<br/>[Recursion](/lecture/recursion.html) | [Quiz 3 sample](/quiz/quiz-3-sample.html) | [Homework 2](/homework/homework-2.html) | Chs. 4, 5<br/>p. 782-803
-4 | [Arrays](/lecture/arrays.html)<br/>[Multidimensional arrays](/lecture/multidimensional-arrays.html) | [Quiz 4 sample](/quiz/quiz-4-sample.html) | [Homework 3](/homework/homework-3.html) | Ch. 7
-5 | [Pointers](/lecture/pointers.html)<br/>[Linked lists](/lecture/linked-lists.html) | [Quiz 5 sample](/quiz/quiz-5-sample.html) | [Homework 4](/homework/homework-4.html) | p. 500-523<br/>p. 734-748
-6 | [Classes and object orientation](/lecture/classes-and-object-orientation.html)<br/>[Classes and object orientation (part 2)](/lecture/classes-and-object-orientation-2.html)<br/>[Splitting code into several files](/lecture/splitting-code.html) | [Quiz 6 sample](/quiz/quiz-6-sample.html) | [Homework 5](/homework/homework-5.html) | p. 542-575
-7 | [Template meta-programming](/lecture/template-metaprogramming.html)<br/>[Vectors](/lecture/vectors.html)<br/>[Maps, sets, etc.](/lecture/maps-sets-etc.html) | [Quiz 7 sample](/quiz/quiz-7-sample.html) | [Homework 6](/homework/homework-6.html) | Chs. 8, 17<br/>p. 945-951<br/>p. 960-977
-8 | [Game design](/lecture/game-design.html) | [Quiz 8 sample](/quiz/quiz-8-sample.html) | [Homework 7](/homework/homework-7.html) | 
-9 | [Summary of the whole class](/lecture/summary.html) | no quiz | [Homework 8](/homework/homework-8.html) | 
-10 | Final exam on Wed, Dec 7, 1:30pm-3:18pm<br/>in Dreese Labs 357 | | |
+<table>
+<thead>
+  <tr>
+    <th>Week</th>
+    <th>Topics</th>
+    <th>Quiz</th>
+    <th>Homework</th>
+    <th>Read in book</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>1<br/>01/03-01/07</td>
+    <td>   
+      <a href="/lecture/introduction.html">Introduction</a>
+      <br/>
+      <a href="/lecture/variables-and-types.html">Variables and types</a>
+      <br/>
+      <a href="/lecture/classes-and-objects-brief.html">Classes and objects (brief intro.)</a>
+    </td>
+    <td>Carmen quiz: Variables and types</td>
+    <td>no homework</td>
+    <td>
+      <div class="nowrap">
+        p. 20-29
+        <br/>
+        p. 40-72
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>2<br/>01/08-01/14</td>
+    <td>
+      <a href="/lecture/pointers-symbol-table.html">Pointers and the symbol table</a>
+      <br/>
+      <a href="/lecture/arithmetic.html">Arithmetic</a>
+      <br/>
+      <a href="/lecture/input-output.html">Input/output</a>
+      <br/>
+      <a href="/lecture/conditionals.html">Conditionals</a>
+      <br/>
+      <a href="/lecture/loops.html">Loops</a>
+    </td>
+    <td>
+      <a href="/quiz/quiz-1-sample.html">Quiz 1 sample</a>
+      <br/>
+      Carmen quizzes: Arithmetic; Pointers; Conditionals; Loops
+    </td>
+    <td>
+      <a href="/homework/homework-1.html">Homework 1</a>
+    </td>
+    <td>
+      <div class="nowrap">
+        p. 74-91
+        <br/>
+        p. 112-166
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>3<br/>01/15-01/21</td>
+    <td>
+      <a href="/lecture/functions.html">Functions</a>
+    </td>
+    <td>
+      <a href="/quiz/quiz-2-sample.html">Quiz 2 sample</a>
+      <br/>
+      Carmen quiz: Functions
+    </td>
+    <td>
+      <a href="/homework/homework-2.html">Homework 2</a>
+    </td>
+    <td>
+      <div class="nowrap">
+        Chs. 4, 5
+        <br/>
+        p. 782-803
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>4<br/>01/22-01/28</td>
+    <td>
+      <a href="/lecture/recursion.html">Recursion</a>
+      <br/>
+      <a href="/lecture/vectors.html">Vectors</a>
+      <br/>
+      <a href="/lecture/debugging.html">Debugging techniques</a>
+    </td>
+    <td>
+      <a href="/quiz/quiz-3-sample.html">Quiz 3 sample</a>
+      <br/>
+      Carmen quizzes: Recursion; Vectors
+    </td>
+    <td>
+      <a href="/homework/homework-3.html">Homework 3</a>
+    </td>
+    <td>
+      <div class="nowrap">
+        Ch. 7
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>5<br/>01/29-02/04</td>
+    <td>
+      <a href="/lecture/linked-lists.html">Linked lists</a>
+      <br/>
+      <a href="/lecture/trees.html">Trees</a>
+    </td>
+    <td>
+      <a href="/quiz/quiz-4-sample.html">Quiz 4 sample</a>
+      <br/>
+      Carmen quizzes: Linked lists; Trees
+    </td>
+    <td>
+      <a href="/homework/homework-4.html">Homework 4</a>
+    </td>
+    <td>
+      <div class="nowrap">
+        p. 500-523
+        <br/>
+        p. 734-748
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>6<br/>02/05-02/11</td>
+    <td>
+      <a href="/lecture/classes-and-object-orientation.html">Classes and object orientation</a>
+      <br/>
+      <a href="/lecture/classes-and-object-orientation-2.html">Classes and object orientation (part 2)</a>
+      <br/>
+      <a href="/lecture/splitting-code.html">Splitting code into several files</a>
+    </td>
+    <td>
+      <a href="/quiz/quiz-5-sample.html">Quiz 5 sample</a>
+      <br/>
+      Carmen quizzes: Object-orientation; Splitting code into several files
+    </td>
+    <td>
+      <a href="/homework/homework-5.html">Homework 5</a>
+    </td>
+    <td>
+      <div class="nowrap">
+        p. 542-575
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>7<br/>02/12-02/18</td>
+    <td>
+      <a href="/lecture/polymorphism.html">Polymorphism</a>
+      <br/>
+      <a href="/lecture/drawbacks-of-object-orientation.html">Drawbacks of object-orientation</a>
+      <br/>
+    </td>
+    <td>
+      <a href="/quiz/quiz-6-sample.html">Quiz 6 sample</a>
+      <br/>
+      Carmen quizzes: Polymorphism; Drawbacks of object-orientation
+    </td>
+    <td>
+      <a href="/homework/homework-6.html">Homework 6</a>
+    </td>
+    <td>
+      <div class="nowrap">
+        Chs. 8, 17
+        <br/>
+        p. 945-951
+        <br/>
+        p. 960-977
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>8<br/>02/19-02/25</td>
+    <td>
+      <a href="/lecture/template-metaprogramming.html">Template meta-programming</a>
+      <br/>
+      <a href="/lecture/maps-sets-etc.html">Maps, sets, etc.</a>
+    </td>
+    <td>
+      <a href="/quiz/quiz-7-sample.html">Quiz 7 sample</a>
+      <br/>
+      Carmen quizzes: Template meta-programming; Maps, sets, etc.
+    </td>
+    <td>
+      <a href="/homework/homework-7.html">Homework 7</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>9<br/>02/26-03/03</td>
+    <td>
+      <a href="/lecture/game-design.html">Game design</a>
+    </td>
+    <td>
+      <a href="/quiz/quiz-8-sample.html">Quiz 8 sample</a>
+    </td>
+    <td>
+      <a href="/homework/homework-8.html">Homework 8</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>10<br/>03/04-03/10</td>
+    <td>
+      <a href="/lecture/summary.html">Summary of the whole class</a>
+    </td>
+    <td>no quiz</td>
+    <td>no homework</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>11<br/>03/11-03/17</td>
+    <td>
+      Final exam on Wed, March 14, 3:30-5:18pm
+      <br/>
+      in Dreese Labs 357
+    </td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
