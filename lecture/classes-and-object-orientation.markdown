@@ -64,12 +64,6 @@ void walk_one_step_player(Player* p, int direction);
 void walk_one_step_enemy(Enemy* e, int direction);
 void attack_enemy(Player* p, Enemy* e);
 void attack_player(Enemy* e, Player* p);
-
-// these functions create a new array and
-// return a pointer to this new array
-Player* get_players_at(int x, int y);
-Enemy* get_enemies_at(int x, int y);
-Object* get_objects_at(int x, int y);
 {% endhighlight %}
 
 Etc.
