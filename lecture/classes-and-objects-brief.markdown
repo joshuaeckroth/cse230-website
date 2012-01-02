@@ -22,7 +22,7 @@ class Person
 {
 public:
     string name;
-    int age;    // in years
+    int age;       // in years
     double height; // in cm
     double weight; // in kg
 };

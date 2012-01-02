@@ -171,13 +171,47 @@ data there to this other data (`5`)."
 
 In this example, it's the same operation as `n = 5`.
 
+If we are using classes, such as:
+
+{% highlight cpp %}
+class Person
+{
+public:
+    string name;
+    int age;       // in years
+    double height; // in cm
+    double weight; // in kg
+};
+{% endhighlight %}
+
+then we can create pointers in the same way:
+
+{% highlight cpp %}
+int main()
+{
+    Person vignesh;
+    vignesh.name = "Vignesh S.";
+    vignesh.age = 25;
+    vignesh.height = 177;
+    vignesh.weight = 68;
+    
+    Person* p = &vignesh;
+    
+    cout << p->name << " weighs " << p->weight << " kg." << endl;
+    
+    return 0;
+}
+{% endhighlight %}
+
+Notice that when we use classes and pointers together, we use the `->`
+symbols to refer to data inside the class, rather than the `.` The
+`.` is used if we are not using pointers.
+
 > **dereference** *v.* To trace, with increasing horror, the ultimate object
 > (also called the pointee) being pointed at by a chain of linked pointers.
 >
 > In C++, the simple rule is: reference by adding an `&` and
 > dereference by removing an `*`. -- *The computer contradictionary*
-
-
 
 ## Pointers in the symbol table!
 
@@ -370,6 +404,18 @@ will be ours to use, regardless of scope, for as long as we wish
 (until we say `delete`). We just have to keep track of the pointer
 (address) of the memory that was reserved.
 
+Note, this also works on classes:
+
+{% highlight cpp %}
+Person* p = new Person;
+p->name = "Mary S.";
+p->age = 45;
+// etc...
+
+// later:
+delete p;
+{% endhighlight %}
+
 ## An analogy (oh no!)
 
 <a href="http://www.flickr.com/photos/guardianstoragesolutions/2714239269/in/photostream/">
@@ -474,7 +520,6 @@ cout << *px << endl; // crashes the program with a "segfault"
 Any discussion of pointers is a bit esoteric without showcasing applications.
 The real use for pointers will come when we discuss interesting data
 structures, such as linked lists.
-
 
 > **pointee** *n.* That, if anything, pointed at by a pointer.
 >

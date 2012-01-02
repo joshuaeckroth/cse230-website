@@ -7,31 +7,35 @@ From the book, p. 875 q. 9. Due Feb 17, 11pm (Fri).
 
 Skills needed to complete this assignment:
 
-  - Creating classes and using object-oriented program design ([lecture notes
-    (part 1)](/lecture/classes-and-object-orientation.html) and [lecture notes
-(part 2)](/lecture/classes-and-object-orientation-2.html))
+  - Creating classes and using object-oriented program design
+    ([lecture notes (part 1)](/lecture/classes-and-object-orientation.html)
+    and
+    [lecture notes (part 2)](/lecture/classes-and-object-orientation-2.html))
 
   - Using polymorphism ([lecture notes](/lecture/polymorphism.html))
 
-  - Splitting code into several files ([lecture notes](/lecture/splitting-code.html))
+  - Splitting code into several files
+    ([lecture notes](/lecture/splitting-code.html))
 
-Banks have many different types of accounts often with different rules for fees
-associated with transactions such as withdrawals. Customers are allowed to
-transfer funds between accounts incurring the appropriate fees associated with
-withdrawal of funds from one account.
+Banks have many different types of accounts often with different rules
+for fees associated with transactions such as withdrawals. Customers
+are allowed to transfer funds between accounts incurring the
+appropriate fees associated with withdrawal of funds from one account.
 
-Write a program with a base class for a bank account and two derived classes
-(as described below) representing accounts with different rules for withdrawing
-funds. Also write a function that transfers funds from one account (of any
-type) to another. A transfer is a withdrawal from one account and a deposit
-into the other. Since the transfer can be done at any time with any type of
-account the withdraw function in the classes must be virtual. The transfer
-function utlizes polymorphism in order to transfer funds between *any* subclass
-of BankAccount. So the transfer function should receive BankAccount pointers as
-the "from" and "to" bank accounts.
+Write a program with a base class for a bank account and two derived
+classes (as described below) representing accounts with different
+rules for withdrawing funds. Also write a function that transfers
+funds from one account (of any type) to another. A transfer is a
+withdrawal from one account and a deposit into the other. Since the
+transfer can be done at any time with any type of account the withdraw
+function in the classes must be virtual. The transfer function utlizes
+polymorphism in order to transfer funds between *any* subclass of
+`BankAccount`. So the transfer function should receive `BankAccount`
+pointers as the "from" and "to" bank accounts.
 
-Write a main function that creates two accounts (one from MoneyMarketAccount
-and one from CDAccount) and tests the transfer function.
+Write a main function that creates two accounts (one from
+`MoneyMarketAccount` and one from `CDAccount`) and tests the transfer
+function.
 
 For the classes, create a base class called `BankAccount` that has the name of
 the owner of the account (a `string`) and the balance in the account (a
@@ -79,7 +83,7 @@ Here is a diagram of the classes.
 
 ![Bank Account UML diagram](/images/bankaccount-uml.png "Bank Account UML diagram")
 
-Note, if you want `balance` not to be `public` in the BankAccount class then
+Note, if you want `balance` not to be `public` in the `BankAccount` class then
 you'll actually need to make it `protected`. This ensures that it will be
 accessible by subclasses but remain private in the subclasses.
 

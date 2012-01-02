@@ -54,9 +54,6 @@ should use `private` and `public` data/methods in your class (make a meaningful
 separation). Also, split your code into three files: `room.h`, `room.cpp`, and
 `main.cpp`.
 
-If you choose to represent your room exits with a map, have a look at
-this example code from class: [room.cpp](/code/room-cpp.html)
-
 This may be interesting if you have some free time:
 [http://www.kongregate.com/games/2DArray/you-find-yourself-in-a-room](http://www.kongregate.com/games/2DArray/you-find-yourself-in-a-room)
 

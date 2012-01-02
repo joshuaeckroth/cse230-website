@@ -10,12 +10,12 @@ HW 7 code and extend it, so that you have the experience of adapting
 existing code (it's more challenging than starting over). I won't be
 checking if you did start with your prior code or did not, however.
 
-Add an Agent class that, at least, has a pure virtual function `bool
+Add an `Agent` class that, at least, has a pure virtual function `bool
 act()` that must be implemented in subclasses. Make at least one
-subclass for monsters (e.g. a Grue class), and another subclass for
-the player (a subclass named Player). Update your `main()` function or
-make a Game class so that, during each "turn," the monsters move and
-the player(s) move (in whatever order).  Moves are accomplished by
+subclass for monsters (e.g. a `Grue` class), and another subclass for
+the player (a subclass named `Player`). Update your `main()` function
+or make a `Game` class so that, during each "turn," the monsters move
+and the player(s) move (in whatever order).  Moves are accomplished by
 using the monsters' or player(s)' `act()` functions.  The monsters'
 `act()` functions will choose a random room (or whatever you want to
 do) and will move into that room. The player(s)' `act()` function will
@@ -26,15 +26,17 @@ these `act()` functions, you'll need to check for true/false and quit
 the game if `act()` returns false. For example:
 
 {% highlight cpp %}
-Monster *monster1 = new Monster(...);
-Player *player1 = new Player(...);
-Player *player2 = new Player(...);
-Agent *agents[3] = {monster1, player1, player2};
+Monster* monster1 = new Monster(...);
+Player* player1 = new Player(...);
+Player* player2 = new Player(...);
+vector<Agent*> agents;
+agents.push_back(monster1);
+agents.push_back(player1);
+agents.push_back(player2);
 
 while(true)
 {
-    // make an array of agents "act"
-    for(int i = 0; i < 3; i++)
+    for(int i = 0; i < agents.size(); i++)
     {
         bool ok = agents[i]->act();
         if(!ok)
@@ -46,7 +48,7 @@ while(true)
 }
 {% endhighlight %}
 
-Here is what your Agent class header (`agent.h`) might contain (at
+Here is what your `Agent` class header (`agent.h`) might contain (at
 least):
 
 {% highlight cpp %}
@@ -57,11 +59,11 @@ least):
 
 class Agent
 {
-    protected:
+protected:
     Room *cur_room;
     string name;
 
-    public:
+public:
     virtual bool act() = 0;
     string getName() { return name; }
 };
@@ -69,7 +71,7 @@ class Agent
 #endif
 {% endhighlight %}
 
-Here is what your monster (Grue) class header (`grue.h`) might contain
+Here is what your monster (`Grue`) class header (`grue.h`) might contain
 (at least):
 
 {% highlight cpp %}
@@ -83,7 +85,7 @@ using namespace std;
 
 class Grue : public Agent
 {
-    public:
+public:
     Grue(string _name, Room *starting_room);
     bool act();
 };
@@ -126,23 +128,23 @@ examples.
 When you submit your code (via email), send me all of the `.cpp` and
 `.h` files.
 
-Your Room class must be updated as well to tell the player who is in
-the room.  That is, the Room class should have a vector or array or
-some other collection that holds Agent pointers; when an agent enters
-the room, the agent's pointer is added to the collection; when an
-agent leaves the room, the agent's pointer is removed from the
-collection. The idea is, if the player does not know who is in the
-same room as the player, then how will you, as the programmer, know if
-your monsters are appropriately moving to different rooms?
+Your `Room` class must be updated as well to tell the player who is in
+the room. That is, the `Room` class should have a set or some other
+collection that holds `Agent` pointers; when an agent enters the room,
+the agent's pointer is added to the collection; when an agent leaves
+the room, the agent's pointer is removed from the collection. The idea
+is, if the player does not know who is in the same room as the player,
+then how will you, as the programmer, know if your monsters are
+appropriately moving to different rooms?
 
-You might accomplish this in the following way: add a set to the Room
-class (i.e. add `#include <set>` in `room.h` and add a private
-variable `set<Agent*> occupants` to the Room class). This set contains
-Agent pointers. This way, you can store monsters and players in the
-set since both can be treated as Agent pointers. Then provide methods
-in the Room class called `enter`, `leave`, and `printOccupants` that,
-respectively, add an Agent to the room, remove an Agent from the room,
-and print all the Agents in the room.
+You might accomplish this in the following way: add a set to the
+`Room` class (i.e. add `#include <set>` in `room.h` and add a private
+variable `set<Agent*> occupants` to the `Room` class). This set
+contains `Agent` pointers. This way, you can store monsters and
+players in the set since both can be treated as `Agent` pointers. Then
+provide methods in the `Room` class called `enter`, `leave`, and
+`printOccupants` that, respectively, add an `Agent` to the room,
+remove an `Agent` from the room, and print all the agents in the room.
 
 Here is what those functions might look like:
 
@@ -178,14 +180,14 @@ monster or player who is changing rooms), then change rooms, then
 enter the new room (i.e.  `cur_room->enter(this)` after `cur_room` has
 been changed).
 
-Note that there will be a small problem with the modified Room
-class. Your new Room class will need a vector of agents, like so:
+Note that there will be a small problem with the modified `Room`
+class. Your new `Room` class will need a set of agents, like so:
 
 {% highlight cpp %}
 class Room
 {
-    private:
-    vector<Agent*> occupants;
+private:
+    set<Agent*> occupants;
 
     // ...
 };
@@ -198,25 +200,25 @@ already has `#include "room.h"`. The two `.h` files can't both
 
 So the solution to this is to keep `#include "room.h"` inside
 `agent.h` but don't put `#include "agent.h"` inside `room.h`. Of
-course, without that "include," the Room class won't know what an
-Agent is. We solve this by adding a *forward declaration* of the Agent
-class, like so:
+course, without that "include," the `Room` class won't know what an
+`Agent` is. We solve this by adding a *forward declaration* of the
+`Agent` class, like so:
 
 {% highlight cpp %}
 class Agent;  // forward declaration
 
 class Room
 {
-    private:
-    vector<Agent*> occupants;
+private:
+    set<Agent*> occupants;
 
     // ...
 };
 {% endhighlight %}
 
-What this says is "I promise there will be a class called Agent,
-eventually, but not yet." As long as we stick with pointers to Agents,
-this will work.
+What this says is "I promise there will be a class called `Agent`,
+eventually, but not yet." As long as we stick with pointers to
+`Agent`, this will work.
 
 In the `room.cpp` and `agent.cpp` files, you can "include" whatever
 you want (so `#include "agent.h"` and `#include "room.h"` in the
@@ -225,7 +227,7 @@ because `.cpp` files don't "include" each other, and are compiled
 separately.
 
 Note that you could have alternatively used a forward declaration of
-Room instead of Agent; it would work either way.
+`Room` instead of `Agent`; it would work either way.
 
 ## Example interaction
 

@@ -19,6 +19,11 @@ We have been doing this for some time, using `#include <xyz>`. Except for one
 minor change, this is the same technique we'll use to split our programs into
 multiple files.
 
+**A word of advice: Do not write your code in one file, then try to
+split it into several files later; students often try this and find it
+frustrating or impossible. Begin your project by creating several
+files...**
+
 ## Understanding `#include`
 
 First, it's important to see how simple `#include` really is. When the compiler
@@ -212,10 +217,10 @@ create the final program.
 
 ## Visual Studio
 
-<iframe src="http://player.vimeo.com/video/24224470" width="600" height="450" frameborder="0"></iframe>
+<iframe src="http://player.vimeo.com/video/24224470?title=0&byline=0&portrait=0" width="600" height="450" frameborder="0"></iframe>
 
 ## CodeBlocks
 
-<iframe src="http://player.vimeo.com/video/24224759" width="600" height="450" frameborder="0"></iframe>
+<iframe src="http://player.vimeo.com/video/24224759?title=0&byline=0&portrait=0" width="600" height="450" frameborder="0"></iframe>
 
 
