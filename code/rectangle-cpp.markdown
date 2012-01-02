@@ -5,7 +5,6 @@ layout: default
 
 {% highlight cpp %}
 #include <iostream>
-#include <fstream>
 using namespace std;
 
 class Rectangle
@@ -14,26 +13,26 @@ private:
     double width, height;
 public:
     Rectangle(double w, double h);
-    double area() const;
-    Rectangle flip() const;
-    Rectangle grow(double amount) const;
-    bool smaller(const Rectangle &other) const;
-    void output(ostream &out) const;
+    double area();
+    Rectangle flip();
+    Rectangle grow(double amount);
+    bool smaller(Rectangle &other);
+    void print();
 };
 
-void Rectangle::output(ostream &out) const
+void Rectangle::print()
 {
     for(int i = 0; i < (int)height; i++)
     {
         for(int j = 0; j < (int)width; j++)
         {
-            out << "*";
+            cout << "*";
         }
-        out << endl;
+        cout << endl;
     }
 }
 
-Rectangle Rectangle::flip() const
+Rectangle Rectangle::flip()
 {
     double w, h;
     w = height;
@@ -41,14 +40,14 @@ Rectangle Rectangle::flip() const
     return Rectangle(w, h);
 }
 
-Rectangle Rectangle::grow(double amount) const
+Rectangle Rectangle::grow(double amount)
 {
     return Rectangle(width + amount, height + amount);
 }
 
 // Rectangle a is smaller than Rectangle b if
 // a's area is less than or equal to b's area
-bool Rectangle::smaller(const Rectangle &other) const
+bool Rectangle::smaller(Rectangle &other)
 {
     double myarea = area();
     double other_area = other.area();
@@ -68,38 +67,16 @@ Rectangle::Rectangle(double w, double h)
     }
 }
 
-double Rectangle::area() const
+double Rectangle::area()
 {
     return width * height;
 }
 
 
-Rectangle input(istream &in)
+Rectangle readRectangle()
 {
     double w, h;
-    in >> w >> h;
+    cin >> w >> h;
     return Rectangle(w, h);
-}
-
-int main()
-{
-    ofstream fout;
-    fout.open("myoutput.txt");
-
-    ifstream fin;
-    fin.open("rectangles.txt");
-
-    int num;
-    fin >> num;
-    for(int i = 0; i < num; i++)
-    {
-        Rectangle r = input(fin);
-        r.output(fout);
-    }
-
-    fin.close();
-    fout.close();
-
-    return 0;
 }
 {% endhighlight %}
