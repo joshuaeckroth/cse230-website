@@ -4,7 +4,7 @@ layout: default
 ---
 
 We saw [vectors](/lecture/vectors.html) previously. Vectors are part of the
-"Standard Template Library" (STL) --- "standard" because vectors are part of
+"Standard Template Library" (STL) -- "standard" because vectors are part of
 every C++ installation, "template" because the vector class is a template class
 (you can put any type of thing in a vector, but you have to choose the type for
 each vector and stick with it).
@@ -16,7 +16,7 @@ maps.
 ## Maps
 
 Maps are like vectors in that they are STL containers. However, while vectors
-only store single values, map store key--value pairs. Imagine you want to store
+only store single values, map store key-value pairs. Imagine you want to store
 word frequencies: each word (a string) is a key, and the frequency (an integer)
 is the value. We'd make such a map like this:
 
@@ -36,13 +36,13 @@ wordfreqs["the"] = 1503032;
 
 The `[]` syntax is "overloaded" by the map class; that means the map class has
 redefined what `[]` does (previously, we only used `[]` on arrays). The result
-of the above code is that a new key--value pair "the" and 1503032 is put into
+of the above code is that a new key-value pair "the" and 1503032 is put into
 the map. If we later wanted to get at the value 1503032 (e.g. to print the
 value), we could just write `wordfreqs["the"]` as you might expect.
 
 ## Map iterators
 
-In order to look at all the key--value pairs in a map, we need a way to
+In order to look at all the key-value pairs in a map, we need a way to
 "iterate" through the map. All the STL containers (vectors, maps, sets, etc.)
 have their own specific "iterator" types. To make an iterator, write the same
 "template type" as when you created the map, but then put `::iterator` after
@@ -52,7 +52,7 @@ it, like so:
 map<string, int>::iterator it;
 {% endhighlight %}
 
-Now `it` can iterate through a map that has string--int key--value pairs. The
+Now `it` can iterate through a map that has string-int key-value pairs. The
 iterator need not be named `it`, but that is very common. The iterator acts
 like a pointer to the elements of the container. The statement `++it` (or
 `it++`, which is less common) moves the iterator to the next element.
@@ -69,10 +69,10 @@ for(it = wordfreqs.begin(); it != wordfreqs.end(); ++it)
 That `for` loop basically means: let `it` iterate through `wordfreqs`, starting
 at the beginning and stopping once it passes the end.
 
-Because a map has key--value pairs, we have to use `first` and `second` to get
+Because a map has key-value pairs, we have to use `first` and `second` to get
 to the key and value (respectively). So `it->first` is the key of some
-key--value pair, and `it->second` is the value. We change the iterator (`++it`)
-to point to the next key--value pair, until we run out of them.
+key-value pair, and `it->second` is the value. We change the iterator (`++it`)
+to point to the next key-value pair, until we run out of them.
 
 Here is a complete example. Note that it also includes the `find` function,
 which works on any STL container, and returns an iterator. If the iterator

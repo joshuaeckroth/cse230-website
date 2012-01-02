@@ -10,9 +10,11 @@ layout: default
 
 ## Grading
 
-- Homeworks: 50% (8 of them)
+- Homeworks: 40% (8 of them)
 
 - Quizzes: 30% (8 of them)
+
+- Carmen quizzes: 10% (16 of them)
 
 - Final exam: 20% (Wed, March 14, 3:30-5:18pm, same room as lectures)
 
@@ -21,7 +23,7 @@ You can see your grades on Carmen.
 ## Quizzes & exams
 
 There is no midterm, per se. The quizzes, collectively, are your
-midterm (so to speak).  Quizzes occur every Thursday; they are short
+midterm (so to speak). Quizzes occur every Thursday; they are short
 (we still have lecture on Thursdays, a quiz should only take at most
 20 minutes), and are designed to reinforce the topics.
 
@@ -33,7 +35,7 @@ format will be just like the quizzes. Obviously, the final exam is
 
 There are also required quizzes on Carmen. These are short and mostly
 test small details. You can take a Carmen quiz as many times as you'd
-like.
+like, any time you'd like.
 
 ## Homeworks
 

@@ -3,9 +3,9 @@ layout: default
 title: Installing required software
 ---
 
-Some software is required for you to work on assignments on your own computer.
-First I show how to install software on Windows (two options; you only need to
-choose one), and Mac OS X (one option).
+Some software is required for you to work on assignments on your own
+computer. First I show how to install software on Windows (two
+options; you only need to choose one), and Mac OS X (one option).
 
 **Note: when the videos say "go to learn.artifice.cc", change that to "go to
 cse230.artifice.cc"**
@@ -26,21 +26,19 @@ Choose one of these recommended options:
 
 ## Visual Studio Express
 
-[Go to this webpage](http://www.microsoft.com/express/Downloads/#2010-Visual-CPP), then click "Select language..." and choose your preferred language, then "Run" the file that begins downloading.
+[Go to this webpage](http://www.microsoft.com/express/Downloads/#2010-Visual-CPP),
+then click "Select language..." and choose your preferred language,
+then "Run" the file that begins downloading.
 
 <iframe src="http://player.vimeo.com/video/21524538?title=0&byline=0&portrait=0" width="600" height="450" frameborder="0"></iframe>
 
 ## Mac OS X
 
-You will need to download XCode 3 from Apple. XCode 3 is free only if you sign
-up as a Mac developer, which is free. XCode 4 is not free.
-
-First, go to the [XCode website](http://developer.apple.com/xcode/), then
-scroll down and look at the right side, "Looking for Xcode 3? Download Now";
-click that. Then log in with your Apple ID or register.
-
-<iframe src="http://player.vimeo.com/video/21550188?title=0&byline=0&portrait=0" width="600" height="473" frameborder="0"></iframe>
+You will need [Xcode 4 from Apple](http://developer.apple.com/xcode/);
+click "View Xcode 4.2.1 for Lion on the Mac App Store," or just search
+the Mac App Store.
 
 ## Questions?
 
-Please post a comment below if you have any issues or questions about installing software.
+Please post a comment below if you have any issues or questions about
+installing software.

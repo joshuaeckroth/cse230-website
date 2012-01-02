@@ -39,7 +39,9 @@ described in comments.
 double a = 0.0;
 int x = 0;
 x++;            // same as: x = x + 1;
+++x;            // same as: x = x + 1;
 x--;            // same as: x = x - 1;
+--x;            // same as: x = x - 1;
 x += 2;         // same as: x = x + 2;
 x -= 2;         // same as: x = x - 2;
 x *= 2;         // same as: x = x * 2;
@@ -49,6 +51,19 @@ x %= 2;         // same as: x = x % 2;
 a += 2.0;       // same as: a = a + 2.0;
 // etc.
 {% endhighlight %}
+
+What's the difference between `x++` and `++x` (or `x--` and `--x`)? An
+assignment expression actually has a value. So `x = 5` turns into the
+value 5 (and changes `x` to equal 5). That makes the following
+possible: `y = x = 5`, which sets `y` equal to the value `x = 5`,
+which is the value 5.
+
+The difference is that `x++` gives back the old value of `x` (but also
+increments `x`), while `++x` increments `x` then gives its value. So
+if `x` is 5, and we have `y = x++` then `y` is 5 and `x` is 6. On the
+other hand, if we have `y = ++x` then `y` is 6 and `x` is 6. The `++x`
+version is slightly faster since the original value of `x` does not
+need to be copied.
 
 ## Boolean operators
 
@@ -63,9 +78,6 @@ r = p || q;    // "||" means "or", so r == TRUE
 r = p && q;    // "&&" means "and", so r == FALSE
 r = q || (!p)  // r == FALSE
 {% endhighlight %}
-
-Note that you cannot use "shorthand" operators with Boolean
-variables. The following does *not* do what you might expect: `r != p;`
 
 ## Mathy example
 
