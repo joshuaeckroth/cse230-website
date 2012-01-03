@@ -61,22 +61,20 @@ which is the value 5.
 The difference is that `x++` gives back the old value of `x` (but also
 increments `x`), while `++x` increments `x` then gives its value. So
 if `x` is 5, and we have `y = x++` then `y` is 5 and `x` is 6. On the
-other hand, if we have `y = ++x` then `y` is 6 and `x` is 6. The `++x`
-version is slightly faster since the original value of `x` does not
-need to be copied.
+other hand, if we have `y = ++x` then `y` is 6 and `x` is 6.
 
 ## Boolean operators
 
 Variables of type `bool` have the following special operators:
 
 {% highlight cpp %}
-bool p = TRUE;
-bool q = FALSE;
+bool p = true;
+bool q = false;
 bool r;
-r = !p;        // "!" means "not" or "opposite", so r == FALSE
-r = p || q;    // "||" means "or", so r == TRUE
-r = p && q;    // "&&" means "and", so r == FALSE
-r = q || (!p)  // r == FALSE
+r = !p;        // "!" means "not" or "opposite", so r == false
+r = p || q;    // "||" means "or", so r == true
+r = p && q;    // "&&" means "and", so r == false
+r = q || (!p)  // r == false
 {% endhighlight %}
 
 ## Mathy example

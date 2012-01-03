@@ -36,11 +36,11 @@ title: Course calendar
   <tr>
     <td>2<br/>01/08-01/14</td>
     <td>
-      <a href="/lecture/pointers-symbol-table.html">Pointers and the symbol table</a>
-      <br/>
       <a href="/lecture/arithmetic.html">Arithmetic</a>
       <br/>
       <a href="/lecture/input-output.html">Input/output</a>
+      <br/>
+      <a href="/lecture/pointers-symbol-table.html">Pointers and the symbol table</a>
       <br/>
       <a href="/lecture/conditionals.html">Conditionals</a>
       <br/>

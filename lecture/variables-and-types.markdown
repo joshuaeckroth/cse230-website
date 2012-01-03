@@ -271,3 +271,36 @@ const int MULTIPLIER = 5;
 Because these variables have the modifier `const`, you are not allowed to
 change their values (the compiler will display an error if you try).
 
+## Variable scope
+
+The "scope" of a variable is the locations in your program where the
+variable "exists" and is accessible. Basically, the rule is: a
+variable is accessible below its creation and inside any deeper
+"blocks" (blocks are defined by `{` and `}`), but not outside the
+block in which it is defined. A variable can be "shadowed" or
+overridden if a new variable of the same name is created in a deeper
+block. A variable of the same name cannot be created inside the same
+block as the earlier variable.
+
+Here is an example:
+
+{% highlight cpp %}
+{
+    cout << "hello" << endl;  // x does not exist
+    int x;                    // now x exists
+    x = 5;
+    cout << x << endl;
+    {
+        x = 12;               // x still exists here
+        cout << x << endl;
+        {
+            double x = 5.2;   // new x variable, original "shadowed"
+            cout << x << endl;
+        }
+        cout << x << endl;    // original is back
+    }
+    cout << x << endl;        // still original
+}
+cout << "goodbye" << endl;    // no more x
+{% endhighlight %}
+

@@ -58,11 +58,10 @@ cout << "Enter a 0 for FALSE, anything else for TRUE: ";
 cin >> p;
 {% endhighlight %}
 
-The function `cin` only collects input up to the first space or newline.
-
-`cin` can be used to obtain multiple inputs. It knows when to delimit
-(i.e. start looking for the next input) when it reaches a space or
-newline (or tab).
+`cin` only collects input up to the first space or newline. It can be
+used to obtain multiple inputs. It knows when to delimit (i.e. start
+looking for the next input) when it reaches a space or newline (or
+tab).
 
 Here's the same example as above, but using just one `cin`:
 

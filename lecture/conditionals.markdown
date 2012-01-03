@@ -239,7 +239,7 @@ Enter value 'c': 1
 No real solution.
 </pre>
 
-My code:
+The code:
 
 {% highlight cpp %}
 #include <iostream>
@@ -291,12 +291,13 @@ int main()
 
 ## "switch" statements
 
-An alternative to the above example (series of if/else's) is the `switch`
-statement. The `switch` statement is the same as a series of if/else's because
-only one of the conditions should turn out to be true. The `switch` statement
-can only handle simple conditions, however; actually, it can only handle
-conditions of the form "is some integer equal to some value?" This means that a
-`switch` statement can only be used for integers.
+An alternative series of if/else's is the `switch` statement. The
+`switch` statement is the same as a series of if/else's because only
+one of the conditions should turn out to be true. The `switch`
+statement can only handle simple conditions, however; actually, it can
+only handle conditions of the form "is some integer equal to some
+value?" This means that a `switch` statement can only be used for
+integers.
 
 Here is an example.
 
@@ -359,20 +360,22 @@ else
 }
 {% endhighlight %}
 
-Notice that an `if` is much more powerful: you can use very complicated
-conditionals. However, a `switch` is very simple: for each "case", you provide
-a value that is compared to the variable used in the switch (in this case, the
-variable used in the switch is "number"). Each case basically asks, "does the
-value in the variable equal this number?"
+Notice that an `if` is much more powerful: you can use very
+complicated conditionals. On the other hand, a `switch` is very
+simple: for each "case", you provide a value that is compared to the
+variable used in the switch (in this case, the variable used in the
+switch is "number"). Each case basically asks, "does the value in the
+variable equal this number?"
 
-Each "case" in a `switch` needs a "break" at the end so that the next case is
-not entered. It's good practice to always include a "break" at the end of each
-case in a `switch`.
+Each "case" in a `switch` needs a "break" at the end so that the next
+case is not entered. It's good practice to always include a "break" at
+the end of each case in a `switch`.
 
-The "default" case is the case that is used if all the other cases fail.
+The "default" case is the case that is used if all the other cases
+fail.
 
-You can also use a `switch` to determine which character a user typed, since
-characters are themselves just integers. Here is an example:
+You can also use a `switch` to determine which character a user typed,
+since characters are themselves just integers. Here is an example:
 
 {% highlight cpp %}
 #include <iostream>

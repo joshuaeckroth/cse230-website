@@ -3,11 +3,11 @@ title: Pointers and the symbol table
 layout: default
 ---
 
-Although all we have learned about C++ up to this point is how to
-create and use variables, it may be highly useful to us to think about
-how the computer keeps track of information about
-variables. Understanding this now will help us understand everything
-that follows.
+In most C++ programming books and tutorials, "pointers" are introduced
+much later than I am doing in these lecture notes. From experience, I
+have found that it is better to experience pointers sooner rather than
+later, because while the concept is simple and understandable early
+on, their use can become quite complex.
 
 Imagine we have the following (simplistic) program:
 
@@ -92,11 +92,13 @@ example (using the variables above):
 </table>
 
 The "variable name" column is obvious, as is the "type" column. The
-"scope" columns means "where is this variable visible?" We'll talk
-more about scope later. The "memory location" column holds a number
-(written in hexadecimal notation: each digit has 16 possible values,
-using symbols 0-9 and a-f) which indicates where, in the computer's
-memory, the value of the variable is kept.
+"scope" columns means "where is this variable visible?" We learned
+about scope in the
+[variables and types](/lecture/variables-and-types.html) notes. The
+"memory location" column holds a number (written in hexadecimal
+notation: each digit has 16 possible values, using symbols 0-9 and
+a-f) which indicates where, in the computer's memory, the value of the
+variable is kept.
 
 It's *very important* to see that the *value* of the variable is not
 in the symbol table! Only the memory location of where the value is
@@ -119,7 +121,7 @@ by adding 1, 2, 3, etc. to the memory location).
 > A memory reference instruction which is to use an indirect address
 > will have a `ONE` in Bit 5 of the instruction word. [...] Thus, `Y`
 > is not the location of the operand but the location of the location
-> of the operand.... --- *Programmed Data Processor-1 Manual*, 1960
+> of the operand.... -- *Programmed Data Processor-1 Manual*, 1960
 
 Pointers are a very easy concept but can be very tricky to use
 correctly. The easy aspect of pointers will be presented now, so that
@@ -145,10 +147,11 @@ location) will probably change every time we run our program. So let's
 just ask for `n`'s memory location:
 
 {% highlight cpp %}
-int* pn = &n;  // ask for n's memory location, save it in the variable pn
+pn = &n;  // ask for n's memory location, save it in the variable pn
 {% endhighlight %}
 
-The `&` ("address of") symbol gives us a variable's memory location.
+The `&` ("address of" or "reference") operator gives us a variable's
+memory location.
 
 <a href="http://xkcd.com/138/">
 ![xkcd comic](/images/xkcd-pointers.png "xkcd comic")
@@ -164,10 +167,10 @@ Now, `pn` "points to" `n`'s value. We can change `n`'s value by
 n = 5;
 {% endhighlight %}
 
-The `*` ("dereference") symbol, when it's not attached to a type (like
-`int*`), means in so many words, "look at the memory location stored
-in this variable (`pn`), *go to that memory location* and change the
-data there to this other data (`5`)."
+The `*` ("dereference") operator, when it's not attached to a type
+(like `int*`), means in so many words, "look at the memory location
+stored in this variable (`pn`), *go to that memory location* and
+change the data there to this other data (`5`)."
 
 In this example, it's the same operation as `n = 5`.
 
@@ -395,9 +398,9 @@ braces, like so:
 {% endhighlight %}
 
 then `x` is inaccessible (the variable is forgotten) when its
-enclosing braces end. For example, functions have their own sets of
-braces, so variables created inside functions no longer exist after
-the functions are finished.
+enclosing block (braces) ends. For example, functions have their own
+sets of braces, so variables created inside functions no longer exist
+after the functions are finished.
 
 But if we use the `new` operator to reserve memory, then that memory
 will be ours to use, regardless of scope, for as long as we wish
