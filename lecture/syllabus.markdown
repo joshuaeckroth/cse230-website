@@ -54,8 +54,7 @@ between code that shows you understand your solution and code that
 shows you just tried every possibility. You will be graded higher if
 your solution is incomplete but intelligent, than if your solution is
 just a mess. Additionally, code that actually works (even if it's
-incomplete) is much better than code that has errors. Partial credit
-will be abundant, however.
+incomplete) is much better than code that has errors.
 
 Most students say that programming assignments take longer than they
 expected. Trivial bugs in your code can cause you to waste hours
@@ -82,31 +81,32 @@ straight from the book.  Probably any edition would be fine; I use the
 
 ## Academic misconduct policy
 
-This course is designed for individual work, unless specifically
-stated otherwise.
+This course is designed for individual work.
 
-The only work required of you outside of class is homework
-assignments. Obviously, there is no tolerance for cheating (looking at
-others' work) during quizzes or the final exam. However, you may
-participate in a reasonable amount of collaboration over
-homeworks. Collaboration is limited to: discussing how to approach the
-solution, or how to solve small coding problems; looking at the
-Internet for information about general topics, not solutions to the
-particulars of the homework assignment. Anything posted on Piazza
-(described above) is fair-game. It is considered academic misconduct
-if you copy significant portions of code from anyone (the Internet
-included). Your solutions should not bear an uncanny resemblance to
-anyone else's code. It should be clear to you what I mean by this; do
-not test the limits of this (fairly liberal) policy. Violators will be
-referred to the OSU Committee on Academic Misconduct (COAM).
+The only work required of you outside of class is homework assignments
+and Carmen quizzes. Obviously, there is no tolerance for cheating
+(looking at others' work) during in-class quizzes, Carmen quizzes, or
+the final exam. However, you may participate in a reasonable amount of
+collaboration over homeworks. Collaboration is limited to: discussing
+how to approach the solution, or how to solve small coding problems;
+looking at the Internet for information about general topics, not
+solutions to the particulars of the homework assignment. It is
+considered academic misconduct if you copy significant portions of
+code from anyone (the Internet included). Your solutions should not
+bear an uncanny resemblance to anyone else's code. It should be clear
+to you what I mean by this; do not test the limits of this (fairly
+liberal) policy. Violators will be referred to the OSU Committee on
+Academic Misconduct (COAM).
 
 ## Disability statement
 
-Any student who feels he or may need an accommodation based on the
+Any student who feels he or she may need an accommodation based on the
 impact of a disability should contact me privately to discuss your
 specific needs. Please contact the Office for Disability Services at
 614-292-3307 in room 150 Pomerene Hall to coordinate reasonable
 accommodations for students with documented disabilities.
+
+## Some inspiration
 
 > In my life as an architect, I find that the single thing which
 > inhibits young professionals, new students most severely, is their
