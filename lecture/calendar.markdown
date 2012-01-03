@@ -217,7 +217,6 @@ title: Course calendar
   <tr>
     <td>10<br/>03/04-03/10</td>
     <td>
-      <a href="/lecture/summary.html">Summary of the whole class</a>
     </td>
     <td>no quiz</td>
     <td>no homework</td>
