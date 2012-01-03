@@ -4,8 +4,8 @@ title: Installing required software
 ---
 
 Some software is required for you to work on assignments on your own
-computer. First I show how to install software on Windows (two
-options; you only need to choose one), and Mac OS X (one option).
+computer. Here I show how to install software on Windows (two options;
+you only need to choose one), and Mac OS X (one option).
 
 **Note: when the videos say "go to learn.artifice.cc", change that to "go to
 cse230.artifice.cc"**
@@ -14,9 +14,11 @@ cse230.artifice.cc"**
 
 Choose one of these recommended options:
 
-- CodeBlocks -- much easier to use, but it is not on the OSU lab computers.
+  - CodeBlocks -- much easier to use, but it is not on the OSU lab
+    computers.
 
-- Visual Studio Express -- harder to use, but it *is* on the OSU lab computers.
+  - Visual Studio Express -- harder to use, but it *is* on the OSU lab
+    computers.
 
 ## CodeBlocks
 
@@ -37,8 +39,3 @@ then "Run" the file that begins downloading.
 You will need [Xcode 4 from Apple](http://developer.apple.com/xcode/);
 click "View Xcode 4.2.1 for Lion on the Mac App Store," or just search
 the Mac App Store.
-
-## Questions?
-
-Please post a comment below if you have any issues or questions about
-installing software.
