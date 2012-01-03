@@ -29,7 +29,7 @@ title: Course calendar
       <div class="nowrap">
         p. 20-29
         <br/>
-        p. 40-72
+        p. 40-49
       </div>
     </td>
   </tr>
@@ -56,9 +56,11 @@ title: Course calendar
     </td>
     <td>
       <div class="nowrap">
-        p. 74-91
+        p. 50-91
         <br/>
         p. 112-166
+        <br/>
+        p. 500-512
       </div>
     </td>
   </tr>
@@ -77,9 +79,9 @@ title: Course calendar
     </td>
     <td>
       <div class="nowrap">
-        Chs. 4, 5
+        Ch. 4
         <br/>
-        p. 782-803
+        p. 252-282
       </div>
     </td>
   </tr>
@@ -102,7 +104,11 @@ title: Course calendar
     </td>
     <td>
       <div class="nowrap">
-        Ch. 7
+        p. 282-292
+        <br/>
+        p. 782-803
+        <br/>
+        p. 482-488
       </div>
     </td>
   </tr>
@@ -123,9 +129,7 @@ title: Course calendar
     </td>
     <td>
       <div class="nowrap">
-        p. 500-523
-        <br/>
-        p. 734-748
+        p. 734-760
       </div>
     </td>
   </tr>
@@ -148,7 +152,9 @@ title: Course calendar
     </td>
     <td>
       <div class="nowrap">
-        p. 542-575
+        p. 542-579
+        <br/>
+        p. 696-710
       </div>
     </td>
   </tr>
@@ -170,11 +176,7 @@ title: Course calendar
     </td>
     <td>
       <div class="nowrap">
-        Chs. 8, 17
-        <br/>
-        p. 945-951
-        <br/>
-        p. 960-977
+        p. 853-866
       </div>
     </td>
   </tr>
@@ -193,7 +195,11 @@ title: Course calendar
     <td>
       <a href="/homework/homework-7.html">Homework 7</a>
     </td>
-    <td></td>
+    <td>
+      Chs. 17, 18
+      <br/>
+      p. 960-977
+    </td>
   </tr>
   <tr>
     <td>9<br/>02/26-03/03</td>
