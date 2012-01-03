@@ -111,3 +111,32 @@ That worked.
 Tracy's new balance: 112.5
 Josh's new balance: 8.5
 </pre>
+
+## Common compiler errors
+
+<pre>
+/tmp/ccJDhhaM.o: In function `BankAccount::BankAccount()':
+CDAccount.cpp:(.text._ZN11BankAccountC2Ev[_ZN11BankAccountC5Ev]+0x13):
+undefined reference to `vtable for BankAccount'
+/tmp/ccJDhhaM.o: In function `BankAccount::~BankAccount()':
+CDAccount.cpp:(.text._ZN11BankAccountD2Ev[_ZN11BankAccountD5Ev]+0x13):
+undefined reference to `vtable for BankAccount'
+</pre>
+
+This means you have `virtual bool withdraw(double amount)` or similar
+in `BankAccount.h` but you forgot to add `= 0` at the end of that. We
+need the `= 0` so that `withdraw()` is a "pure virtual" function.
+
+<pre>
+main.cpp: In function `int main()':
+main.cpp:48:50: error: cannot allocate an object of abstract type `CDAccount'
+CDAccount.h:6:7: note: 
+  because the following virtual functions are pure within `CDAccount':
+BankAccount.h:13:18: note: virtual bool BankAccount::withdraw(double)
+main.cpp:48:15: error:
+  cannot declare variable `acct2' to be of abstract type `CDAccount'
+CDAccount.h:6:7: note: since type `CDAccount' has pure virtual functions
+</pre>
+
+This means you forgot to provide the code for a pure virtual function
+(such as `withdraw()` or `deposit()`) in one of your subclasses.
