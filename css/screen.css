@@ -82,6 +82,10 @@ iframe {
     margin: 0 auto; 
     position: relative;
     max-width: 50em;
+    /* IE fix */
+    width: expression(document.body.clientWidth > (700/14) *
+                      parseInt(document.body.currentStyle.fontSize) ?
+                      "50em" : "auto");
     }
 
 #toc ul {
