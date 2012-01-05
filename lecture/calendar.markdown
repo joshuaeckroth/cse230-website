@@ -22,6 +22,12 @@ title: Course calendar
       <a href="/lecture/variables-and-types.html">Variables and types</a>
       <br/>
       <a href="/lecture/classes-and-objects-brief.html">Classes and objects (brief intro.)</a>
+      <br/>
+      <a href="/lecture/arithmetic.html">Arithmetic</a>
+      <br/>
+      <a href="/lecture/input-output.html">Input/output</a>
+      <br/>
+      <a href="/lecture/pointers-symbol-table.html">Pointers and the symbol table</a>
     </td>
     <td>Carmen quiz: Variables and types</td>
     <td>no homework</td>
@@ -36,12 +42,6 @@ title: Course calendar
   <tr>
     <td>2<br/>01/08-01/14</td>
     <td>
-      <a href="/lecture/arithmetic.html">Arithmetic</a>
-      <br/>
-      <a href="/lecture/input-output.html">Input/output</a>
-      <br/>
-      <a href="/lecture/pointers-symbol-table.html">Pointers and the symbol table</a>
-      <br/>
       <a href="/lecture/conditionals.html">Conditionals</a>
       <br/>
       <a href="/lecture/loops.html">Loops</a>
