@@ -68,6 +68,8 @@ title: Course calendar
     <td>3<br/>01/15-01/21</td>
     <td>
       <a href="/lecture/functions.html">Functions</a>
+      <br/>
+      <a href="/lecture/recursion.html">Recursion</a>
     </td>
     <td>
       <a href="/quiz/quiz-2-sample.html">Quiz 2 sample</a>
@@ -88,8 +90,8 @@ title: Course calendar
   <tr>
     <td>4<br/>01/22-01/28</td>
     <td>
-      <a href="/lecture/recursion.html">Recursion</a>
-      <br/>
+      <a href="/lecture/arrays.html">Arrays</a>
+      </br>
       <a href="/lecture/vectors.html">Vectors</a>
       <br/>
       <a href="/lecture/debugging.html">Debugging techniques</a>

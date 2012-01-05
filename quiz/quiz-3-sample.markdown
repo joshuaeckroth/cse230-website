@@ -3,10 +3,13 @@ title: Quiz 3 sample
 layout: default
 ---
 
-This quiz will ask you to write some code that works with vectors (see
-the [Vector lecture notes](/lecture/vectors.html)).
+This quiz will have two parts:
 
-You will need to write code that adds data to a vector, prints data
-from a vector, and sorts a vector. The data will come from the
-user. You only have to write the `main()` function, and the
-`#include`'s will already be provided.
+In the first part, you will be asked to write a small amount of code
+that creates and [array](/lecture/arrays.html), fills it with values
+in some fashion (like asking the user for each value), and processes
+the values in some way (like find the sum, find the min or max, find
+the average).
+
+In the second part, you will be asked to complete the same task with a
+[vector](/lecture/vectors.html)
