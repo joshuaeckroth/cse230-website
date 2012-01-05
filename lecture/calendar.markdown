@@ -35,7 +35,7 @@ title: Course calendar
       <div class="nowrap">
         p. 20-29
         <br/>
-        p. 40-49x
+        p. 40-49
       </div>
     </td>
   </tr>
