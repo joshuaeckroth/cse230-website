@@ -425,54 +425,168 @@ delete p;
 ![Storage units](/images/storage_units.jpg "Storage units")
 </a>
 
-You can think of memory as storage units. That's where variables are
-kept. So `int x = 5` means that some storage unit has a `5` inside.
+This analogy is a bit long, but hopefully it is useful.
 
-Every storage unit has an address (a unit number). Suppose some
-storage unit has the address "unit 15." Write that address on a piece
-of paper, and you have a pointer. The piece of paper "points to" the
-storage unit 15.
+Consider self-storage units. Think of each storage unit as a little
+hunk of memory -- you can put stuff (data) inside.
 
-When we have the code
+If the storage units are memory, then the unit number or "address" is
+like a memory address. Imagein each unit has an address like "row 15,
+unit 8."
+
+To expand the analogy, we must figure out how to describe a C++
+variable. A variable is a name which we use to refer to data. We don't
+care where that data is stored, we prefer to use the name of the
+data. Of course, the compiler is responsible for generating the
+appropriate code that reads the data from memory, or saves the data
+into memory, when we use the variable's name. In our analogy, perhaps
+the manager of the self-storage business is responsible for grabbing
+our stuff from the storage unit, and putting our stuff into the unit,
+when we ask (which is a lot to ask of a manager, but oh well).
+
+The manager keeps a list of variable names and storage unit addresses;
+we don't care too much what's on this list (for the moment). Also,
+this list is updated over time. Specifically, this list is updated
+when we ask the manager to start using a new variable name. This list
+is also updated when names are removed and storage units are freed up
+(for other customers). Variable names are removed from the list when
+they are "out of scope" in terms of our code.
+
+Variables go "out of scope" for the convenience of the
+programmer. "Scope" allows the programmer to reuse variable names and
+to free up memory when it's no longer needed. Scope only affects
+"temporary" variables, that is, variables created in the middle of
+your code and that aren't needed in other parts of your code. If we
+want variable names to persist, we can create them at the top of our
+code (outside all "blocks"); such variables are referred to as
+"global" variables because they are always in the current scope. Use
+of too many "global" variables is bad practice because it's difficult
+for programmers to keep track of all those variables. Rather, we like
+the fact that variables go "out of scope" and are destroyed because
+that means fewer variables are active at any one time. Ideally,
+variables are created just before they are needed for some
+computation, and are destroyed (go out of scope) when they are no
+longer needed.
+
+So, the manager's list of variable names and their corresponding
+storage units is updated over time. It is not our responsibility to
+update that list, but of course we know how the list is updated
+because we know the rules of scope.
+
+Naturally, in this analogy, a pointer is simply the address of a
+storage unit, because in reality it's a memory location. We can obtain
+a pointer by asking a variable what is its address (what storage unit
+is it using to store its data) or by asking the manager to reserve a
+new storage unit for us.
+
+When we ask for a storage unit to be reserved, we are telling the
+manager that we want to decide when we are done with the unit; we
+don't want scope rules to apply. The manager gives us the address of a
+unit, but the manager does not put any variable name on her list of
+names (because variable names are *always* subjected to scope
+rules). The manager will not decide when we are done with the unit;
+that is our responsibility.
+
+To reserve a storage unit, we use the `new` operation:
 
 {% highlight cpp %}
-int *px = new int;
-*px = 5;
+new int;
 {% endhighlight %}
 
-we are asking for a storage unit to be reserved for us, and recording
-its address ("unit 15") on a piece of paper (that piece of paper is
-called `px`).  Then, using the dereference operator (`*`), we are
-*going to that storage unit* and putting the value 5
-inside. Obviously, we need to know the address of the storage unit if
-we are going to use it for anything.
+(that code reserves four or eight bytes, enough for an integer)
 
-When we are done using the unit, we can "delete" it (let somebody else
-use it) as follows:
+That code is incomplete; the storage unit was reserved but we don't
+have its address! Let's save its address:
+
+{% highlight cpp %}
+int* px = new int;
+{% endhighlight %}
+
+Ok, `px` holds the address of the reserved unit. We can put an integer
+in this unit:
+
+{% highlight cpp %}
+*px = 52;
+{% endhighlight %}
+
+When we are done with the unit, we can `delete` it:
 
 {% highlight cpp %}
 delete px;
 {% endhighlight %}
 
-To delete or free the storage unit, we only need to know its address
-(it doesn't matter what's inside the unit).
+After we have deleted it, we should not attempt to access it (read or
+write to that memory location) because there is a good chance it is
+being used by some other customer (some other program, or some other
+part of your program).
 
-If we erase what's on the piece of paper (the pointer called `px`) and
-write something else, say "Unit 0," then we have lost our pointer to
-the original storage unit. A computer is very forgetful; it has
-*completely forgotten* the original address, so that storage unit that
-was reserved for us (unit 15, by the way) is now completely
-inaccessible because the computer forgot where it was. If the computer
-doesn't know where it is, then it will never be able to delete it
-(free it up for someone else). This is called a "memory leak" because
-your program reserved memory (reserved a storage unit) but never
-deletes it (never lets it go for someone else to use). That memory is
-completely "unfreeable" (to coin a word) if the addresses of the
-memory (storage units) are lost. As a real-world example, Firefox is
-notorious for its abundance of memory leaks. That's why after using
-Firefox for a couple hours, your computer slows down (your computer
-runs out of memory and starts using the much slower hard disk to store
-data).
+And on that same note, we should not attempt to access storage units
+that we have not reserved or that our not associated with some
+variable that is currently in scope. Any arbitrary storage unit may be
+in use by another program. The computer will typically notice our
+mistake, and crash our program. (It's just not friendly!)
+
+Notice that the pointer `px` is a regular variable, so it is subject
+to normal scope rules. We may lose the address of our reserved storage
+unit if `px`, the variable, is destroyed because it goes out of
+scope. If this occurs, and we never deleted (freed) the storage unit
+that `px` points to, then we'll never be able to delete it, and it
+will sit around forever (as long as our program is still running),
+completely inaccessible but also still reserved. No other customer can
+use that unit. This is called a "memory leak." A memory leak occurs
+when you reserve memory space but forget to delete it (probably
+because you lost the address of the unit you reserved).
+
+> **Interesting note** A 2.5 acre self-storage facility can offer
+> about 511 (10ft x 10ft) storage units. If we think of each 10x10
+> storage unit as enough space to hold an integer (which we'll say is
+> 8 bytes), then with 4GB of computer RAM, we'd need a storage
+> facility that spans about 1.1281e16 acres, or the surface area of
+> about 89,602 earths or about 7.5 suns. So when you lose the address
+> of your storage unit (memory location), you have *really* lost any
+> hope of finding it again...
+
+Now, why use pointers? I'll offer two use cases.
+
+The first is the "linked list." Imagine you want to store a lot of
+data but you don't know how much, and data may be added and removed
+over time. In C++, at least, you will not be able to continue creating
+variables for this data, simply because you don't know how many
+variables you'll need to create. (If you try to create a variable in a
+loop, the variable will be destroyed when the loop repeats because its
+scope ended. Oops!)
+
+How would we solve this problem with storage units? It's quite simple
+actually. In each of our units, each of which has some data, just
+include a little piece of paper with the address of the next unit in
+the list. Then, when you want to add data, you first reserve a new
+unit (and temporarily remember its address). Then, find the last unit
+in the list (by following the "bread crumbs" so to speak, until you
+reach a unit with no "next" pointer), write the address of the newly
+reserved unit on a piece of paper, and drop it in the last unit. Now
+the newly-reserved unit is the new "last" unit, and the previous
+"last" unit has a pointer to the new "last" unit.
+
+All you need to keep track of (keep in "scope") is the address of the
+first unit in the list. It's easy enough to keep one variable in
+scope. It's impossible to create an unknown, growing number of
+variables in scope.
+
+Now the second use case. Suppose you wanted to create a maze that a
+player can "walk" through. This is quite simple. Each storage unit
+acts like a "room" in the maze (perhaps it's decorated like a room,
+too). Storage units don't exactly have "doors," especially not "east,"
+"west," ... doors. So, instead we write the locations of the storage
+units that we are pretending are accessible through the "east,"
+"west," ... doors of the room. If the player wants to move "west,"
+your code just finds the piece of paper in the current room that is
+labeled "west," reads the location off that piece of paper, and walks
+over to that storage unit. By representing the maze this way (where
+each room knows its own exits), we don't have to keep track of the
+rooms and their exits in some huge complicated variable (such as a
+matrix). We also don't have to worry much about scope; we only need to
+keep track of the location of our "current room" (keep the "current
+room" pointer in scope).
 
 ## Blinky pointer fun (no, really)
 
@@ -486,30 +600,32 @@ more what Blink pointer fun was all about.
 
 ## The NULL pointer
 
-Since virtually any memory address (e.g. 1900, 3720446, whatever) may well be a
-valid memory address, how do we indicate that a pointer points to nothing? (A
-pointer "pointing to nothing" is useful when we want to be clear that a pointer
-is no longer valid.) We have designated that the address 0 is an invalid
-address. There is data at address 0, but there's no chance that our little C++
-program has legitimate access to that address (the operating system manages
-stuff at the very early areas of memory).
+Since virtually any memory address (e.g. 1900, 3720446, whatever) may
+well be a valid memory address, how do we indicate that a pointer
+points to nothing? (A pointer "pointing to nothing" is useful when we
+want to be clear that a pointer is no longer valid.) We have
+designated that the address 0 is an invalid address. There is data at
+address 0, but there's no chance that our little C++ program has
+legitimate access to that address (the operating system manages stuff
+at the very early areas of memory).
 
-When do we want a pointer that points to nothing? Pointers are very common in
-complex data structures; for example, a "linked list" (which we'll learn about
-later) is composed of values and pointers; each pointer points to the next
-value in the list. So, the last pointer should point to nothing (there is no
-next value). Thus, that last pointer equals 0.
+When do we want a pointer that points to nothing? Pointers are very
+common in complex data structures; for example, a "linked list" (which
+we'll learn about later) is composed of values and pointers; each
+pointer points to the next value in the list. So, the last pointer
+should point to nothing (there is no next value). Thus, that last
+pointer equals 0.
 
-A lot of people write `px = 0` to point to address 0. Most C++ compilers also
-let us write `px = NULL` (NULL is the same as 0) to make it quite clear in the
-code that `px` points to nothing.
+A lot of people write `px = 0` to point to address 0. Most C++
+compilers also let us write `px = NULL` (NULL is the same as 0) to
+make it quite clear in the code that `px` points to nothing.
 
-If a pointer points to an invalid location (a memory location not accessible by
-our program), and that pointer is dereferenced, the program will crash with a
-"segmentation fault."
+If a pointer points to an invalid location (a memory location not
+accessible by our program), and that pointer is dereferenced, the
+program will crash with a "segmentation fault."
 
 {% highlight cpp %}
-int *px = NULL;
+int* px = NULL;
 cout << *px << endl; // crashes the program with a "segfault"
 {% endhighlight %}
 
@@ -520,22 +636,24 @@ cout << *px << endl; // crashes the program with a "segfault"
 
 ## Conclusion
 
-Any discussion of pointers is a bit esoteric without showcasing applications.
-The real use for pointers will come when we discuss interesting data
-structures, such as linked lists.
+Any discussion of pointers is a bit esoteric without showcasing
+applications.  The real use for pointers will come when we discuss
+interesting data structures, such as linked lists.
 
 > **pointee** *n.* That, if anything, pointed at by a pointer.
 >
-> Many computer languages offer data types such as "pointer to data type T"
-> where T itself can be a pointer type. Thus, pointees may well be pointers,
-> yea even unto themselves. A pointer can be interpreted as the memory address
-> of its pointee (the putative object residing at that place in memory). The
-> devout hope, a sort of computer-scientific Calvinism, is that pointer and
-> pointee values maintain this preordained relationship throughout the manifest
-> volatilities that RAM and code are heir to. A symptom of widespread pointer
-> paranoia is the fact that in C/C++, for example, zero-valued (or NULL)
-> pointers are *non-grata*; they point *nowhere*, have no pointees, and noisily
-> resist dereferencing. There is a growing backlash from the parsimonious who
-> resent the fact that a perfectly respectable, physical byte at address 0 is
-> pointlessly ghettoed. -- *The computer contradictionary*
+> Many computer languages offer data types such as "pointer to data
+> type T" where T itself can be a pointer type. Thus, pointees may
+> well be pointers, yea even unto themselves. A pointer can be
+> interpreted as the memory address of its pointee (the putative
+> object residing at that place in memory). The devout hope, a sort of
+> computer-scientific Calvinism, is that pointer and pointee values
+> maintain this preordained relationship throughout the manifest
+> volatilities that RAM and code are heir to. A symptom of widespread
+> pointer paranoia is the fact that in C/C++, for example, zero-valued
+> (or NULL) pointers are *non-grata*; they point *nowhere*, have no
+> pointees, and noisily resist dereferencing. There is a growing
+> backlash from the parsimonious who resent the fact that a perfectly
+> respectable, physical byte at address 0 is pointlessly ghettoed. --
+> *The computer contradictionary*
 
