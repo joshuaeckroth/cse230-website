@@ -419,175 +419,6 @@ p->age = 45;
 delete p;
 {% endhighlight %}
 
-## An analogy (oh no!)
-
-<a href="http://www.flickr.com/photos/guardianstoragesolutions/2714239269/in/photostream/">
-![Storage units](/images/storage_units.jpg "Storage units")
-</a>
-
-This analogy is a bit long, but hopefully it is useful.
-
-Consider self-storage units. Think of each storage unit as a little
-hunk of memory -- you can put stuff (data) inside.
-
-If the storage units are memory, then the unit number or "address" is
-like a memory address. Imagein each unit has an address like "row 15,
-unit 8."
-
-To expand the analogy, we must figure out how to describe a C++
-variable. A variable is a name which we use to refer to data. We don't
-care where that data is stored, we prefer to use the name of the
-data. Of course, the compiler is responsible for generating the
-appropriate code that reads the data from memory, or saves the data
-into memory, when we use the variable's name. In our analogy, perhaps
-the manager of the self-storage business is responsible for grabbing
-our stuff from the storage unit, and putting our stuff into the unit,
-when we ask (which is a lot to ask of a manager, but oh well).
-
-The manager keeps a list of variable names and storage unit addresses;
-we don't care too much what's on this list (for the moment). Also,
-this list is updated over time. Specifically, this list is updated
-when we ask the manager to start using a new variable name. This list
-is also updated when names are removed and storage units are freed up
-(for other customers). Variable names are removed from the list when
-they are "out of scope" in terms of our code.
-
-Variables go "out of scope" for the convenience of the
-programmer. "Scope" allows the programmer to reuse variable names and
-to free up memory when it's no longer needed. Scope only affects
-"temporary" variables, that is, variables created in the middle of
-your code and that aren't needed in other parts of your code. If we
-want variable names to persist, we can create them at the top of our
-code (outside all "blocks"); such variables are referred to as
-"global" variables because they are always in the current scope. Use
-of too many "global" variables is bad practice because it's difficult
-for programmers to keep track of all those variables. Rather, we like
-the fact that variables go "out of scope" and are destroyed because
-that means fewer variables are active at any one time. Ideally,
-variables are created just before they are needed for some
-computation, and are destroyed (go out of scope) when they are no
-longer needed.
-
-So, the manager's list of variable names and their corresponding
-storage units is updated over time. It is not our responsibility to
-update that list, but of course we know how the list is updated
-because we know the rules of scope.
-
-Naturally, in this analogy, a pointer is simply the address of a
-storage unit, because in reality it's a memory location. We can obtain
-a pointer by asking a variable what is its address (what storage unit
-is it using to store its data) or by asking the manager to reserve a
-new storage unit for us.
-
-When we ask for a storage unit to be reserved, we are telling the
-manager that we want to decide when we are done with the unit; we
-don't want scope rules to apply. The manager gives us the address of a
-unit, but the manager does not put any variable name on her list of
-names (because variable names are *always* subjected to scope
-rules). The manager will not decide when we are done with the unit;
-that is our responsibility.
-
-To reserve a storage unit, we use the `new` operation:
-
-{% highlight cpp %}
-new int;
-{% endhighlight %}
-
-(that code reserves four or eight bytes, enough for an integer)
-
-That code is incomplete; the storage unit was reserved but we don't
-have its address! Let's save its address:
-
-{% highlight cpp %}
-int* px = new int;
-{% endhighlight %}
-
-Ok, `px` holds the address of the reserved unit. We can put an integer
-in this unit:
-
-{% highlight cpp %}
-*px = 52;
-{% endhighlight %}
-
-When we are done with the unit, we can `delete` it:
-
-{% highlight cpp %}
-delete px;
-{% endhighlight %}
-
-After we have deleted it, we should not attempt to access it (read or
-write to that memory location) because there is a good chance it is
-being used by some other customer (some other program, or some other
-part of your program).
-
-And on that same note, we should not attempt to access storage units
-that we have not reserved or that our not associated with some
-variable that is currently in scope. Any arbitrary storage unit may be
-in use by another program. The computer will typically notice our
-mistake, and crash our program. (It's just not friendly!)
-
-Notice that the pointer `px` is a regular variable, so it is subject
-to normal scope rules. We may lose the address of our reserved storage
-unit if `px`, the variable, is destroyed because it goes out of
-scope. If this occurs, and we never deleted (freed) the storage unit
-that `px` points to, then we'll never be able to delete it, and it
-will sit around forever (as long as our program is still running),
-completely inaccessible but also still reserved. No other customer can
-use that unit. This is called a "memory leak." A memory leak occurs
-when you reserve memory space but forget to delete it (probably
-because you lost the address of the unit you reserved).
-
-> **Interesting note** A 2.5 acre self-storage facility can offer
-> about 511 (10ft x 10ft) storage units. If we think of each 10x10
-> storage unit as enough space to hold an integer (which we'll say is
-> 8 bytes), then with 4GB of computer RAM, we'd need a storage
-> facility that spans about 1.1281e16 acres, or the surface area of
-> about 89,602 earths or about 7.5 suns. So when you lose the address
-> of your storage unit (memory location), you have *really* lost any
-> hope of finding it again...
-
-Now, why use pointers? I'll offer two use cases.
-
-The first is the "linked list." Imagine you want to store a lot of
-data but you don't know how much, and data may be added and removed
-over time. In C++, at least, you will not be able to continue creating
-variables for this data, simply because you don't know how many
-variables you'll need to create. (If you try to create a variable in a
-loop, the variable will be destroyed when the loop repeats because its
-scope ended. Oops!)
-
-How would we solve this problem with storage units? It's quite simple
-actually. In each of our units, each of which has some data, just
-include a little piece of paper with the address of the next unit in
-the list. Then, when you want to add data, you first reserve a new
-unit (and temporarily remember its address). Then, find the last unit
-in the list (by following the "bread crumbs" so to speak, until you
-reach a unit with no "next" pointer), write the address of the newly
-reserved unit on a piece of paper, and drop it in the last unit. Now
-the newly-reserved unit is the new "last" unit, and the previous
-"last" unit has a pointer to the new "last" unit.
-
-All you need to keep track of (keep in "scope") is the address of the
-first unit in the list. It's easy enough to keep one variable in
-scope. It's impossible to create an unknown, growing number of
-variables in scope.
-
-Now the second use case. Suppose you wanted to create a maze that a
-player can "walk" through. This is quite simple. Each storage unit
-acts like a "room" in the maze (perhaps it's decorated like a room,
-too). Storage units don't exactly have "doors," especially not "east,"
-"west," ... doors. So, instead we write the locations of the storage
-units that we are pretending are accessible through the "east,"
-"west," ... doors of the room. If the player wants to move "west,"
-your code just finds the piece of paper in the current room that is
-labeled "west," reads the location off that piece of paper, and walks
-over to that storage unit. By representing the maze this way (where
-each room knows its own exits), we don't have to keep track of the
-rooms and their exits in some huge complicated variable (such as a
-matrix). We also don't have to worry much about scope; we only need to
-keep track of the location of our "current room" (keep the "current
-room" pointer in scope).
-
 ## Blinky pointer fun (no, really)
 
 Check out this video: [Blinky pointer
@@ -629,10 +460,45 @@ int* px = NULL;
 cout << *px << endl; // crashes the program with a "segfault"
 {% endhighlight %}
 
-
 <a href="http://xkcd.com/371/">
 ![xkcd comic](/images/xkcd-compiler-complaint.png "xkcd comic")
 </a>
+
+## Background: Why pointers?
+
+<div style="text-align: center">
+<a id="viewerPlaceHolder" style="width:640px;height:480px;display:block;margin: 0 auto;"></a>
+</div>
+                
+<script type="text/javascript"> 
+        var fp = new FlexPaperViewer(   
+            '/flash/FlexPaperViewer',
+            'viewerPlaceHolder', { config : {
+            SwfFile : escape('/flash/pointers-background.swf'),
+            Scale : 0.6, 
+            ZoomTransition : 'easeOut',
+            ZoomTime : 0.5,
+            ZoomInterval : 0.2,
+            FitPageOnLoad : true,
+            FitWidthOnLoad : false,
+            FullScreenAsMaxWindow : false,
+            ProgressiveLoading : false,
+            MinZoomSize : 0.2,
+            MaxZoomSize : 5,
+            SearchMatchAll : false,
+            InitViewMode : 'Portrait',
+            PrintPaperAsBitmap : false,
+            ViewModeToolsVisible : false,
+            ZoomToolsVisible : false,
+            NavToolsVisible : true,
+            CursorToolsVisible : false,
+            SearchToolsVisible : false,
+            localeChain: 'en_US'
+            }});
+</script>
+
+[Download the PDF](/pdf/pointers-background.pdf)
+
 
 ## Conclusion
 
