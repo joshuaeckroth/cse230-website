@@ -3,7 +3,7 @@ title: Homework 3
 layout: default
 ---
 
-From the book, page 440, question 13. Due Jan 27, 11pm (Fri).
+From the book, page 440, question 13. Due Jan 30, 11pm (Mon).
 
 Skills needed to complete this assignment:
 

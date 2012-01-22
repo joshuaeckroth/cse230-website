@@ -39,7 +39,7 @@ like, any time you'd like.
 
 ## Homeworks
 
-Homeworks are always due on a Friday, by 11:00pm. Your homework
+Homeworks are always due on a Monday, by 11:00pm. Your homework
 should be sent to me by email:
 [joshuaeckroth@gmail.com](mailto:joshuaeckroth@gmail.com) (attach your
 files; do not paste into Microsoft Word, just literally attach `.cpp`

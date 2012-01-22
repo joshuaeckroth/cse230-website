@@ -3,7 +3,7 @@ title: Homework 8
 layout: default
 ---
 
-Due March 2, 11pm (Fri).
+Due March 5, 11pm (Mon).
 
 This assignment extends Homework 7. Ideally, you will start with your
 HW 7 code and extend it, so that you have the experience of adapting

@@ -3,7 +3,7 @@ title: Homework 4
 layout: default
 ---
 
-Due Feb 3, 11pm (Fri).
+Due Feb 6, 11pm (Mon).
 
 Your task is to evaluate expressions like `3.4-(2.6+5.0)` and
 `sin(-1.0)*2.0` and `-9.4^log(exp(cos(4.5)-2.3+3.5))`. These

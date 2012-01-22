@@ -3,7 +3,7 @@ title: Homework 7
 layout: default
 ---
 
-Due Feb 24, 11pm (Fri).
+Due Feb 27, 11pm (Mon).
 
 Make a class called `Room` and a `main()` function that allow a user to "walk
 through a maze." Here is an example interaction:

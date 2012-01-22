@@ -3,7 +3,7 @@ title: Homework 5
 layout: default
 ---
 
-From the book, p. 606, q. 10. Due Feb 10, 11pm (Fri).
+From the book, p. 606, q. 10. Due Feb 13, 11pm (Mon).
 
 Skills needed to complete this assignment:
 
