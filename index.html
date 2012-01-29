@@ -24,11 +24,17 @@ layout: home
 </script>
 <link rel="stylesheet" href="http://www.google.com/cse/style/look/default.css" type="text/css" />
 <style type="text/css">
-  .gsc-control-cse {
-    font-family: Arial, sans-serif;
-    font-size: 80%;
+  .cse .gsc-control-cse, .gsc-control-cse {
+    padding: 0;
+  }
+  .gsc-control-cse,
+  .gsc-control-cse .gsc-table-result,
+  .gsc-control-cse .gs-spelling, .gsc-control-cse .gs-result .gs-title, .gsc-control-cse .gs-result .gs-title * {
+    font-family: Arial, sans-serif !important;
+    font-size: 12px !important;
     border-color: #FFFFFF;
     background-color: #FFFFFF;
+    color: #555753;
   }
   input.gsc-input {
     border-color: #BCCDF0;
