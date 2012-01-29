@@ -6,274 +6,158 @@ layout: default
 {% highlight cpp %}
 #include <iostream>
 #include <cassert>
-#include <cmath>
 using namespace std;
 
-struct list {
+class Node {
+public:
     double value;
-    list* pnext;
+    Node* pnext;
 };
 
-// this function adds a new node at the beginning of a list;
-// it receives the pointer to the 'head' of an existing list
-// and changes that pointer; that's why the first parameter
-// is a call-by-reference parameter
-void insert_front(list* &head, double value)
+class List {
+public:
+    Node* first;
+    int count;
+};
+
+
+// return a pointer to the i'th node
+Node* node_at(List* list, int i)
 {
-    list *n = new list;
+    assert(i < list->count);
+
+    Node* n = list->first;
+    for(int j = 0; j < i; j++)
+    {
+        n = n->pnext;
+    }
+    return n;
+}
+
+double val_at(List* list, int i)
+{
+    return (node_at(list, i))->value;
+}
+
+// add a new node at the beginning of a list
+void insert_front(List* list, double value)
+{
+    Node* n = new Node;
     n->value = value;
-    n->pnext = head;
- 
-    head = n;
+    n->pnext = list->first;
+    list->first = n;
+    list->count++;
 }
  
-// this function adds a new node to the end of the list;
-// to do so, it has to find the end of the list first;
-// note it may change the head pointer, if the list
-// is empty; so head is call-by-reference
-void push_back(list* &head, double value)
+// add a new node to the end of the list
+void push_back(List* list, double value)
 {
-    // push_back == insert_front when we have no list
-    if(head == NULL)
+    Node* n = new Node;
+    n->value = value;
+    Node* nlast = node_at(list, list->count - 1);
+    nlast->pnext = n;
+    list->count++;
+}
+
+// insert a new node before the i'th node in the list
+void insert_before(List* list, int i, double value)
+{
+    // don't bother if i is too small or too large
+    if(i < 0 || i > list->count) return;
+
+    if(i == 0)
     {
-        insert_front(head, value);
+        Node* n = new Node;
+        n->value = value;
+        n->pnext = list->first;
+        list->first = n;
+        list->count++;
     }
     else
     {
-        // find the end of the list
-        list *n = head;
-        while(n->pnext != NULL)
-        {
-            // go to next node so long as there is one
-            n = n->pnext;
-        }
- 
-        // by the way, that loop could have been done
-        // with the following 'for' loop
-        // list *n;
-        // for(n = head; n->pnext != NULL; n = n->pnext);
- 
-        // now n points to the last node;
-        // make a new node
-        list *n2 = new list;
+        Node* n = node_at(list, i-1);
+        Node* n2 = new Node;
         n2->value = value;
-        n2->pnext = NULL;
- 
-        // link the prior last node ('n')
-        // to this new last node ('n2')
+        n2->pnext = n->pnext;
         n->pnext = n2;
+        list->count++;
     }
 }
 
-void insert_before(list* &head, int n, double value)
+void remove_at(List* list, int i)
 {
-    if(n < 0) return;
+    if(i < 0 || i >= list->count) return;
 
-    if(head == NULL || n == 0)
+    if(i == 0)
     {
-        insert_front(head, value);
-        return;
-    }
-
-    // find the (n-1)'st node
-    list *tmp = head;
-    int i = 0;
-    while(i < (n-1) && tmp->pnext != NULL)
-    {
-        tmp = tmp->pnext;
-        i++;
-    }
-
-    // now tmp points to the node we
-    // should insert *after*
-    list *n2 = new list;
-    n2->value = value;
-    n2->pnext = tmp->pnext;
-    tmp->pnext = n2;
-}
-
-void remove_nth(list* &head, int n)
-{
-    if(n < 0 || head == NULL) return;
-
-    // remove first element, so head
-    // needs to change
-    if(n == 0)
-    {
-        list *oldhead = head;
-        head = head->pnext;
-        delete oldhead;
+        Node* toDelete = list->first;
+        list->first = toDelete->pnext;
+        delete toDelete;
+        list->count--;
     }
     else
     {
-        // if n!= 0, then walk through the list
-        // for n steps, remembering the previous
-        // node (there will be a prev node since
-        // n != 0); if the list is shorter than n
-        // elements, do nothing (just return)
-        int i = 0;
-        list *tmp = head;
-        list *prev;
-        while(i < n && tmp != NULL)
-        {
-            prev = tmp;
-            tmp = tmp->pnext;
-            i++;
-        }
-
-        // list is shorter than n elements
-        if(tmp == NULL) return;
-
-        // if we're here, we can do the removal
-        prev->pnext = tmp->pnext;
-        delete tmp;
+        Node* prev = node_at(list, i-1);
+        Node* toDelete = prev->pnext;
+        prev->pnext = toDelete->pnext;
+        delete toDelete;
+        list->count--;
     }
 }
 
-void reverse(list* &head)
-{
-    list *n = head;
-    list *tmp;
-
-    // special case: point front to NULL
-    if(n != NULL)
-    {
-        // save where it pointed to first
-        tmp = n->pnext;
-
-        n->pnext = NULL;
-
-        // move to next element
-        n = tmp;
-    }
-
-    // head will point to prior element,
-    // n points to current element,
-    // tmp points to next element
-    while(n != NULL)
-    {
-        // get next element
-        tmp = n->pnext;
-
-        // set new next to prior
-        n->pnext = head;
-
-        // set prior = current
-        head = n;
-
-        // set current = next
-        n = tmp;
-    }
-}
-
-// count length of list
-int length(list *head)
-{
-    int i = 0;
-    while(head != NULL)
-    {
-        head = head->pnext;
-        i++;
-    }
-    return i;
-}
-
-// return nth element (counting from 0);
-// can't be called on an empty list and
-// n must be a valid position
-double nth(list *head, int n)
-{
-    assert(head != NULL);
-
-    int i = 0;
-    while(i < n && head != NULL)
-    {
-        head = head->pnext;
-        i++;
-    }
-    // require that the nth element exists
-    assert(head != NULL);
-
-    return head->value;
-}
-
-// return the position of the first value
-// that matches (within epsilon range)
-// a particular value; (we use epsilon
-// because doubles don't have exact values);
-// returns -1 if the value was not found
-int find(list *head, double value, double epsilon)
-{
-    int i = -1;
-    while(head != NULL)
-    {
-        i++;
-
-        // if absolute value of difference
-        // is less than epsilon, then we
-        // found our element
-        if(fabs(head->value - value) < epsilon)
-        {
-            break;
-        }
-
-        // if we didn't 'break', go to next
-        head = head->pnext;
-    }
-    // ran out of list, never found it
-    if(head == NULL)
-        i = -1;
-
-    return i;
-}
-
- 
 // print all the values
-void print_list(list *head)
+void print_list(List* list)
 {
     cout.precision(1);
     cout.setf(ios::fixed, ios::floatfield);
 
     cout << "{";
-    while(head != NULL)
+    Node* n = list->first;
+    for(int i = 0; i < list->count; i++)
     {
-        cout << head->value;
-        if(head->pnext != NULL)
+        cout << n->value;
+        if(i < (list->count - 1))
+        {
             cout << ", ";
-        head = head->pnext;
+        }
+        n = n->pnext;
     }
     cout << "}" << endl;
 }
  
 // free up all the memory used by the list
-void delete_list(list* &head)
+void delete_list(List* list)
 {
-    list *n;
-    while(head != NULL)
+    Node* n = list->first;
+    Node* n2;
+    for(int i = 0; i < list->count; i++)
     {
-        n = head;
-        head = head->pnext;
-        delete n;
+        n2 = n;
+        n = n->pnext;
+        delete n2;
     }
-    head = NULL;
+    list->count = 0;
 }
 
 
 int main()
 {
-    list *mylist = NULL;
+    List* mylist = new List;
+    mylist->count = 0;
 
     cout << "empty list: ";
     print_list(mylist);
 
-    cout << "reversed: ";
-    reverse(mylist);
+    cout << "insert front 7.3: ";
+    insert_front(mylist, 7.3);
     print_list(mylist);
 
-    cout << "length: " << length(mylist) << endl;
+    cout << "insert 1.2 before position 0: ";
+    insert_before(mylist, 0, 1.2);
+    print_list(mylist);
 
-    cout << "insert 1.0 before 8: ";
-    insert_before(mylist, 8, 1.0);
+    cout << "insert 9.3 before position 1: ";
+    insert_before(mylist, 1, 9.3);
     print_list(mylist);
 
     cout << "delete list, then print: ";
@@ -286,8 +170,8 @@ int main()
     push_back(mylist, 5.0);
     print_list(mylist);
 
-    cout << "nth(0): " << nth(mylist, 0) << endl;
-    cout << "nth(1): " << nth(mylist, 1) << endl;
+    cout << "val_at(0): " << val_at(mylist, 0) << endl;
+    cout << "val_at(1): " << val_at(mylist, 1) << endl;
 
     cout << "add 2.0 to front, 6.0 to back: ";
     insert_front(mylist, 2.0);
@@ -298,47 +182,33 @@ int main()
     insert_before(mylist, 3, 4.5);
     print_list(mylist);
 
-    cout << "index of 4.0: " << find(mylist, 4.0, 0.001) << endl;
-    cout << "index of 4.5: " << find(mylist, 4.5, 0.001) << endl;
-    cout << "index of 6.0: " << find(mylist, 6.0, 0.001) << endl;
-    cout << "index of 2.0: " << find(mylist, 2.0, 0.001) << endl;
-    cout << "index of 8.0: " << find(mylist, 8.0, 0.001) << endl;
-
-    cout << "length: " << length(mylist) << endl;
-
-    cout << "reverse: ";
-    reverse(mylist);
+    cout << "insert 0.0 before position 6 (i.e., at end): ";
+    insert_before(mylist, 6, 0.0);
     print_list(mylist);
 
-    cout << "reverse (again): ";
-    reverse(mylist);
+    cout << "remove_at(0): ";
+    remove_at(mylist, 0);
     print_list(mylist);
 
-    cout << "remove_nth(0): ";
-    remove_nth(mylist, 0);
+    cout << "remove_at(2): ";
+    remove_at(mylist, 2);
     print_list(mylist);
 
-    cout << "remove_nth(2): ";
-    remove_nth(mylist, 2);
+    cout << "remove_at(4) (i.e., remove end): ";
+    remove_at(mylist, 4);
     print_list(mylist);
 
-    cout << "remove_nth(5) (should do nothing): ";
-    remove_nth(mylist, 5);
+    cout << "remove_at(-1) (should do nothing): ";
+    remove_at(mylist, -1);
     print_list(mylist);
 
-    cout << "remove_nth(-1) (should do nothing): ";
-    remove_nth(mylist, -1);
-    print_list(mylist);
-
-    cout << "remove_nth(2): ";
-    remove_nth(mylist, 2);
+    cout << "remove_at(2): ";
+    remove_at(mylist, 2);
     print_list(mylist);
  
     cout << "delete list, then print: ";
     delete_list(mylist);
     print_list(mylist);
-
-    cout << "index of 8.0: " << find(mylist, 8.0, 0.001) << endl;
 
     return 0;
 }
