@@ -44,7 +44,7 @@ public:
 Now we can make a single node:
 
 {% highlight cpp %}
-Node* n = new Node;;
+Node* n = new Node;
 n->value = -130.569;
 {% endhighlight %}
 
