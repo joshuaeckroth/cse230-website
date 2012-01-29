@@ -51,6 +51,20 @@ layout: home
       <a href="http://vimeo.com/channels/cse230">Screencasts of each lecture</a>
     </p>
 
+    <div id="cse" style="width: 100%;">Loading</div>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript"> 
+      google.load('search', '1', {language : 'en'});
+      google.setOnLoadCallback(function() {
+      var customSearchOptions = {};
+      var customSearchControl = new google.search.CustomSearchControl(
+      '007138713826802658404:o_1kwmfq9k4', customSearchOptions);
+      customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+      customSearchControl.draw('cse');
+      }, true);
+    </script>
+    <link rel="stylesheet" href="http://www.google.com/cse/style/look/default.css" type="text/css" />
+
     <p>
       Final exam:<br/>
       Wed, March 14, 3:30-5:18pm,<br/>
