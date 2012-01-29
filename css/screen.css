@@ -167,3 +167,6 @@ tr {
     border-bottom: 1px solid #cccccc;
 }
 
+.gse-control-cse tr {
+    border-bottom: 0px solid white;
+}
