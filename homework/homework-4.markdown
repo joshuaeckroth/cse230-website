@@ -69,15 +69,18 @@ technique for processing trees).
 
 ## Tree structure
 
-You must use the following structure to represent a tree:
+You must use the following structure to represent a tree. **Note: do
+not add this to your `main.cpp`; it is already inside `math_tree.h`
+which you will already have.**
 
 {% highlight cpp %}
-struct tree
+class Tree
 {
+public:
     std::string op;
     double val;
-    tree *left;
-    tree *right;
+    Tree *left;
+    Tree *right;
 };
 {% endhighlight %}
 
@@ -94,22 +97,22 @@ and an operation. We'll use the following convention to determine if a
 node is an operation or just a value: the `op` variable should only be
 non-empty if the node is an operation; otherwise, the node is a value
 and the value is stored in `val`. You can test if the `op` variable is
-empty, in a tree structure pointer variable named `root`, with the
-following expression: `if(root->op.empty())`
+empty, in a `Tree` pointer variable named `root`, with the following
+expression: `if(root->op.empty())`
 
 Here is how the tree at the beginning of this homework can be
 represented:
 
 {% highlight cpp %}
-tree m;
+Tree m;
 m.op = "-";
-tree p;
+Tree p;
 p.op = "+";
-tree v1;
+Tree v1;
 v1.val = 3.4;
-tree v2;
+Tree v2;
 v2.val = 2.6;
-tree v3;
+Tree v3;
 v3.val = 5.0;
 
 m.left = &v1;
@@ -179,7 +182,7 @@ double evalOp(string op, double val1, double val2)
     // for evaluating operators like +, -, etc.
 }
 
-double eval(tree *root)
+double eval(Tree *root)
 {
     // for (recursively) evaluating a tree; this function will refer
     // back to itself (for evaluating subtrees) and will use the

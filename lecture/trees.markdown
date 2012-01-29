@@ -5,25 +5,32 @@ layout: default
 
 Trees are structurally a lot like
 [linked lists](/lecture/linked-lists.html). Actually, a linked list is
-a simplistic kind of tree. Recall that a linked list "structure" had a
+a simplistic kind of tree. Recall that a linked list "node" had a
 value and a "next" pointer. The tree structure also has (one or more)
 values plus (one or more) pointers:
 
 {% highlight cpp %}
-struct tree {
+class Tree {
+public:
     double value;
-    tree *left, *right;
+    Tree *left, *right;
 };
 {% endhighlight %}
 
-The only difference with a linked list is that this tree structure has
-two "next pointers," or as we label them in the structure, a "left"
-and "right" next pointer.
+The only difference with a linked list is that the tree has two "next
+pointers," or as we label them in the class, a "left" and "right" next
+pointer.
+
+Unlike the linked list, we use the `NULL` (bogus) pointer to indicate
+that either the `left` or `right` pointers point to nothing. In the
+linked list, we didn't worry about `NULL` because we had another
+variable, `count`, that told us how many values were in the list. This
+will not work with trees, because trees are not linear.
 
 A tree can have any number of next pointers; if it always has two
 (each of which may or may not equal `NULL`), like we will do here,
-it's a binary tree. Surely you imagine a tree structure that had three
-pointers, or even an array of pointers, rather than just two.
+it's a binary tree. Surely you imagine a tree that had three pointers,
+or even an array or vector of pointers, rather than just two.
 
 Thus, a tree's "next pointers" are more like "children" &mdash; each
 node in a binary tree has zero, one, or two children. Those children
@@ -32,15 +39,15 @@ say, for each node in the tree, either that node is the top (the
 "root") or only one node links to it (it is the child of only one
 node).
 
-If we did not restrict trees in this way, and allowed distinct nodes
+If we did not restrict trees in this way, and allowed different nodes
 to link to the same children, then our algorithms for processing such
-structures would become more complicated. Actually, we woudln't even
+structures would become more complicated. Actually, we wouldn't even
 call them trees anymore; the correct terminology is "graph." A graph
 is a structure where every node can have links to any other node, even
-back to itself.
+back to itself (so trees are a kind of graph).
 
-We will actually be creating graph structures in Homework 7 and 8, but
-for now we will concern ourselves only with trees.
+We will actually be creating graphs in Homework 7 and 8, but for now
+we will concern ourselves only with trees.
 
 ## Building a tree
 
@@ -57,12 +64,13 @@ represents a mathematical operation (in such cases, `op` may equal
 Thus, here is our new tree structure:
 
 {% highlight cpp %}
-struct tree
+class Tree
 {
+public:
     std::string op;
     double val;
-    tree *left;
-    tree *right;
+    Tree *left;
+    Tree *right;
 };
 {% endhighlight %}
 
@@ -79,15 +87,15 @@ for each node, set each variable's values, then link the variables
 together.
 
 {% highlight cpp %}
-tree m;
+Tree m;
 m.op = "-";
-tree p;
+Tree p;
 p.op = "+";
-tree v1;
+Tree v1;
 v1.val = 3.4;
-tree v2;
+Tree v2;
 v2.val = 2.6;
-tree v3;
+Tree v3;
 v3.val = 5.0;
 
 m.left = &v1;
@@ -108,7 +116,7 @@ Now, suppose you have a tree; actually, suppose you have a variable
 `root` that's a pointer to a tree. For example,
 
 {% highlight cpp %}
-tree *root = &m;
+Tree *root = &m;
 {% endhighlight %}
 
 Starting with this "root" pointer, how do we get to all the nodes in
@@ -152,7 +160,7 @@ just a `NULL` pointer), then we don't need to do anything.
 Now we can code this procedure in C++, as a function:
 
 {% highlight cpp %}
-void print_tree(tree *root)
+void print_tree(Tree *root)
 {
     if(root == NULL)
         return;
@@ -206,7 +214,7 @@ and there is no right subtree; if so, we print the operator first,
 then `(`, then the left subtree, then `)`.
 
 {% highlight cpp %}
-void print_tree(tree *root)
+void print_tree(Tree *root)
 {
     if(root == NULL)
         return;
