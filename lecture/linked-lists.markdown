@@ -144,11 +144,18 @@ void insert_front(List* list, double value)
 // add a new node to the end of the list
 void push_back(List* list, double value)
 {
-    Node* n = new Node;
-    n->value = value;
-    Node* nlast = node_at(list, list->count - 1);
-    nlast->pnext = n;
-    list->count++;
+    if(list->count == 0)
+    {
+        insert_front(list, value);
+    }
+    else
+    {
+        Node* n = new Node;
+        n->value = value;
+        Node* nlast = node_at(list, list->count - 1);
+        nlast->pnext = n;
+        list->count++;
+    }
 }
 {% endhighlight %}
 
