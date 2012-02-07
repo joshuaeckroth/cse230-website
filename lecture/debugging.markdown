@@ -29,7 +29,7 @@ layout: default
 > and cannot predict. And yet at other times fairly substantial
 > changes seem to alter nothing; the folklore is filled with stories
 > of pranks and acts of vandalism that frustrated the perpetrators by
-> remaining forever undetected. (*op. cit.*)
+> remaining forever undetected. -- (*op. cit.*)
 
 
 ## Linux specific techniques
