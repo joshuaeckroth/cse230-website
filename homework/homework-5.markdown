@@ -10,9 +10,6 @@ Skills needed to complete this assignment:
   - Creating classes and using object-oriented program design
     ([lecture notes](/lecture/classes-and-object-orientation.html))
 
-  - Creating `print` and `read` methods
-    ([lecture notes](/lecture/classes-and-object-orientation-2.html))
-
   - Splitting code into several files
     ([lecture notes](/lecture/splitting-code.html))
 
@@ -43,13 +40,6 @@ provide constructors to make objects out of pairs of `int` values
 also a rational number, as in 2/1 or 17/1, you should provide a
 constructor with a single `int` parameter, which just sets the
 numerator to the value of the parameter and the denominator to 1.
-
-Provide a *member* function `print` writes rational numbers in the
-form "2/3" or "37/51" to the screen.
-
-Provide a *non-member* function `readRational` reads from `cin` two
-integers, representing a numerator and a denominator, and returns a
-rational number (in reduced form).
 
 Provide *member* functions `add`, `sub`, `mul`, and `div` that return
 a rational value (each of these functions has a single rational
@@ -96,6 +86,12 @@ example. I recommend you make a `gcd` function that's not a member
 function, that only has two integers as its parameters, and that
 returns an integer.
 
+**Some advice:** Use the GCD function in the constructor that has two
+inputs (numerator and denominator); only use the GCD function
+here. Then, like the code example above, every other function
+(e.g. `add`, `div`, etc.) should call the constructor. That way, every
+function returns a reduced form of the answer.
+
 Provide a `main` function that thoroughly tests your class
 implementation (write a little test for each of the functions).
 
@@ -111,7 +107,7 @@ a/b - c/d = (a*d - b*c) / (b*d)
 (a/b) == (c/d) means (a*d) == (c*b)
 {% endhighlight %}
 
-Let a negative sign be carried by the numerator; keep the denominator
+Keep any negative sign in the numerator; keep the denominator
 positive. (So 5/-2 should be saved as -5/2.)
 
 Finally, you must split your code into three files (exactly these
