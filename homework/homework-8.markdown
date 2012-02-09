@@ -5,6 +5,22 @@ layout: default
 
 Due March 5, 11pm (Mon).
 
+Skills needed to complete this assignment:
+
+  - Creating classes and using object-oriented program design
+    ([lecture notes (part 1)](/lecture/classes-and-object-orientation.html)
+    and
+    [lecture notes (part 2)](/lecture/classes-and-object-orientation-2.html))
+
+  - Using polymorphism ([lecture notes](/lecture/polymorphism.html))
+
+  - Splitting code into several files
+    ([lecture notes](/lecture/splitting-code.html))
+    
+  - Use of sets to store pointers
+    ([lecture notes](/lecture/maps-sets-etc.html))
+
+
 This assignment extends Homework 7. Ideally, you will start with your
 HW 7 code and extend it, so that you have the experience of adapting
 existing code (it's more challenging than starting over). I won't be
@@ -240,94 +256,69 @@ players switch turns.
 <pre>
 Welcome!
 
+Tracy, it is your turn. You are in the Garden. The trees and shrubs
+appear to be resilient to decades of neglect but the flowerbeds all
+withered away long ago.
 
---Josh--Entrance------
-A wide open entrance...
+You see no other creatures here.
 
-You see here:
- Tracy (A princess)
+There is an exit to North (Kitchen) and East (Library).
 
-Exits:
- south: Hallway
+Tracy, which exit? (or 'quit'): south
+
+...No such exit or that room is full!
+
+
+Josh, it is your turn. You are in the Lobby. This is a dark and dusty
+room, and there are cobwebs in every corner and spanning the
+furniture.
+
+You see a monster named Kafka (a thin, nervous looking creature).
+
+There is an exit to the South (Hallway).
 
 Josh, which exit? (or 'quit'): south
 
+You move to the South...
 
 
---Tracy--Entrance------
-A wide open entrance...
+Tracy, it is your turn. You are in the Garden. The trees and shrubs
+appear to be resilient to decades of neglect but the flowerbeds all
+withered away long ago.
 
-You see here:
+You see a monster named Napolean (once Emperor of the French).
 
-Exits:
- south: Hallway
+There is an exit to North (Kitchen) and East (Library).
 
-Tracy, which exit? (or 'quit'): south
+Tracy, which exit? (or 'quit'): north
 
-!!! No such exit or that room is full. !!!
-
-
---Josh--Hallway------
-A long hallway...
-
-You see here:
-
-Exits:
- east: Ballroom
- north: Entrance
-
-Josh, which exit? (or 'quit'): east
+You move to the North...
 
 
+Josh, it is your turn. You are in the Hallway. Many dark portraits of
+all sorts of frightening creatures blanket the walls.
 
---Tracy--Entrance------
-A wide open entrance...
+You see no other creatures here.
 
-You see here:
+There is an exit to the South (Kitchen).
 
-Exits:
- south: Hallway
+Josh, which exit? (or 'quit'): south
 
-Tracy, which exit? (or 'quit'): south
-
-
-
---Josh--Ballroom------
-A huge ballroom...
-
-You see here:
- A grue named Kafka (A nasty, horrible monster)
-
-Exits:
- west: Hallway
-
-Josh, which exit? (or 'quit'): west
-
-!!! No such exit or that room is full. !!!
+You move to the South...
 
 
---Tracy--Hallway------
-A long hallway...
+Tracy, it is your turn. You are in the Kitchen. Knives, pots, pans,
+and other kitchenware dangle over the island like some kind of
+metallic chandelier.
 
-You see here:
- A grue named Napolean (A nasty, horrible monster)
+You see a monster named Napolean (once Emperor of the French), a
+monster named Kafka (a thin, nervous looking creature), and Josh (your
+husband).
 
-Exits:
- east: Ballroom
- north: Entrance
+There is an exit to North (Hallway), East (Library), and South
+(Garden).
 
 Tracy, which exit? (or 'quit'): east
 
-
-
---Josh--Ballroom------
-A huge ballroom...
-
-You see here:
- Tracy (A princess)
-
-Exits:
- west: Hallway
-
-Josh, which exit? (or 'quit'):  
+You move to the East...
 </pre>
