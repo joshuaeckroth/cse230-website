@@ -50,6 +50,9 @@ if the rational number `num1` is less than the rational number
 `num2`). Provide a member function `neg` that has no parameters and
 returns a rational number that is the negative of the calling object.
 
+Also provide a member function `print` that simply prints the rational
+number in a format like `-9/13`.
+
 Each of these member functions should return a different instance of
 the class. So once you have an instance of the class, you cannot
 change its values (rationals will be "immutable"). For example, here
