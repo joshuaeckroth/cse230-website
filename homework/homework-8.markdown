@@ -247,11 +247,9 @@ Note that you could have alternatively used a forward declaration of
 
 ## Example interaction
 
-In this example, we have two player (Josh and Tracy), and rooms have a
-size limit (the Hallway cannot fit two people). You do not need to
-implement room size limits. Also notice that the player is notified
-when somebody else is in the room (either a player or a monster), and
-players switch turns.
+In this example, we have two players (Josh and Tracy). Notice that the
+player is notified when somebody else is in the room (either a player
+or a monster), and players switch turns.
 
 <pre>
 Welcome!
