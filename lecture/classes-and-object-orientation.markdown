@@ -13,7 +13,6 @@ crates, stairs, etc.). We could do this with basic classes:
 class Object
 {
 public:
-    int type;
     int weight;
     int position_x;
     int position_y;
@@ -22,7 +21,6 @@ public:
 class Weapon
 {
 public:
-    int type;
     int damage;
     int weight;
     string success_msg; // e.g. "the arrow hit!"
