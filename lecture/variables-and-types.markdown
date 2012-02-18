@@ -206,7 +206,7 @@ type `short` is relatively uncommon. (Think about metric units: although you
 could use centiliters, it's normal to switch to milliliters at that point.) The
 common types (and what you are encouraged to use) are:
 
-- True/False values: `bool`
+- True/False values: `bool` (named after George Boole)
 
 - Integers: `int`
 
@@ -221,6 +221,11 @@ too small for the type. Underflow only makes sense with decimal types: if you
 try to store a very small number, say 0.0 followed by 5000 0's followed by a 1,
 not even a `long double` can store that value. Overflow and underflow should be
 rare for the programs we are interested in, however.
+
+> The laws we have to examine are the laws of one of the most
+> important of the mental facilities. The mathematics we have to
+> construct are the mathematics of the human intellect. -- George
+> Boole
 
 ## Variable naming
 
