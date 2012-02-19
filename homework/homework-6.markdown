@@ -104,11 +104,11 @@ That worked.
 Tracy's new balance: 80
 Enter amount to transfer from Tracy to Josh: 60
 That worked.
-Tracy's new balance: 12.5
+Tracy's new balance: 10
 Josh's new balance: 110
 Enter amount to transfer from Josh to Tracy: 100
 That worked.
-Tracy's new balance: 112.5
+Tracy's new balance: 110
 Josh's new balance: 8.5
 </pre>
 
