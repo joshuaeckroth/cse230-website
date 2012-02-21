@@ -14,13 +14,12 @@ Skills needed to complete this assignment:
 
   - Using polymorphism ([lecture notes](/lecture/polymorphism.html))
 
+  - Use of maps and sets to store pointers
+    ([lecture notes](/lecture/maps-sets-etc.html))
+
   - Splitting code into several files
     ([lecture notes](/lecture/splitting-code.html))
     
-  - Use of sets to store pointers
-    ([lecture notes](/lecture/maps-sets-etc.html))
-
-
 This assignment extends Homework 7. Ideally, you will start with your
 HW 7 code and extend it, so that you have the experience of adapting
 existing code (it's more challenging than starting over). I won't be
@@ -114,13 +113,13 @@ that chooses a random direction to move on each turn:
 
 {% highlight cpp %}
 int n = rand() % 4;
-char direction;
+string direction;
 switch(n)
 {
-    case 0: direction = 'n'; break;
-    case 1: direction = 's'; break;
-    case 2: direction = 'w'; break;
-    case 3: direction = 'e'; break;
+    case 0: direction = "north"; break;
+    case 1: direction = "south"; break;
+    case 2: direction = "west"; break;
+    case 3: direction = "east"; break;
 }
 if(cur_room->getLinked(direction) != NULL)
 {
