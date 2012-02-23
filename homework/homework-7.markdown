@@ -69,3 +69,5 @@ files: `room.h`, `room.cpp`, and `main.cpp`.
 This may be interesting if you have some free time:
 [http://www.kongregate.com/games/2DArray/you-find-yourself-in-a-room](http://www.kongregate.com/games/2DArray/you-find-yourself-in-a-room)
 
+You can also play the original (updated to be played in a browser)
+[Colossal Cave Adventure](http://www.ifiction.org/games/playz.php?cat=&game=1&mode=html)
