@@ -3,7 +3,7 @@ title: Homework 2
 layout: default
 ---
 
-From the book, page 298, question 5. Due Jan 23, 11pm (Mon).
+From the book, page 298, question 5.
 
 Write a program that tells what coins to give out for any amount of change from
 1 cent to 99 cents. For example, if the amount is 86 cents, the output would be

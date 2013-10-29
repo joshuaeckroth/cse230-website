@@ -9,24 +9,14 @@
         <link rel="stylesheet" href="/css/print-code-style.css" type="text/css" media="print" />
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
         <script type="text/javascript" src="/js/flexpaper_flash.js"></script>
-        <script type="text/javascript">
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-23971505-1']);
-            _gaq.push(['_setDomainName', '.artifice.cc']);
-            _gaq.push(['_trackPageview']);
-
-            (function() {
-             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-             })();
-         </script>
     </head>
     <body>
         <div id="content">
             <div id="header">
                 <a href="/">Home</a> &nbsp; &nbsp;
-                <a rel="nofollow" href="http://www.google.com/talk/service/badge/Start?tk=z01q6amlqlg7kp12a4mqolh0g8btlk39j7mmkg6borm4unn1veluvfdd6oirqdjn006fsb4gm8aoi99k43om4e6aivs0iahaas02jmg912qqferrcsqdn7ssud9l7iiiobiqbvkes9diokjvn9et76rrvr15q2gsiqpt07q86" target="_blank" title="Click here to chat with Josh">Chat with Josh</a><img style="padding:0 4px 0 4px;margin:0;border:none" src="http://www.google.com/talk/service/badge/Show?tk=z01q6amlqlg7kp12a4mqolh0g8btlk39j7mmkg6borm4unn1veluvfdd6oirqdjn006fsb4gm8aoi99k43om4e6aivs0iahaas02jmg912qqferrcsqdn7ssud9l7iiiobiqbvkes9diokjvn9et76rrvr15q2gsiqpt07q86&amp;w=9&amp;h=9" alt="" height="9" width="9"><img style="padding:0 0 0 0;margin:0;border:none" src="http://www.google.com/talk/service/resources/chaticon.gif" alt="" height="14" width="16">
+                <!-- Plupper Button -->
+                <div id="plupperButton" style="display: inline;"></div>
+                <!-- End of Plupper Button Code -->
             </div>
 
             <h1>{{ page.title }}</h1>
@@ -38,5 +28,27 @@
 </div>
         </div>
     </body>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-23971505-4', 'artifice.cc');
+  ga('send', 'pageview');
+
+</script>
+
+<!-- Plupper Tracking Code -->
+<script src="https://www.google.com/jsapi"></script>
+<script type="text/javascript"
+    src="https://static.plupper.com/js/plupper.js"></script>
+<script type="text/javascript">
+    plupper.init("joshuaeckroth@plupper.com");
+    plupper.enableCobrowsing();
+</script>
+<!-- End of Plupper Tracking Code -->
+
 </html>
 

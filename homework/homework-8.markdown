@@ -3,8 +3,6 @@ title: Homework 8
 layout: default
 ---
 
-Due March 5, 11pm (Mon).
-
 Skills needed to complete this assignment:
 
   - Creating classes and using object-oriented program design
